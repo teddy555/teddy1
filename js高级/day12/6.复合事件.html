@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("div").click(function(e){
+					//让div显示和隐藏   动画
+//					$("div").toggle(1000);
+
+				});
+				
+				$("div:eq(0)").hover(function(){
+					$(this).css({backgroundColor:"red",});
+				},function(){
+					$(this).css({backgroundColor:"blue",});
+				})
+				
+//				$("div").toggle(function  () {
+//					$("p").html("第一次点我")
+//				}, function () {
+//					$("p").html("第二次点我")
+//				}, function () {
+//					$("p").html("第三次点我")
+//				});
+			})
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<p></p>
+	</body>
+</html>

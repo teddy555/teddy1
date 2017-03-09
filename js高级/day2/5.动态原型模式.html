@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function a(age,name){
+			this.age = age;
+			this.name = name;
+			if(!a.prototype.eat){
+				a.prototype.eat = function (){
+					alert(this.name);
+				}
+			}
+//			a.prototype.eat = function (){
+//					alert(this.age);
+//				}
+			if(!a.prototype.eat1){
+				a.prototype.eat1 = function (){
+					alert(this.age);
+				}
+			}
+		}
+		var p1 = new a(10,"zs");
+		var p2 = new a(20,"ls");
+		p2.eat();
+		console.log(p1.eat===p2.eat);
+	</script>
+</html>

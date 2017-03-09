@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var name = "张三";
+		var p = {
+			name:"李四",
+			n:function(){
+				return this.name;
+			}
+		}
+		console.log(p.n());//p
+		console.log(this.name);//w
+		console.log(p.n());//p
+		var p1 = p.n;
+		console.log(p1());//w
+//		p1();
+	</script>
+</html>

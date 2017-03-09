@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>a1</button>
+		<button>a2</button>
+		<button>a3</button>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("button");
+		
+		
+//		for(var i=0;i<btn.length;i++){
+//			btn[i].onclick = function(){
+//				console.log(i);//只能获取到 i 的最终值 3
+//			}
+//		}
+		//解决方法:
+//		1.给每个按钮对象添加属性 index 并依次把i赋值给 index
+//		for(var i=0;i<btn.length;i++){
+//			btn[i].index = i;
+//			btn[i].onclick = function(){
+//				console.log(this.index);//只能获取到 i 的最终值 3
+//			}
+//		}
+		
+//		2.匿名函数自执行，再在匿名函数中返回一个函数
+//		for(var i = 0;i<btn.length;i++){
+//			btn[i].onclick = (function(i){
+//				return function (){
+//					console.log(i);
+//				}
+//			})(i);
+//		}
+	</script>
+</html>

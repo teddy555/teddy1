@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				/*background: red;*/
+				
+			}
+			.a1{
+				background: pink;
+			}
+			.a2{
+				background: blue;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//不传参数就是读取匹配的第一个元素的html
+				var h = $("li").html();
+				console.log(h);
+				//传参数就是设置匹配的所有元素的html
+				$("li:eq(0)").html("百度");
+				//text() 文本内容
+				//val()  获取和修改 value 值
+				//attr() 获取和修改标签内的属性
+				//css() 获取和修改css样式
+				//addClass() 追加属性
+				//removeClass() 移除属性
+				//toggleClass() 切换属性，如果该属性存在就删除，不存在就添加
+//				$("div:eq(0)").toggleClass("a1");
+				//hasClass() 判断是否有指定的属性
+//				$("div").each(function(index,ele){
+//					console.log($(ele));
+//				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="#">baidu</a>
+			</li>
+			<li>
+				<a href="#">aa</a>
+			</li>
+			<li>bb</li>
+			<div class="a1"></div>
+			<div class="a2"></div>
+		</ul>
+	</body>
+</html>

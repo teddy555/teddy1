@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var school = {
+			schoolName:"育知同创",
+			addr:"深圳",
+			clazzs:[
+				{
+					calzzName:"H5-1605",
+					students:[
+						{
+							name:"李四",
+							age:20,
+						},
+						{
+							name:"张三",
+							age:30,
+						},
+					]
+				},
+				{
+					calzzName:"H5-1604",
+					students:[
+						{
+							name:"张四",
+							age:20,
+						},
+						{
+							name:"李三",
+							age:30,
+						},
+					]
+				},
+			]
+		}
+		function getInfoByName(name){
+		var clazzs = school.clazzs;
+		for(var clazz of clazzs){
+			var students = clazz.students;
+			for(var student of students){
+				if(name==student.name){
+					var s = {}
+					s.name = name;
+					s.age = student.age;
+					s.addr = school.addr;
+					s.clazzName = clazz.clazzName;
+					s.schoolName = school.schoolName;
+//					s.showInfo = function(){
+//						alert(this.clazzName);
+//					}
+					return s;
+				}
+			}
+		}
+	}	
+		var student = getInfoByName("李四");
+//		student.showInfo();
+		console.log(student);
+	</script>
+</html>

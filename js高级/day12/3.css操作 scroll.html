@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 300px;
+				width: 400px;
+				overflow: scroll;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $div = $("div"),a = 2,b;
+				$("button:eq(0)").click(function(){
+					var top = $div.scrollTop();
+					console.log(top);
+				});
+				$("button:eq(1)").click(function(){
+					b = setInterval(function(){
+						$div.scrollTop($div.scrollTop()+a);
+						if($div.scrollTop()==522){
+							a = -2
+						}
+						if($div.scrollTop()==0){
+							a = 2
+						}
+					},50);
+				});
+				$("button:eq(2)").click(function(){
+					clearInterval(b);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<img src="img/1.jpg"/>
+		</div>
+		<button>滚动</button>
+		<button>自动滚动</button>
+		<button>停止滚动</button>
+	</body> 
+</html>

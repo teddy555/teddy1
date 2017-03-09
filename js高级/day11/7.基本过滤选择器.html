@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>aa</h1>
+		<ul>
+			<h2>bb</h2>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+		</ul>
+		<ul class="aa">
+			<li>11</li>
+			<li class="aa">11</li>
+			<li>11</li>
+			<li>11</li>
+		</ul>
+		<input type="" name="" id="" value="aa" autofocus="autofocus"/>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//选择找到的所有 li 中的第一个li
+//			$("li:first").css({
+//				backgroundColor:"red"
+//			});
+			//选择找到的所有有 li 的父级中的第一个li
+//			$("li:first-child").css({
+//				backgroundColor:"red"
+//			});
+			//选择找到的所有 li 中的最后一个li
+//			$("li:last").css({
+//				backgroundColor:"red"
+//			});
+			//选择找到的所有有 li 的父级中的最后一个li
+//			$("li:last-child").css({
+//				backgroundColor:"red"
+//			});
+			//eq 是基于0开始的 找到所有 li 中的某个li
+//			$("li:eq(1)").css({
+//				backgroundColor:"red"
+//			});
+			//选择找到的所有有 li 的父级中的 第(奇数)个的 li
+//			$("li:even").css({
+//				backgroundColor:"red"
+//			});
+			//选择找到的所有有 li 的父级中的 第(偶数)个的 li
+//			$("li:odd").css({
+//				backgroundColor:"red"
+//			});
+			// 所有的li元素中，class不为 aa 的li
+//			$("li:not(.aa)").css({
+//				backgroundColor:"red"
+//			});
+			// 所有的li元素中，索引大于0的li  lt是小于
+//			$("li:gt(0)").css({
+//				backgroundColor:"red"
+//			}); 
+			// 所有标题元素
+//			$(":header").css({
+//				backgroundColor:"red"
+//			});
+			// 所有获取焦点的元素
+			$(":focus").css({
+				color:"red",
+			});
+			
+		})
+	</script>
+</html>

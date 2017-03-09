@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("div").click(function(e){
+					//获取鼠标点击的键 左键1 中键2 右键3 如果是键盘则获取键盘按键
+					//console.log(e.which)
+					//metaKey属性。获取ctrl按键
+					//获取点击的那个元素
+					//console.log(e.target);
+					//获取事件类型
+					//console.log(e.type)
+					//获取相对于页面的距离
+					//console.log(e.pageX)
+					//获取相对于浏览器的距离
+					//console.log(e.clientX)
+					//获取相对于父元素的距离
+					//console.log(e.offsetX)
+					//preventDefault()方法    阻止事件的默认行为
+					//stopPropation()方法    阻止事件的冒泡
+
+				});
+				
+				$("div:eq(0)").hover(function(){
+					$(this).css({backgroundColor:"red",});
+				},function(){
+					$(this).css({backgroundColor:"blue",});
+				})
+				
+//				$("div").toggle(function  () {
+//					$("p").html("第一次点我")
+//				}, function () {
+//					$("p").html("第二次点我")
+//				}, function () {
+//					$("p").html("第三次点我")
+//				});
+			})
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<button>按钮</button>
+		<button>按钮</button>
+		<button>按钮</button>
+<p></p>
+	</body>
+</html>

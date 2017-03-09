@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>aa</div>
+		<div>bb</div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var div1 = $("div");
+			var div2 = document.getElementsByTagName("div");
+			console.log(div1);
+			console.log(div2);
+			//1.把jquery 对象转换成dom对象
+			//a:j对象.get(index)
+			//b:j对象[i]
+			console.log(div1.get(0).innerHTML = "abc");
+			console.log(div1[1].innerHTML = "haha");
+			console.log(div1 instanceof Array);
+			//2.把原生的dom对象转换成jquery对象
+			//$(元素dom对象)
+			console.log($(div2[1]));
+			console.log($(div2));
+			console.log(div1);
+			
+		})
+	</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+		function a(name,age){
+			this.name = name;
+			this.age = age;
+			this.eat = function (){
+				alert(this.name);
+			}
+		}
+		var p1 = new a("张三",20);
+//		p1.eat();
+		var p2 = new a("李四",10);
+//		p2.eat();
+		console.log(a.prototype);
+		/*
+		 * 属性没有共享是我们想要的，但方法也没有共享，就不是我们想要的了
+		 */
+	</script>
+</html>

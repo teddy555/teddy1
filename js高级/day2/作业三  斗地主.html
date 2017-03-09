@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+			.div{
+				/*width: 500px;*/
+				height: 100px;
+				display: inline;
+				/*background: pink;*/
+				/*border: 1px solid #fff;*/
+			}
+			p{
+				height: 30px;
+				/*display: inline-block;*/
+			}
+			#btn1{
+				display: none;
+			}
+			span{
+				display: inline-block;
+				margin-top: 20px;
+			}
+			.aa{
+				margin-left:30%;
+			}
+			span,.div div{
+				width: 80px;
+				height: 100px;
+				background: lightblue;
+				border: 1px solid #000;
+			}
+			.div div{
+				margin: -70px 0 0 0;
+				
+			}
+			#id1{
+				position: absolute;
+				left: 70%;
+				top: 170px;
+			}
+			#id2{
+				position: absolute;
+				left: 15%;
+				margin: -100px 0;
+			}
+			#id2 div{
+				display: inline-block;
+				margin:0 0 0 -40px ;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="p"></p>
+			<span class="aa"></span>
+			<span></span>
+			<span></span>
+		
+		<div class="div">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="div" id="id1">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="div" id="id2">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div></div>
+		<button id="btn">开始游戏</button>
+		<button id="btn1">结束</button>		
+	</body>
+		<script type="text/javascript">
+		var div = document.getElementsByClassName("div");
+		var div0 = div[0].getElementsByTagName("div");
+		var div1 = div[1].getElementsByTagName("div");
+		var div2 = div[2].getElementsByTagName("div");
+		var span = document.getElementsByTagName("span");
+		var p = document.getElementById("p");
+		var btn = document.getElementById("btn");
+		var btn1 = document.getElementById("btn1");
+		var x1=[],y1=[],z1=[],a1;
+		var pk = [],a = ["♣","♠","♥","♦"],b = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+		for(var i = 0;i<a.length;i++){
+			for(var j = 0;j<b.length;j++){
+				pk .push(a[i]+b[j]);
+			}
+		}
+		pk.push("大王","小王");
+		function xipai() {
+        		return Math.random()>.5 ? -1 : 1;//用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+			}
+			function ddz(x,y,z){
+				this.name = "斗地主";
+				this.man = [x,y,z];
+				this.pk = pk;
+				ddz.prototype.start = function(){
+					x1=[],y1=[],z1=[],this.pk = pk;
+					a1 = this.pk.sort(xipai);
+					for(var i=0;i<17;i++){
+						x1.push(a1.shift());
+						y1.push(a1.shift());
+						z1.push(a1.shift());
+					}
+				}
+			}		
+		var dz = new ddz("张三","李四","王五");	
+		btn.onclick = function(){
+			dz.start();
+			p.innerHTML = dz.name;
+			for(var i=0;i<a1.length;i++){
+				span[i].innerHTML = a1[i];
+			}
+			for(var i=0;i<x1.length;i++){
+				div0[i].innerHTML = x1[i];
+				div1[i].innerHTML = y1[i];
+				div2[i].innerHTML = z1[i];
+			}
+			btn.style.display = "none";
+			btn1.style.display = "block";
+		}
+		btn1.onclick = function(){
+//			p.innerHTML = "";
+			for(var i=0;i<a1.length;i++){
+				span[i].innerHTML = "";
+			}
+			for(var i = 0;i<x1.length;i++){
+				div0[i].innerHTML = "";
+				div1[i].innerHTML = "";
+				div2[i].innerHTML = "";
+			}
+			btn.style.display = "block";
+			btn1.style.display = "none";	
+			pk = [];
+			for(var i = 0;i<a.length;i++){
+			for(var j = 0;j<b.length;j++){
+				pk .push(a[i]+b[j]);
+				}
+			}
+			pk.push("大王","小王");
+			}
+		
+		</script>
+</html>

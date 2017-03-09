@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Farmer(j){
+			this.j = j;
+			Farmer.prototype.gz = function(){
+				alert("我是农民，工资"+this.j);
+			}
+		}
+		function Teacher(j,r){
+			Farmer.call(this,j);
+			this.r = r;
+			Teacher.prototype.gz1 = function(){
+				alert("我是老师，工资"+Number(30*this.r+this.j));
+			}
+		}
+		function Scientist(j,n){
+			Farmer.call(this,j);
+			this.n = n;
+			Scientist.prototype.gz2 = function(){
+				alert("我是科学家，工资"+Number(this.n+this.j));
+			}
+		}
+		Teacher.prototype = new Farmer();
+		Scientist.prototype = new Farmer();
+		var p = new Farmer(3000);
+		var p1 = new Teacher(3000,100);
+		var p2 = new Scientist(8000,50000);
+		p.gz();
+		p1.gz1();
+		p2.gz2();
+		
+	</script>
+</html>

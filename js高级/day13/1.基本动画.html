@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//show() 方法 显示元素
+				$("button:eq(0)").click(function(){
+					$("div").show(1000);
+				})
+				//hide() 方法 隐藏元素
+				$("button:eq(1)").click(function(){
+					$("div").hide(1000);
+				})
+				//fadeIn() 方法  淡入
+				$("button:eq(2)").click(function(){
+					$("div").fadeIn();
+				})
+				//fadeOut() 方法 淡出
+				$("button:eq(3)").click(function(){
+					$("div").fadeOut();
+				})
+				//slideDown() 方法 展开元素
+				$("button:eq(4)").click(function(){
+					$("div").slideDown();
+				})
+				//slideUp() 方法 收起元素
+				$("button:eq(5)").click(function(){
+					$("div").slideUp();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>显示</button>
+		<button>隐藏</button>
+		<button>淡入</button>
+		<button>淡出</button>
+		<button>展开</button>
+		<button>收起</button>
+		<div id=""></div>
+	</body>
+</html>

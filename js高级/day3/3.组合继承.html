@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Father(name){
+			this.name = name;
+//			console.log(this);
+		}
+		Father.prototype.speak = function(){
+			alert(this.age);
+		}
+		function Son(name,age){
+			Father.call(this,name);
+			this.age = age;
+		}
+		Son.prototype = new Father();
+		var s1 = new Son("lisi",20);
+		console.log(s1);
+//		s1.speak();
+		console.log(Object.prototype.toString.call(Array));
+		console.log(Object.prototype.toString.call(Function));
+		console.log(Object.prototype.toString.call(null));
+		
+		
+	</script>
+</html>

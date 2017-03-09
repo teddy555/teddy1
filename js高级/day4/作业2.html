@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				float: left;
+				list-style: none;
+				width: 100px;
+				height: 30px;
+				background: pink;
+				text-align: center;
+			}
+			
+			div {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				fvnxkl
+				<div>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+				</div>
+			</li>
+			<li>
+				<span>fvnxkl</span>
+				<div>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+				</div>
+			</li>
+			<li>
+				fvnxkl
+				<div>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+				</div>
+			</li>
+			<li>
+				fvnxkl
+				<div>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+					<p>看萨克森大</p>
+				</div>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			var div = document.getElementsByTagName("div");
+			var li = document.getElementsByTagName("li");
+			
+//			for(var i = 0;i<div.length;i++){
+//				li[i].onmouseover = (function(i){
+//					return function (){
+//						div[i].style.display = "block";
+//					}
+//				})(i);
+//			}
+//			for(var i = 0;i<div.length;i++){
+//				li[i].onmouseout = (function(i){
+//					return function (){
+//						div[i].style.display = "none";
+//					}
+//				})(i);
+//			}
+		
+			for(var i = 0;i<div.length;i++){
+				li[i].in = i;
+				li[i].onmouseover = function(){
+					div[this.in].style.display = "block";
+				}
+			}
+			for(var i = 0;i<div.length;i++){
+				li[i].in = i;
+				li[i].onmouseout = function(){
+					div[this.in].style.display = "none";
+				}
+			}
+		</script>
+	</body>
+</html>

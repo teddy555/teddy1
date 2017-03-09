@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function createa(name,age,sex){
+			var a = new Object();
+			a.name = name;
+			a.age = age;
+			a.sex = sex;
+			a.nihao = function(){
+				alert("我叫"+this.name);
+			}
+			return a;
+		}
+		var a1 = createa("a1",20,"男");
+		a1.nihao();
+		var a2 = createa("a2",20,"男");
+		a2.nihao();
+		var a3 = createa("a3",20,"男");
+		a3.nihao();
+	</script>
+</html>

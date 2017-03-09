@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//bind() 绑定事件 参数一：事件类型  参数二：事件处理程序  
+				$("button").bind("click",function aa(){
+					alert("aa");
+				});
+				//on() 绑定事件  参数一：事件类型  参数二：绑定的标签  参数三：需要传入函数的参数  参数四：事件处理程序
+//				$("button").on("click","a","a",function(e){
+//					alert(e.data);
+//				});
+				//解除绑定  unbind()  参数：事件类型 
+//				$("button").click(function(){
+//					$("button").unbind("click");
+//				})
+				//解绑  off()  参数  事件类型
+				$("button").click(function(){
+					$("button").off("click");
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>按钮
+		<a href="">a</a>
+		</button>
+		<button>按钮</button>
+		<button>按钮</button>
+
+	</body>
+</html>

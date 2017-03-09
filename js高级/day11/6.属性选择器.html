@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="a1" class="aa1"></div>
+		<div id="a2" class="aa2"></div>
+		<div class="b1 aa"></div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//查找具有id属性的元素
+			var boxs = $("[id]");
+			console.log(boxs);
+			//查找id属性为a1的元素
+			var boxs1 = $("[id=a1]");
+			console.log(boxs1);
+			//查找id属性不为a1的元素 如果元素没有id也会被找到
+			var boxs2 = $("[id!=a1]");
+			console.log(boxs2);
+			//查找有id属性且以a开头的元素
+			var boxs3 = $("[id^=a]");
+			//查找有id属性且以1结尾的元素
+			var boxs3 = $("[id$=1]");
+			console.log(boxs3);
+			//查找class名中包含 aa 字符串的元素
+			var boxs4 = $("[class*=aa]");
+			console.log(boxs4);
+			//查找class名中包含 aa 单词的元素
+			var boxs5 = $("[class~=aa]");
+			console.log(boxs5);
+		})
+	</script>
+</html>

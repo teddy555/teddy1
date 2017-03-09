@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 函数有没有原型，它的原型又是那个构造函数原型
+		 * Function（）
+		 */
+		
+		//函数的借调
+		//某一个对象没有这个函数，但是可以借用另外的函数，把这个函数中的this换成这个对象
+		//任何函数都有一个call方法，可以用这个方法去调用这个函数
+		
+		function Father(name){
+			this.name = name;
+			console.log(this);
+		}
+		Father.prototype.speak = function(){
+			alert(this.name);
+		}
+		function Son(name,age){
+			//然后Father函数执行，可以手动指定this的指向,第一个参数就是重新定义了函数内部的this，后面的是要继承过来的属性
+			Father.call(this,name);
+			this.age = age;
+		}
+		var s1 = new Son("lisi",20);
+		console.log(s1);
+//		s1.speak();
+	</script>
+</html>

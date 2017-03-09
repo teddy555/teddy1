@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function a(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		a.prototype.eat = function (){
+			alert(this.name);
+		}
+		var p1 = new a("张三",20);
+		console.log(p1.name);
+//		p1.eat();
+		var p2 = new a("李四",10);
+//		p2.eat();
+	</script>
+</html>

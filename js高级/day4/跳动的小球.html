@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.area{
+				width: 500px;
+				height: 600px;
+				background: #000;
+				margin:auto;
+				position: relative;
+				
+			}
+			.circle{
+				border-radius: 50%;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="area">
+			<!--<div class="circle"></div>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		function a(){
+			return Math.random()>0.5?1:-1;
+		}
+		function Circle(parent){
+			/*球的运动速度*/
+        	this.speedX = Math.random() * 5 *a();
+        	this.speedY = Math.random() * 5 *a();
+       		/*球的半径*/
+			this.r = parseInt(Math.random()*10+20);
+        	this.color = `rgba(${parseInt(Math.random()*255)}, ${parseInt(Math.random()*255)}, ${parseInt(Math.random()*255)}, ${Math.random() + 0.4})`;
+			//在屏幕初始化绘制div
+			this.draw = function(){
+				var div = document.createElement("div");
+				this.div = div;//给circle添加一个div属性，表示这个球的DOM元素
+				var size = this.r*2;
+				div.style.width = size+"px";
+				div.style.height = size+"px";
+				div.style.backgroundColor = this.color;
+				div.className = "circle";
+				div.style.left = parseInt(Math.random()*(parent.offsetWidth-size)-3)+"px";
+				div.style.top = parseInt(Math.random()*(parent.offsetHeight-size)-3)+"px";
+						parent.appendChild(div);
+			}
+			//让球动起来
+			this.run = function(){
+//				var that = this;
+				setInterval(function(){
+					var lastLeft = this.div.offsetLeft;
+					var lastTop = this.div.offsetTop;
+					if(lastLeft <= 0 || lastLeft >= parent.offsetWidth - this.div.offsetWidth){
+                    this.speedX *= -1;
+               		 }
+               		 if(lastTop <= 0 || lastTop >= parent.offsetHeight - this.div.offsetHeight){
+                    this.speedY *= -1;
+                	}
+					var currentLeft = lastLeft+this.speedX;
+					var currentTop = lastTop+this.speedY;
+					if(this.speedX==0){
+						this.speedX = 1;
+					}
+					if(this.speedY==0){
+						this.speedY = 1;
+					}
+					this.div.style.top = currentTop+"px";						
+					this.div.style.left = currentLeft+"px";
+					
+				}.bind(this),10);
+			}
+		}
+		var parent = document.querySelector(".area");
+		for(var i = 0; i < 10; i++){
+			var c=[];
+        c[i] = new Circle(parent);
+        c[i].draw();  //在屏幕绘制这个球
+        c[i].run();
+   }
+			
+			
+	</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+		</ul>
+		<ul id="ul2">
+			<li><p>00</p></li>
+			<li>11</li>
+			<li>22</li>
+		</ul>
+		<ul id="a"></ul>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//下一个兄弟选择器 +
+			var $ul2 = $("#ul1+ul *");
+			console.log($ul2);
+			//next(a)方法 选择下一个兄弟a 如果下一个兄弟不为a 则找不到
+			var $x = $("#ul1").next("ul");
+			console.log($x);
+			//prev(a)方法 选择上一个兄弟a 如果上一个兄弟不为a 则找不到
+			var $ul1 = $("#ul2").prev("ul");
+			console.log($ul1);
+			//~ 选择后面的所有兄弟,不包括自己
+			var $ul = $("#ul2~");
+			console.log($ul);
+			//nextAll()方法 选择后面的所有兄弟
+			var $ul = $("#ul1").nextAll("*");
+			//prevAll()方法 选择前面的所有兄弟
+			var $ul = $("#ul2").prevAll("*");
+			//siblings()方法 选择所有的兄弟
+			var $ul = $("#ul1").siblings("");
+			console.log($ul);			
+		})
+	</script>
+</html>

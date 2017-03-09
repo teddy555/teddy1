@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<p></p>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul>
+			<p></p>
+			<li>li</li>
+			<p></p>
+		</ul>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+//			$("li:first-child").css({
+//				backgroundColor:"pink",
+//			})
+//			$("li:last-child").css({
+//				backgroundColor:"blue",
+//			})
+			//选择唯一的li元素
+//			$("li:only-child").css({
+//				backgroundColor:"blue",
+//			})
+			//选择第二个li元素,如果不是li则不选中
+//			$("li:nth-child(2)").css({
+//				backgroundColor:"blue",
+//			})
+			//选择从后往前数的第二个孩子
+//			$("li:nth-last-child(2)").css({
+//				backgroundColor:"blue",
+//			})
+			//选择第一个li元素
+			$("li:nth-of-type(1)").css({
+				backgroundColor:"pink",
+			})
+		})
+	</script>
+</html>

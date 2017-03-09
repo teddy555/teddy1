@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function f(){
+			var a = 0;
+			function f1(){
+				a++;
+				return a;
+			}
+			return f1;
+		}
+		console.log(f()());
+		/*
+		 * 可以访问外层函数的局部变量 叫做闭包，读取的局部变量的值一定是最终的值
+		 */
+	</script>
+</html>

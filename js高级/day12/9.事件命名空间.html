@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//.aa 就是一个命名空间
+				$("button:eq(0)").bind("click.aa",function(){
+					console.log("我是大哥");
+				})
+				$("button:eq(0)").bind("mouseover",function(){
+					console.log("鼠标");
+				})
+				$("button:eq(1)").bind("click.aa",function(){
+					console.log("我是二哥");
+				})
+				//解除这个命名空间下的所有事件，所以只有鼠标事件不会解绑
+				$("button").unbind(".aa");
+			})
+		</script>
+	</head>
+	<body>
+		<button>按钮</button>
+		<button>按钮</button>
+	</body>
+</html>

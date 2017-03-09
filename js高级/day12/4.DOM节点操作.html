@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//创建一个元素
+				//var $li = $("<li>3</li>");
+				//append() 追加 在ul 的最后面追加一个li
+				//$("ul").append($li).append("<li>4</li>");
+				//appendTo() 追加到 把 li 追加到 ul的最后面
+				//$li.appendTo("ul:eq(0)");
+				//prepend() 在ul 的最前面追加一个li
+				//$("ul").prepend($li);
+				//prependTo() 把 li 追加到 ul的最前面
+				//$li.prependTo($("ul"));
+				//after() 在ul之后添加一个 li 添加的是兄弟
+				//$("ul").after($li);
+				//before() 在ul之前添加一个 li 添加的是兄弟
+				//$("ul").before($li);
+				//remove() 把第一个 li 移除并追加到 ul 的最后面  返回移除的那个元素
+				//绑定的事件丢失
+				//$("li:nth-child(1)").click(function(){
+				//	alert("我走了");
+				//}).remove().appendTo($("ul"));
+				//detach() 绑定的事件还在该节点上
+				//$("li:nth-child(1)").click(function(){
+				//	alert("我走了");
+				//}).detach().appendTo($("ul"));
+				//empty() 只是清空该节点的内容，该节点还在
+				//$("li:nth-child(1)").empty();
+				//clone(true)  克隆,true表示事件也会拷贝过去,false表示事件不会拷贝过去,都是深拷贝
+				//$("ul").click(function(){
+				//	alert("haha");
+				//}).after($("ul").clone());
+				//replaceWith() 替换  前面的被后面的替换掉
+				//$("li:nth-child(1)").replaceWith("<p>我是个p</p>");
+				//replaceAll() 替换  前面的替换掉后面的
+				//$("<p>我是个p</p>").replaceAll("li:nth-child(1)");
+				//wrap() 包裹  分别用ul包裹每个li
+				//$("li").wrap("<ul></ul>");
+				//wrapAll() 用一个ul包裹所有li
+				//$("li").wrapAll("<ul></ul>");
+				//wrapInner() 在每个li内部包裹一个a标签 a会成为li中的唯一标签，其他元素都会被移到a内
+				//$("li").wrapInner("<a>aa</a>");
+				//去掉直接的父容器
+				//$("p").unwrap();
+			});
+		</script>
+	</head>
+	<body>
+		<li>
+		<p href="">我是p</p>
+		</li>
+		<ul>
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+		</ul>
+	</body>
+</html>

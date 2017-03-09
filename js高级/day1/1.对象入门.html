@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>对象入门</title>
+	</head>
+	<body>		
+	</body>
+	<script type="text/javascript">
+		/*
+		 * js 中声明一个对象，最直接和简单的方式就是使用对象字面量的形式
+		 * {
+		 * 	name:"lisi",
+		 * }
+		 * 
+		 * var p={}
+		 * p只是存储的对象的内存地址，也称之为对象的引用
+		 * 1. 用.语法去访问对象的属性 . 属性名，不支持变量   不能这样使用：对象.变量名
+			2. 访问的属性是变量，则可以使用  [] 语法
+		 */
+		var p = {
+		name : "张三",	// 一个键值对  
+		age : 20,
+		sex : "男",
+		eat : function () {	//属性的值是函数，这个时候我们更喜欢把这样的属性称之为方法。
+			alert("吃东西");
+		}
+	}
+		console.log(p.name);//===等价于 conslole.log(p["name"]);
+//		p.eat();
+		var a = "age";
+		console.log(p[a]);//使用[]去访问属性，支持变量，如果是字符串常量的话，则需要用""引用起来
+	</script>
+</html>

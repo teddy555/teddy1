@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				position: absolute;
+				top: 200px;
+			}
+			div:nth-child(2){
+				background: #000;
+				top: 400px;
+			}
+			#btn1,#btn3{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<button id="btn">变成圆形</button>
+		<button id="btn1">变成方形</button>
+		<button id="btn2">向右跑</button>
+		<button id="btn3">向左跑</button>
+		
+		
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 分析封装什么样的对象
+		 * circle 
+		 * 	属性：
+		 * 		element
+		 * 		半径
+		 * 		left
+		 * 		top
+		 * 		changeToCircle()
+		 * 		changeToRectangle()
+		 * 		moveX
+		 * 		moveY
+		 */
+		
+		function Circle(element){
+			//封装的表示的dom元素
+			this.element = element;
+			//变成圆形后的半径
+			this.r = this.element.offsetWidth/2;
+			//表示这个圆形的位置的初始值
+			this.left = this.element.offsetLeft;
+			this.top = this.element.offsetTop;
+			if(!Circle.prototype.changeToCircle){
+				Circle.prototype.changeToCircle = function(){
+					var ele = this.element;
+					var i=1;
+					var r = this.r;
+					setTimeout(function temp(){
+						if(i==101){
+							return;
+						}
+						ele.style.borderRadius = r/100*(i++)+"px";
+						setTimeout(temp,20);
+					},0);
+				}
+			}
+			if(!Circle.prototype.changeToRectangle){
+				Circle.prototype.changeToRectangle = function(){
+					var ele = this.element;
+					var i=100;
+					var r = this.r;
+					setTimeout(function temp(){
+						if(i==-1){
+							return;
+						}
+						ele.style.borderRadius = r/100*(i--)+"px";
+						setTimeout(temp,20);
+					},0);
+				}
+			}
+			if(!Circle.prototype.moveX){
+				Circle.prototype.moveX = function(){
+					var ele = this.element;
+					var i=1;
+					setTimeout(function temp(){
+						if(i==500){
+							return;
+						}
+						ele.style.left = 2*i++ +"px";
+						setTimeout(temp,1);
+					},0);
+				}
+			}
+			if(!Circle.prototype.moveY){
+				Circle.prototype.moveY = function(){
+					var ele = this.element;
+					var i=500;
+					setTimeout(function temp(){
+						if(i==1){
+							return;
+						}
+						ele.style.left = 2*i-- +"px";
+						setTimeout(temp,1);
+					},0);
+				}
+			}
+			
+		}
+		var c = new Circle(document.querySelector("div"));
+		var c2 = new Circle(document.querySelector("div:nth-child(2)"));
+		
+		var btn = document.getElementById("btn");
+		btn.onclick = function (){
+			c.changeToCircle();
+			c2.changeToCircle();
+			btn.style.display = "none";
+			btn1.style.display = "block";
+		}
+		btn1.onclick = function (){
+			c.changeToRectangle();
+			c2.changeToRectangle();
+			btn.style.display = "block";
+			btn1.style.display = "none";			
+		}
+		btn2.onclick = function (){
+			c.moveX();
+			c2.moveX();
+			btn2.style.display = "none";
+			btn3.style.display = "block";
+		}
+		btn3.onclick = function (){
+			c.moveY();
+			c2.moveY();
+			btn3.style.display = "none";
+			btn2.style.display = "block";
+		}
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				/*margin: 100px;*/
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//传入一个数组，表示获取多个属性值，返回的是一个对象
+				var attr = $("div").css(["width","height"]);
+				console.log(attr);
+				//没传值就是获取宽高 传入值就是设置 没有单位，也可以写单位，但要用引号引起来
+				$("div").width();
+				$("div:eq(0)").click(function(){
+					//返回值是是一个属性：两个值 left top 相对于浏览器边缘
+					console.log($("div").offset().top);
+				});
+				//获取定位元素的 left 和 top 值，只能获取不能设置
+				var po = $("div").position().top;
+				console.log(po);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+	
+			//全局变量对象，也叫 window 对象
+			var b;
+			alert(b);
+			b = 20;
+			function f(){
+				//函数执行环境也有变量对象，这个时候有人叫做活动对象，无法直接访问到
+				var a = 10;
+			}
+		/*
+		 * 如果一个变量没有声明在函数内部，它就是全局变量，否则它就是局部变量，没有块级作用域。
+		 * 
+		 * 
+		 * 执行环境      变量对象
+		 */
+	</script>
+</html>

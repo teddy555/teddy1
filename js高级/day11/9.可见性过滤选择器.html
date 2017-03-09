@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div hidden="hidden"></div>
+		<div style="display: none;"></div>
+		<div style="visibility: hidden;"></div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//选择所有不可见的元素，如果一个元素的css中visibility的值为hidden时不会选中
+			var all = $(":hidden");
+			console.log(all);
+			//选择所有可见的元素，如果一个元素的css中visibility的值为hidden也会选中
+			var all1 = $(":visible");
+			console.log(all1);
+		})
+	</script>
+</html>

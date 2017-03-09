@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//fadeToggle() 方法 淡入淡出
+				$("button:eq(0)").hover(function(){
+					$("div").fadeToggle();
+				})
+				//slideToggle() 方法 展开收起
+				$("button:eq(1)").hover(function(){
+					$("div").slideToggle();
+				})
+				//指定多少时间到什么透明度,参数三：动画结束的时候调用的函数
+				$("button:eq(2)").hover(function(){
+					$("div").fadeTo(100,.5,function(){
+						console.log("我变淡了");
+					});
+				},function(){
+					$("div").fadeTo(100,1);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>淡入淡出</button>
+		<button>展开收起</button>
+		<button>透明度</button>
+		<div id=""></div>
+	</body>
+</html>

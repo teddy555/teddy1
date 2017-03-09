@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="get">
+			<input type="text" value="aa" name="user"/><br>
+			<input type="password" name="pwd"/><br>
+			<input type="image" src="img/1.jpg"/><br>
+			<select name="se" id="area">
+				<option value="sd">山东</option>
+				<option value="gd" selected="selected">广东</option>
+			</select><br>
+			<input type="submit" value="提交"/>
+			<button>按钮</button>
+		</form>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		//选取所有的 input、textarea、select、button
+		var inputs = $(":input");
+		console.log(inputs);
+		//选取所有的文本框
+		var texts = $(":text");
+		console.log(texts);
+		//选取所有的密码框
+		var pass = $(":password");
+		console.log(pass);
+		//选取所有的单选框
+		var ra = $(":radio");
+		console.log(ra);
+		//选取所有的多选框
+		var cb = $(":checkbox");
+		console.log(cb);
+		//选取所有的提交按钮
+		var sub = $(":submit");
+		console.log(sub);
+		//选取所有的图片
+		var imgs = $(":image");
+		console.log(imgs);
+		//选取所有的重置按钮
+		var re = $(":reset");
+		console.log(re);
+		//选取所有的按钮
+		var bb = $(":button");
+		console.log(bb);
+		//选取所有的上传域
+		var file = $(":file");
+		console.log(file);
+	</script>
+</html>

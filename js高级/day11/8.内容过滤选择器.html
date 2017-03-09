@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>div</div>
+		<a href="">hao</a>
+		<p>p <a href="" class="abc"></a></p>
+		<p></p>
+		<p class="abc">aa</p>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//内容有hao的a标签
+			$("a:contains(hao)").css({
+				color:"red",
+			});
+			//选择空标签
+			$(":empty").css({
+				width:"100px",
+				height:"100px",
+				backgroundColor:"red",
+			})
+			//选择非空标签
+			$(":parent").css({
+				color:"#ccc",
+			})
+			//找到里面有class名为abc的标签的p标签，找到的是p
+			$("p:has(.abc)").css({
+				width:"100px",
+				height:"100px",
+				backgroundColor:"pink",
+			})
+		})
+	</script>
+</html>

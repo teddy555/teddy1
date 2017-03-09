@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li><a href="">a</a></li>
+			<li>1</li>
+			<li>2</li>
+			<a href="">a1</a>
+		</ul>
+		<ul id="ul2">
+			<li><p>p</p></li>
+			<li>11</li>
+			<li>22</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//群组选择器 逗号
+			var $uls = $("#ul1,#ul2");
+			console.log($uls);
+			//后代选择器 空格
+			var $ulc = $("#ul1 *"); 
+			console.log($ulc);			
+			//find() 方法 相当于后代选择器
+			var $ulC = $("#ul1").find("*"); 
+			console.log($ulC);
+			//子代选择器 >
+			var $ula = $("#ul1>a"); 
+			console.log($ula);
+			//children()方法 选择元素的子代
+			var $ula = $("#ul1").children("a");
+			//通配符选择器 *
+			var $all = $("*");
+			console.log($all);
+		})
+	</script>
+</html>

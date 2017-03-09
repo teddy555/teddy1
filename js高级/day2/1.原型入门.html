@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		function a(){
+			this.a = "a";
+			this.b = "b";
+		}
+		i = a.prototype;
+		i.c = "c";
+		console.log(i.constructor);
+		console.log(a.c);
+		var p = new a();
+		console.log(a.prototype===p.__proto__);
+		console.log(p.c);
+		/*
+		 * 一切皆对象
+		 * 对象.属性名
+		 * 任何一个对象，只要一被声明，就有一个默认的属性 prototype 表示函数的原型，指向的那个对象就是函数的原型对象
+		 * 
+		 * 如果一个函数被当作构造函数使用的时候，那么才会考虑原型
+		 * 
+		 * 通过构造函数创建一个对象之后，则这个对象会有一个不可见的属性 [[proto]]，这个属性指向一个
+		 * 
+		 * 通过对象只能访问原型中的属性值，不能去修改原型中的属性值
+		 * 
+		 * 1.hasOwnProperty方法，可以判断一个属性是否来自对象本身。
+		 * 对象.hasOwnProperty("属性")
+		 * 2.in 操作符 可以判断一个属性是否存在于这个对象的整个原型链上
+		 * 对象 in 属性
+		 */
+	</script>
+</html>

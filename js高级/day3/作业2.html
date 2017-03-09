@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function point(x,y){
+			this.x = x;
+			this.y = y;
+		}
+		point.prototype.len = function(aa){
+			return Math.sqrt((this.x-aa.x)*(this.x-aa.x)+(this.y-aa.y)*(this.y-aa.y));
+		}
+		var p1 = new point(1,1);
+		var p2 = new point(4,5);
+		console.log(p2.len(p1));
+		
+		Circle.prototype = new point();
+		function Circle(x,y,r){
+			point.call(this,x,y);
+			this.r = r;
+		}
+			Circle.prototype.mj = function(){
+				return Math.PI*this.r*this.r;
+			}
+			Circle.prototype.zc = function(){
+				return 2*Math.PI*this.r;
+			}
+		var C1 = new Circle(1,1,10);
+		var C2 = new Circle(4,5,10);
+		console.log(C1.mj());
+//		console.log(C1.len(C2));
+		
+		Cylinder.prototype = new Circle();
+		function Cylinder(x,y,r,h){
+			Circle.call(this,x,y,r);
+			this.h = h;
+		}
+			Cylinder.prototype.tj = function(){
+				return this.mj()*this.h;
+			}
+		var c = new Cylinder(1,1,10,10);
+		console.log(c.tj());
+
+	</script>
+</html>

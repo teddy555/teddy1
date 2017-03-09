@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				background: pink;
+				display: block;
+				width: 800px;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div"></div>
+	</body>
+	<script type="text/javascript">
+		var div = document.getElementById("div");
+		var xhr = window.XMLHttpRequest
+					? new XMLHttpRequest()
+					: new ActiveXObject("Microsoft.XMLHTTP");
+		xhr.open("GET","abc.json",true);
+		xhr.onreadystatechange = function (){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					var msg = xhr.responseText;
+					var obj = JSON.parse(msg);
+					var re = obj.result;
+					for(var i = 0;i<re.data.length;i++){
+						var p = document.createElement("p");
+						p.innerHTML = "用戶："+re.data[i].hashId+"<br><br>"+re.data[i].content+"<br><br>"+re.data[i].updatetime;
+						div.appendChild(p);
+					}
+				}
+			}
+		}
+		xhr.send(null);
+	</script>
+</html>

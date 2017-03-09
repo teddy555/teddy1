@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var a = 0;
+				var aa = $("div:eq(0)");
+//				$("div").click(function(){
+//					alert("我被点击了");
+//				})
+				//trigger() 方法  模拟点击事件
+				//$("div").trigger("click");
+				//简写
+				//$("div").click();
+				//还可以触发自定义事件 同时也会触发浏览器的默认事件
+//				$("div").bind("aa",function(){
+//					console.log("我是自定义事件");
+//				})
+				//$("div").trigger("aa");
+				$("input").focus(function(){
+					console.log("我获取了焦点");
+				});
+//				$("input").trigger("focus");
+				//triggerHandler() 方法也能触发事件，但不会触发浏览器的默认事件
+				$("input").triggerHandler("focus");
+				aa.click(function(){
+					a += 50;
+					aa.css("top",a);
+					if(aa.css("top")=="500px"){
+					console.log(aa.css("top"));
+						
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<input type="text" />
+	</body>
+</html>

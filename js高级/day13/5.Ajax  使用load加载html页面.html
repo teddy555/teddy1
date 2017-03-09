@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#a{
+				height: 100px;
+				background: pink;
+			}
+			#b{
+				height: 200px;
+				background: blue;
+			}
+			#c{
+				height: 100px;
+				background: #ccc;
+			}
+		</style>
+		<script type="text/javascript"src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//load() 方法 三个参数[url data传递的数据 calback 回调函数]
+				//url 后添加空格后可以添加选择器，来决定加载的内容
+				$("#a").load("test1.html ul");
+				$("#b").load("content.html div");
+				$("#c").load("text2.html p", function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="a"></div>
+		<div id="b"></div>
+		<div id="c"></div>
+	</body>
+</html>

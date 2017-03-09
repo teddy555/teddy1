@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		function F(name){
+			this.name = name;
+			F.prototype.a = function (){
+				alert("我是爸爸"+this.name);
+			}
+		}		 	
+		son.prototype = new F("李四");
+		son.prototype.constructor = son;
+		function son(age){
+			this.age = age;
+			son.prototype.b = function (){
+				alert("我是儿子"+this.age+"岁");
+			}
+		}
+		var n = new son(20);
+//		n.a();
+//		n.b();
+//		isPrototypeof 方法
+//		对象1.isPrototypeOf(对象2);//判断对象1是不是对象2的原型对象
+	</script>
+</html>

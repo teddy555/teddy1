@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function foo(a,b){
+			console.log(this.name+a+b);
+		}
+		//call 绑定到 null Undefined 上， this 仍是默认指向 window
+		//若 绑定到 NaN 上，则 this 指向 Number
+		foo.call({name:"zs"},10,20);//显式去指定 this 的指向
+		foo.apply({name:"zs"},[10,20]);
+		//call alppy 在 es5 之前就已经支持了
+		//bind (this 绑定的对象)这个方法会返回一个新的绑定过的函数
+		function foo(a,b){
+			console.log(this.name);
+		}
+		//this 已经绑定好的新的函数对象
+		var foo1 = foo.bind({name:"李四"});//绑死了
+		foo1();//李四
+		
+		var p = {
+			name:"张三",
+			foo:foo1
+		}
+		p.foo();//李四
+		
+	</script>
+</html>

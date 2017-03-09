@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div>aa</div>
+		<div>bb</div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		//jquery 的入口 : window.onload
+		$(document).ready(function(){
+			var msg = $("div:first-child").html();
+			console.log(msg);
+		})
+		//简写
+		$(function(){
+			var msg = $("div:first-child").html();
+//			console.log(msg);
+		})
+	</script>
+</html>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+	#a1 div{
+		width: 100px;
+		height: 150px;
+		border: 1px solid #000;
+		display: inline-block;
+	}
+</style>
+</head>
+
+<body>
+	<div id="a1">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div id="a2"></div>
+	<div id="a3"></div>
+	<div id="a4"></div>
+</body>
+<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+        console.log(game.players[0].playerName+ "的牌：" + game.players[0].cards)
+        console.log(game.players[1].playerName+ "的牌：" + game.players[1].cards)
+        console.log(game.players[2].playerName+ "的牌：" + game.players[2].cards)
+</script>
+</html>
+
+

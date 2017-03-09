@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				border-radius: 50%;
+				position: absolute;
+				top: 40px;
+				left: 0;
+			}
+		</style>
+		<script type="text/javascript" src="libs/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="libs/jquery.easing.1.3.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//animated() 自定义动画 参数1、包含属性和值的映射，必选
+				//参数2.时间 参数3.动画算子  参数4.动画结束后调用的函数
+				$("button:eq(0)").click(function(){
+//					console.log("aa")
+					$("div")
+					.animate({
+						left:"500px",
+					},2000,"easeInOutElastic")
+					.animate({
+						top:"500px",
+					},2000,"easeOutElastic")
+					.animate({
+						left:"0",
+					},2000,"easeInBounce")
+					.animate({
+						top:"40px",
+					},2000,"easeInSine")
+				})
+				$("button:eq(1)").click(function(){
+					//检查动画是否执行
+					var an = $("div").is(":animated");
+//					console.log(an);
+					//停止动画
+					//接收两个参数  默认都是 false
+					//参数一：true 表示清除队列中的所有动画，立即停止动画
+					//false 表示只取消当前的动画，执行下一个动画
+					//参数二：true 表示停止在这个动画的末尾
+					//false 表示停止在当前位置
+					$("div").stop();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>自定义</button>
+		<button>检查</button>
+		<div id=""></div>
+	</body>
+</html>
