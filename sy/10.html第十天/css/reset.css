@@ -1,0 +1,54 @@
+/*body四周有8px的margin*/
+body{
+	margin: 0;
+}
+/*p上下分别有16px的margin*/
+p{
+	margin: 0;
+}
+/*标题上下存在对应margin*/
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+}
+/*blockquote存在上下16px左右40px的margin*/
+blockquote{
+	margin: 0;
+}
+address{
+	font-style: normal;
+}
+/*ul ol上下存在16px的margin，左侧存在40px的padding,有默认的样式存在*/
+ul,ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/*dl上下存在16px的margin 
+dd左侧存在40px的margin */
+dl,dd{
+	margin: 0;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+em{
+	font-style: normal;
+}
+strong{
+	font-weight: normal;
+}
+input{
+	outline: none;
+}
+img{
+	border: none;
+}
+.clearFix:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.clearFix{
+	zoom:1;
+}

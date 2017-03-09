@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10</title>
+	<style type="text/css">
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			width: 300px;
+		}
+		li{
+			height: 12px;
+			border: 1px solid #000;
+			overflow: hidden;
+			float: left;
+		}
+		a{
+			width: 100px;
+			height: 12px;
+			float: left;
+			background: red;
+		}
+		span{
+			width: 100px;
+			height: 12px;
+			float: right;
+			background: blue;
+		}
+		/*
+		问题原因：在Ie 6下，最小高度的bug和li的间隙问题共存的时候，使用vertical-align是无效的
+		解决方案：必须使用float:left;
+		*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href=""></a>
+			<span></span>
+		</li>
+		<li>
+			<a href=""></a>
+			<span></span>
+		</li>
+		<li>
+			<a href=""></a>
+			<span></span>
+		</li>
+	</ul>
+</body>
+</html>

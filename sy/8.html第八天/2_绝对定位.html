@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位</title>
+	<style type="text/css">
+		/*div{
+			width: 300px;
+			height: 300px;
+		}*/
+		.div_1{
+			width: 500px;
+			height: 500px;
+			background: red;
+			margin-left: 100px;
+		}
+		.div_2{
+			width: 300px;
+			height: 300px;
+			background: blue;
+			position: absolute;
+			bottom: 100px;
+			/*left: 100px;*/
+			/*
+			绝对定位
+				position:absolute;
+				会激活
+					top
+					right
+					bottom
+					left
+					z-index
+						控制层级的属性(兄弟元素间使用,内部填写数字,可以为负数,如果设置为负数,将无法响应任何事件)
+						未被激活的时候默认的是auto
+			特性:
+				1.绝对定位会使文件脱离文档流
+				2.提升层级1级(会同时压住属性和内容)
+				3.绝对定位会使不支持宽高的元素重新支持宽高
+				4.针对没有设置宽度的块级元素,有内容去撑开宽度
+				5.绝对定位的位移实际上是参考于离他最近的.设置了定位的父级(不包括static)
+			网页看起来是二维的结构，但是实际上是存在一个 Z 轴的，Z 轴的大小由 z-index 来决定。默认情况下，所有的元素都是处于 z-index = 0 这一层的。内部元素去根据元素类型（block、inline...） 长宽，内边距外边距等内容来去排列在 z-index=0 这一层;但是绝对定位，能够使元素完全脱离文档流，不会在 z-index = 0 这一层保留位置，但是相对定位不会使元素脱离文档流，布局的时候依旧需要考虑。浮动不会让元素“上浮”到另一层，它实际上还是处于 z-index = 0 这一层，但是它会改变正常的文档流的布局
+			z-index = 0 这一层，也就是我们俗称的文档流
+			 */
+		}
+		.div_3{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1">
+		<div class="div_2"></div>
+	</div>
+	
+</body>
+</html>

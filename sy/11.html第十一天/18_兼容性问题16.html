@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16</title>
+	<style type="text/css">
+		body{
+			height: 2000px;
+			background: red;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			position: fixed;
+			top: 30px;
+			left: 100px;
+		}
+		/*
+		问题原因：在IE6中不存在固定定位，只有绝对定位
+		解决方案：只能通过js去模拟该效果。
+		 */
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字体</title>
+	<style type="text/css">	
+		div{
+			font-size: 100px;
+			font-family: "abc";
+		}
+		/*
+		css3 服务端字体
+		链接的外部字体都需要通过 URL 进行链接
+	推荐使用格式
+		ttf
+		svg
+		woff
+		eot
+@font-face 中只是给链接的字体设定一个名字，当下面去使用的时候，直接去调用该名字即可
+font-face 中的 src 可以存放多个路径，中间用 ， 隔开
+	为了同时设置多种格式
+
+		 */
+		@font-face{
+			font-family: "abc";
+			src:url("font/李旭科书法1.4.ttf");
+		}
+	</style>
+</head>
+<body>
+	<div>服务端字体<br>123<br>abc</div>
+</body>
+</html>

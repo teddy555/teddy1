@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>border-radius</title>
+	<style type="text/css">
+		.div1{
+			width: 350px;
+			height: 300px;
+			background:#9DEA6D;
+			border-radius:175px 175px 175px 175px/150px 150px 150px 150px;
+			box-shadow: inset 15px -40px 180px #9DEA6D;}
+			.div1_2{
+				width: 50px;
+				height: 50px;
+				background:#186E25;
+				border-radius: 50%; 
+				display: inline-block;
+				margin: 80px 0 0 95px;
+			}
+			.div1_3{
+				width: 50px;
+				height: 50px;
+				background:#186E25;
+				border-radius: 50%;
+				display: inline-block;
+				margin-left: 60px; 
+			}
+		.div2{
+			width: 300px;
+			height: 250px;
+			background:#F1F3F4;
+			border-radius:175px 175px 175px 175px/150px 150px 150px 150px;margin:-170px 0 0 175px; }
+			.div2_2{
+				width: 40px;
+				height: 40px;
+				background:#7B7F7F;
+				border-radius: 50%; 
+				display: inline-block;margin: 60px 0 0 85px;}
+			.div2_3{
+				width: 40px;
+				height: 40px;
+				background:#7B7F7F;
+				border-radius: 50%;
+				display: inline-block;
+				margin-left: 50px;
+				 }
+				.j1{
+					width: 80px;
+					height: 80px;
+					background: #9DEA6D;
+					border-radius: 40px 0 80px 0/80px 0 40px 0;
+					margin: -80px 0 0 20px;
+				}
+				.j2{
+					width: 60px;
+					height: 60px;
+					background: #F1F3F4;
+					border-radius:0 30px 0 60px/0 60px 0 30px;
+					margin: -50px 0 0 380px;
+				}
+		/*
+		border-radius
+			css3
+			设置圆角边框
+			border-radius:数值一(左上横) 数值二(右上横) 数值三(右下横) 数值四(左下横)/数值五(左上竖) 数值六(右上竖) 数值七(右下竖) 数值八(左下竖);
+			四个值的时候:左上角 右上角 右下角 左下角;
+			三个值的时候:左上角 右上角&左下角 右下角;
+			两个值的时候:左上角&右下角 右上角&左下角;
+		 */
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div1_2"></div>
+		<div class="div1_3"></div>
+	</div>
+	<div class="j1"></div>
+	<div class="div2">
+		<div class="div2_2"></div>
+		<div class="div2_3"></div>
+		
+	</div>
+	<div class="j2"></div>
+</body>
+</html>

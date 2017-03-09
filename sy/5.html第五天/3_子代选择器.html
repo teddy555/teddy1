@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子代选择器</title>
+	<style type="text/css">
+		/*css 子代选择器
+		选择器1+>+选择器2{css样式}
+		只选择儿子不选择孙子
+		控制的只有儿子这一代
+		*/
+	.div>p{background: red;}
+	</style>
+</head>
+<body>
+	<div class="div">
+		<p>儿子</p>
+		<div class="div1">
+			<p>孙子</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6</title>
+	<style type="text/css">
+		.box{
+			background: red;
+			border: 1px solid black;
+			/*zoom:1;*/
+		}
+		.div{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			margin: 100px;
+		}
+		/*
+		问题原因：在IE下，父级有边框的时候，子级的margin会失效
+		解决方法：通过设置zoom：1;去触发一下hasLayout
+		在IE下的大部分兼容性问题都是因为hasLayout属性触发的问题，尽量触发hasLayout可以减少IE的问题
+		hasLayout 只在 IE 6/7/8 中有
+
+		 */
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="div"></div>
+	</div>
+</body>
+</html>

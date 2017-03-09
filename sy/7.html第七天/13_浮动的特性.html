@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动的特性</title>
+	<style type="text/css">
+		.div1{
+			width: 300px;
+			height: 300px;
+			background: red;
+			float: left;
+		}
+		.div2{
+			width: 600px;
+			height: 600px;
+			background: blue;
+		}
+		span{
+			width: 100px;
+			height: 100px;
+			background: green;
+			float: right;
+		}
+		/*
+		浮动的特性:
+			1.会使元素脱离文档流(布局的时候不会再考虑)
+			2.提升层级"半级"
+			3.如果没有宽度,浮动元素的内容会撑开宽度
+			4.浮动会使不支持宽高的元素重新支持宽高
+		浮动的注意事项
+			浮动元素会对下一个元素产生影响
+		浮动元素什么时候停止?
+			1.遇到父级的边框的时候
+			2.遇到另一个浮动元素的边框的时候
+			3.当一行内容放不下时,该元素会参考上一个元素的高去另起一行
+		 */
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="div2">环绕图片</div>
+	<span>abcd</span>
+</body>
+</html>
