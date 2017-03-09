@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript" src="my.js"></script>
+	<script type="text/javascript">
+		ajax.get("abc.json",function(result){
+			var obj = JSON.parse(result);
+			var re = obj.result.data;
+//			console.log(re);
+//			jokes.forEach(function (joke) {
+//              var cloned_joke_div = joke_div.cloneNode(true);
+//              cloned_joke_div.querySelector(".content").innerHTML = joke.content;
+//              cloned_joke_div.querySelector(".updatetime").innerHTML = joke.updatetime;
+//              jokes_div.appendChild(cloned_joke_div);
+//          })
+		});
+	</script>
+</html>

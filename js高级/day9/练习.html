@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 140px;
+				height: 100px;
+				background: url(img/3.jpg) no-repeat;
+				background-position: -8px -8px;
+			}
+			#box1{
+				width: 95px;
+				height: 80px;
+				background: url(img/4.jpg) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+		
+	</body>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var i = 0,j = 0,x = 0,y = 0;
+		setInterval(function(){
+			box.style.backgroundPosition = -8-150*(i%3)+"px "+(-118*(j%3)-8)+"px";
+			i++;
+			if(i%3==0){
+				j++;
+			}
+			box1.style.backgroundPosition = -100*(i%4)+"px "+(-80*(j%2))+"px";
+			i++;
+			if(i%4==0){
+				j++;
+			}
+			
+		},300);
+	</script>
+</html>

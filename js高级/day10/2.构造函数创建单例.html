@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var cp = (function(){
+			function p(){
+				this.name = name;
+			}
+			var p1 = new p();
+			return function(name){
+				p1.name = name;
+				return p1;
+			}
+		})();
+		var cp1 = new cp("aa");
+		var cp2 = new cp("bb");
+		console.log(cp1.name);
+	</script>
+</html>

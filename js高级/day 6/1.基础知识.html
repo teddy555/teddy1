@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>基础知识</title>
+</head>
+<body>
+	<form action="" method="get">
+		<input type="text" value="aaa" name="user"/>
+		<input type="text" value="bbb" name="pwd"/>
+		<input type="submit" value="ok"/>		
+	</form>
+</body>
+</html>
+<!--
+	C/S : client(客户端) / server(服务器)
+	B/S :  browser(浏览器) / server
+	
+	协议
+	http		免费的
+	https		要钱的（需要买密钥）
+	请求协议：
+		请求行
+		请求头
+		请求体
+	
+	响应协议
+		响应行：响应码  200 ok
+		响应头
+		响应体（我们能看到的）
+	
+	常用的请求方式有两种
+		get
+			默认都是使用 get 请求
+			get请求的时候，请求时携带的数据，都是在URL中传递过去，没有请求体
+			get 请求的参数一般都称为查询参数
+			缺点：
+			1.get 请求的数据都会在地址栏中显示，数据容易泄露；
+			2.传输的数据有长度限制。		
+		post
+			请求有请求体，传输到服务器的数据，不会显示在地址栏，而是在请求体中
+			提交表单数据都是用  post
+	
+-->

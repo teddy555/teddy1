@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			button{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+	</body> 
+	<script type="text/javascript">
+	/*
+	 * requestAnimationFrame  回调函数，参数只有一个函数，类似于setTimeout，但不需要传入时间
+	 */
+	
+		btn.onclick = function(){
+			var i = 1;
+			//每调用一次，回调函数会在合适的时间之后会执行一次
+			requestAnimationFrame(function step(){
+				var len = this.offsetLeft;
+				this.style.left = len+i++ + "px";
+				requestAnimationFrame(step.bind(this));
+			}.bind(this));
+		}
+	</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="my.js"></script>
+	
+	<script type="text/javascript">
+		ajax.get("http://127.0.0.1:8888/day7/abc.json",function(result){
+			console.log(result);
+		});
+	</script>
+</html>
+<!--
+	同源策略：
+		协议、域名、端口号 都相同
+	ajax 禁止访问不同源的地址
+-->

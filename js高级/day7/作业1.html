@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#max{
+				background: pink;
+				width: 1200px;
+				margin: 0 auto;
+			}
+			a{
+				text-decoration: none;
+				color: #000;
+			}
+			a:hover{
+				color: lightgreen;
+			}
+			#min:nth-child(1){
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="max">
+			<div id="min">
+				<h1></h1>
+				<h2></h2>
+				<img src="" alt="" />
+				<a href=""></a><br>				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var max = document.getElementById("max");
+		var min = document.getElementById("min");
+		
+		function foo(obj){
+			var vlist = obj.data.vlist;
+			vlist.forEach(function(vli){
+				var cloned_min = min.cloneNode(true);
+				cloned_min.querySelector("h1").innerHTML = vli.vn;
+				cloned_min.querySelector("h2").innerHTML = vli.vt;
+				cloned_min.querySelector("img").src = vli.vpic;
+                cloned_min.querySelector("a").href = vli.vurl;
+                cloned_min.querySelector("a").innerHTML = "观看";              
+                max.appendChild(cloned_min);
+                
+			})
+		}		
+	</script>
+	<script type="text/javascript" src="http://cache.video.iqiyi.com/jp/avlist/202861101/1/?callback=foo"></script>	
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			.aa{
+				border: 1px solid #000;
+				width: 1100px;
+				height: 600px;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aa">
+			<div id="box"></div>
+		</div>
+		<button id="btn">关闭动画</button>
+		<button id="btn1">开始动画</button>
+		<button id="btn2">回放</button>
+	</body>
+	<script type="text/javascript" src="Animator.js"></script>
+	<script type="text/javascript" src="suanzi.js"></script>
+	<script type="text/javascript">
+		var aa = document.getElementsByClassName("aa")[0];
+		var animator,a,b,a1,b1;
+		var dao = [];
+		btn1.onclick = function(){
+			var durations = [2000,2000,2000,2000];
+			var easings = [Easing.easeIn,Easing.bounce,Easing.linear,Easing.easeOut];
+			var pros = [
+			function(easing){
+				box.style.transform = "translate("+1000*easing+"px,"+0+"px)";
+				a = 100*easing;
+				b = 0;
+				dao.push(a,b);
+			},
+			function(easing){
+				box.style.transform = "translate("+1000+"px,"+500*easing+"px)";
+			},
+			function(easing){
+				box.style.transform = "translate("+1000*(1-easing)+"px,"+500+"px)";
+			},
+			function (easing) {
+                box.style.transform = "translate(" + 0 +"px,"+ 500 * (1-easing) + "px)";
+            }
+		]
+			animator = new Animator(durations,easings,pros);
+			animator.start(true);			
+		}
+		btn.onclick = function(){
+			animator.stop();
+//			console.log(dao);
+		}
+//		btn2.onclick = function(){
+//			animator.stop();
+//			for(var i = 0;i<dao.length/2;i++){
+//				a1 = dao.pop();
+//				b1 = dao.pop();
+//				box.style.transform = "translate(" + b1 +"px,"+ a1 + "px)";
+//			console.log(b1);
+//			}
+
+//			console.log(b1);
+//		}
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "box"></div>
+<svg width="180" height="200" style="background: #ccc;">
+  <rect x="10" y="50" height="100" width="100" style="stroke:#000; fill: #0086B2" fill-opacity=0.2 stroke-opacity=0.2></rect>
+  <rect x="50" y="50" height="100" width="100" style="stroke:#000; fill: #0086B2" transform="translate(30) rotate(45 50 50)"></rect>
+  <text x="60" y="105" transform="translate(30) rotate(45 50 50)"> Hello Moz! </text>
+</svg>
+	</body>
+	<script type="text/javascript">
+		window.onclick = function(){
+			var distance = 1400,duration = 1000,startTime = new Date(),p;
+			requestAnimationFrame(function aa(){
+				//计算归一化的时间
+				p = Math.min(1,(new Date() - startTime)/duration);
+				box.style.transform = "translate("+distance*p+"px,"+distance/2*p*p+"px)";
+				if(p<1){
+					requestAnimationFrame(aa);
+				}
+			});
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="my.js">
+//	function foo(obj){
+//		console.log(obj.name);
+//	}
+</script>
+	<!--<script type="text/javascript" src="http://localhost:8888/day7/aa.txt"></script>-->	
+	<script type="text/javascript">
+		ajax.get("http://localhost:8888/day7/json.php?name=sy",function(result){
+			console.log(result);
+		});
+	</script>
+</html>
+<!--
+	script 去加载js文件 不受同源的限制
+	
+	jsonp：
+	foo({
+		"name":"lisi",
+		"age":20,
+	})
+-->

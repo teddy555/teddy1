@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function p(name){
+			this.name = name;
+			var instance = this;
+			p = function(name){
+				instance.name = name;
+				return instance;
+			}
+		}
+		var p1 = new p("aa");
+		var p2 = new p("bb");
+		console.log(p1.name);
+	</script>
+</html>

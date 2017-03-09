@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1">观察者1</button>
+		<button id="btn2">观察者2</button>
+		<button id="btn4">观察者3</button>
+		<button id="btn3">删除观察者1</button>
+		<button id="btn">发布信息</button>
+	</body>
+	<script type="text/javascript">
+		//发布者，被观察者
+		var publisher = {
+			observers:{},
+			registObserver:function(key,observer){
+				//添加一个属性来存储订阅的 订阅者
+				if(!this.observers[key]){
+					this.observers[key] = [];
+				}
+				this.observers[key].push(observer);
+			},
+			publishInfo:function(msg){
+				if(!(msg.area in this.observers)){
+					console.log("无信息");
+					return;
+				}
+				this.observers[msg.area].forEach(function(observer){
+					observer(msg);
+				});
+			},
+			removeObserver:function(key, observer){
+            	if(!(key in this.observers)) return;
+            	var index = this.observers[key].indexOf(observer);
+            	if(index != -1){
+                	this.observers[key].splice(index, 1);
+            	}
+        	}
+		};
+		btn.onclick = function(){
+			//发布信息
+			publisher.publishInfo({area:"100平",price:"1000万"});
+		}
+		//注册观察者，传递进去的函数就是观察者
+		var f1;
+		btn1.onclick = function(){
+			publisher.registObserver("100平",f1 = function(msg){
+				console.log("观察者1:"+msg.price);
+			})
+		}
+		btn2.onclick = function(){
+			publisher.registObserver("100平",function(msg){
+				console.log("观察者2:"+msg.price);
+			})
+		}
+		btn4.onclick = function(){
+			publisher.registObserver("120平",function(msg){
+				console.log("观察者3:"+msg.price);
+			})
+		}
+		btn3.onclick = function(){
+        	publisher.removeObserver("100平", f1);
+    	}
+	</script>
+</html>

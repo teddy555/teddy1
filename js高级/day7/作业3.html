@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入城市：<input type="text" />
+		<button>查询天气</button>			
+		<div id="max">
+			<div id="min">
+				<h1></h1>
+				<h2></h2>
+				<p></p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="my.js"></script>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("button")[0];
+		btn.onclick = function(){
+			var max = document.getElementById("max");
+			var min = document.getElementById("min");
+			var div = document.getElementById("div");
+			var a = document.getElementsByTagName("input")[0].value;
+			ajax.get("http://wthrcdn.etouch.cn/weather_mini?city="+a,function(obj){
+				var obj = JSON.parse(obj);
+				var data = obj.data;
+				var end = data.forecast;
+				var Y = data.yesterday;
+				min.querySelector("h1").innerHTML = data.city+"\n"+Y.date;
+				min.querySelector("h2").innerHTML = "注意："+data.ganmao;
+				min.querySelector("p").innerHTML = "风级："+Y.fl+"\n风向："+Y.fx+"\n"+Y.high+Y.low;
+				end.forEach(function(en){
+					var cloned_min = min.cloneNode(true);
+                	cloned_min.querySelector("h1").innerHTML = en.date;
+                	cloned_min.querySelector("h2").innerHTML = "";
+               		cloned_min.querySelector("p").innerHTML = "风级："+en.fengli+"\n风向："+en.fengxiang+"\n"+en.high+en.low;
+                	max.appendChild(cloned_min);
+				})
+			});
+		}
+	</script>
+</html>

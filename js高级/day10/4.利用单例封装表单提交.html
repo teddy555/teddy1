@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" name="user" id="user" value="" /><br>
+			<input type="password" name="pwd" id="pwd" value="" /><br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript" src="my.js"></script>
+	<script type="text/javascript">
+		var formObj = {
+			form:document.forms[0],
+			init:function(){
+				this.form.onsubmit = function(e){
+					e.preventDefault();
+					//执行 handleSubmit 函数，处理表单数据
+					this.handleSubmit();
+				}.bind(this);
+			},
+			handleSubmit:function(){
+				//获取表单数据
+				var data = new FormData(this.form);
+				var user = data.get("user");
+//				console.log(this.form[0].value);
+//				if(user.search("苍老师")){
+//              	var newValue = user.replace("苍老师", "*");
+//              	data.set("user", newValue);
+//              	this.form[0].value = newValue;
+//          	}
+				this.ajax(data);
+			},			
+			ajax:function(data){
+				ajax.post("post.php",data,function(result){
+					this.handleResult(result);
+					console.log(result);
+				}.bind(this));
+			},
+			handleResult:function(result){
+				var obj = JSON.parse(result);
+				this.showResult(obj);
+			},
+			showResult:function(obj){
+				console.log("end");
+			}
+		}
+		formObj.init();
+	</script>
+</html>

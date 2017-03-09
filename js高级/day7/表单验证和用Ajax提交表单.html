@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post" id="form">
+			用户名：<br><input type="text" id="user" name="user"/><span></span><br>
+			密码：<br><input type="password" id="pwd" name="pwd"/><br><br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript" src="my.js">
+		
+	</script>
+	<script type="text/javascript">
+		var userInput = document.getElementById("user");
+		userInput.onblur = function(){
+			var that = this;
+			var content = this.value;
+			//用户名为非字母开头的4-8个字符
+			if(/^\D\w{3,7}$/gi.test(content)){
+				document.querySelector("span").innerHTML = "ok";
+			}else{
+				this.focus();//强制让这个input获取这个焦点
+				document.querySelector("span").innerHTML = "用户名为非字母开头的4-8个字符";
+			}
+		}
+		document.forms[0].onsubmit = function(event){
+			event = event||window.event;
+			if(document.querySelector("span").innerHTML !="ok"){				
+			event.preventDefault();//阻止 submit 的默认行为
+			}else{
+				var data = new FormData(this);//传入一个表单对象，FormData绘制自动封装表单数据
+				ajax.post("regist.php",data,function(result){
+				document.write(result);
+				});
+			}			
+		}
+	</script>
+</html>

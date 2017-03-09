@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "box"></div>
+		<div id = "box1"></div>
+		<div id = "box2"></div>
+		<div id = "box3"></div>
+		<div id = "box4"></div>
+	</body>
+	<script type="text/javascript">
+		window.onclick = function(){
+			var distance = 1000,duration = 2000,startTime = new Date(),p;
+			requestAnimationFrame(function aa(){
+				//计算归一化的时间
+				p = Math.min(1,(new Date() - startTime)/duration);
+				//匀速运动
+				box3.style.transform = "translateX("+distance*p+"px)";
+				//匀减速运动
+				box2.style.transform = "translateX("+distance*p*(2-p)+"px)";
+				//匀加速运动
+				box1.style.transform = "translateX("+distance*p*p+"px)";
+				//抛物运动
+				box.style.transform = "translate("+distance*p+"px,"+distance/2*p*p+"px)";
+				//正弦曲线运动
+				box4.style.transform = "translate("+distance*p+"px,"+(-300*Math.sin(2*Math.PI*p*5))+"px)";
+				
+				box.style.backgroundColor = "red";
+				box1.style.backgroundColor = "lightblue";
+				box2.style.backgroundColor = "yellow";
+				box3.style.backgroundColor = "lightgreen";
+				if(p<1){
+					requestAnimationFrame(aa);
+				}
+			});
+		}
+		
+	</script>
+</html>

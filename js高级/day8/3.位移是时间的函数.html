@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				/*margin: 200px auto;*/
+				transform: rotate(500);
+				/*transform: scale(2);*/
+			}
+			/*
+			 transform 属性：scale();缩放倍率
+			 				translate(x,y);x,y方向的偏移量
+			 				skew();扭曲角度
+			 				rotate();旋转一定角度
+			 * */
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<button id="btn">按钮</button>
+	</body>
+	<script type="text/javascript">
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+		btn.onclick = function(){
+			//动画的开始时间
+			var startTime = new Date();
+			//时间周期
+			var duration = 3000;
+			//移动的距离
+			var dis = 1400;
+			requestAnimationFrame(function step(){
+				var currentTime = new Date();
+				//归一化的时间
+				var p = (currentTime - startTime)/duration;
+				var delatDis = dis*p;
+				box.style.transform = "translateX("+delatDis+"px)";
+				if(p<1){
+					requestAnimationFrame(step);
+				}else{
+					startTime = new Date();
+					requestAnimationFrame(step);
+				}
+			});
+		}
+	</script>
+</html>
