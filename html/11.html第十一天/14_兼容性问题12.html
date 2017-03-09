@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12</title>
+	<style type="text/css">
+		.box{
+			width: 400px;
+		}
+		.left{
+			float: left;
+		}
+		.right{
+			float: right;
+			width: 400px;
+		}
+		/*
+		在IE6下的文字溢出bug
+		问题原因：子元素的宽度和父级的宽度如果相差小于3px的时候，两个浮动元素中间有注释或者内联元素的时候，就会出现文字溢出，内联元素越多，溢出越多
+		解决方案：用块元素把注释或内联元素嵌套起来
+		 */
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="left"></div>
+		<!-- <div> -->
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<!-- </div> -->
+		<div class="right">哈哈哈哈哈</div>
+	</div>
+</body>
+</html>

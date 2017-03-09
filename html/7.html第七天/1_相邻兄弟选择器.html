@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相邻兄弟选择器</title>
+	<style type="text/css">
+		/*
+		相邻兄弟选择器
+		选择器1+"+"+选择器2{
+		需要设置的内容
+		}
+		可以选择紧挨着另一个元素的元素(这两个必须相邻)
+		实际上选择的是后面的选择器2
+		 */
+		h1+p{background: red;}
+	</style>
+</head>
+<body>
+<h1>标题一</h1>
+	<p>第一段</p>
+	<p>第二段</p>
+</body>
+</html>

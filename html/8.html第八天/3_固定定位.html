@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定定位</title>
+	<style type="text/css">
+		body{
+			height: 2000px;
+			border: 5px solid black;
+			margin: 0;
+		}
+		div{
+			width: 100%;
+			height: 100px;
+			background: url("img/1.jpg");
+			position: fixed;
+			top: 0;
+			left: 0;
+			/*
+			固定定位
+			position:fixed;
+			跟绝对定位非常类似,位移始终参考浏览器界面的位置
+
+			固定定位在IE6中不生效,position:relative 在IE6/7下,父级的overflow包不住子集的relative,position:absolute在IE6/7下,定位元素宽和高都为奇数,在 IE 6 下，定位元素的 right 和 bottom 会有 1px 的偏差
+
+			 */
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

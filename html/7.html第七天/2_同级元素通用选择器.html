@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同级元素通用选择器</title>
+	<style type="text/css">
+		/*
+		同级元素通用选择器
+		选择器1+"~"+选择器2{
+		css样式
+		}
+		匹配任何在选择器1后面的同级的选择器2
+		 */
+		ul~ul{background: red}
+	</style>
+</head>
+<body>
+	<p>abcdefghijklmnopqrstuvwxyz
+	<ul>
+		<li>aaa</li>
+		<li>bbb</li>
+		<li>ccc
+			<ul>
+				<li>C</li>
+				<li>c</li>
+			</ul>
+		</li>
+	</ul>
+	</p>
+	<ul>
+		<li>aaa</li>
+		<li>bbb</li>
+		<li>ccc
+			<ul>
+				<li>C</li>
+				<li>c</li>
+			</ul>
+		</li>
+	</ul>
+		<ul>
+		<li>ddd</li>
+		<li>eee</li>
+		<li>fff
+			<ul>
+				<li>F</li>
+				<li>f</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

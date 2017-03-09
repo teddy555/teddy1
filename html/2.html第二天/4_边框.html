@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>边框</title>
+		<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			background: white url("img/1.jpg") no-repeat center;
+			background-size: 300px 300px;
+		/*1.边框 border*/
+			/*border-top-width: 10px;
+			border-top-color: blue;
+			border-top-style: solid;*/
+			/*复合写法 宽度->样式->颜色*/
+			/*border-top: 10px solid blue;
+			border-bottom: 10px solid blue;
+			border-right: 10px solid blue;
+			border-left: 10px solid blue;*/
+			/*复合写法*/
+			border:10px double;
+			/*如果宽度设置不同，分别对应上 右 下 左*/
+			/*border: solid black;*/
+			/*border-width: 10px 20px 30px 40px;*/
+			/*如果设为三个数值，则分别对应上 左右 下
+			  如果设两个数值，则分别对应上下 左右
+			  如果设两个数值，则分别对应上下左右 
+			 */
+		/*2.样式 border-style
+			solid   实线
+			double  双实线 如果宽度为1px时，显示一条实线
+			dotted  点状线  在多数浏览器里显示为实线
+			dashed  虚线    在多数浏览器里显示为实线
+			---------------------------
+			groove  3D凹槽边框
+			ridge   3D垄状边框
+			inset   内陷
+			outset  外凸
+			none    无边框
+			hidden  隐藏  样式冲突时用
+			*/
+	/*3.边框数值的缺失
+		border-width  如果缺失，可以显示
+		属性：thin 细的边框 1px
+		      medium 默认值 中等边框 3px
+		      thick  粗的边框 5px
+		border-style  如果缺失，无法显示
+		border-color  如果缺失，可以显示 显示的颜色是黑色
+		*/
+		}
+		
+		</style>
+	</head>
+	<body>
+	<div></div>
+	</body>
+</html>

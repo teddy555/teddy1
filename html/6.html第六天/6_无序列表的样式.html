@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无序列表的样式ul</title>
+	<style type="text/css">
+		ul{/*list-style-type:none;list-style-image: url("img/qq1.jpg");list-style-position: outside;*/ list-style: none inside url("img/qq1.jpg");}
+		/*
+		什么时候用ul
+		*没有明确顺序的时候
+		*条 列的内容
+		*导航栏
+		1.list-style-type
+			设置列表点的类型
+			disc    黑色实心圆点(默认值)
+			circle  黑色空心圆点
+			square  黑色实心方块
+			none    无样式
+		2.list-style-image
+			设置列表点的图片类型,需要用url来引入图片
+			如果Type设置为none,也能生效.
+		3.list-style-position
+			设置列表点的位置
+			inside    列表修饰处于列表之内,在content中
+			outside    列表修饰处于列表之外(默认值),在padding-lift中
+		4.复合写法:类型->位置->图片
+		list-style:;
+				 */
+	</style>
+</head>
+<body>
+	<ul>
+		<li>无序列表</li>
+		<li>无序列表</li>
+		<li>无序列表</li>
+		<li>无序列表</li>
+		<li>无序列表</li>
+		<li>无序列表</li>
+	</ul>
+</body>
+</html>
