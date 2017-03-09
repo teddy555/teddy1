@@ -1,6 +1,6 @@
-set /p txt=请输入提交说明：sy
-git add --all
-git commit -m "%txt%"
-git push
-pause
-
+git init
+git add sy
+git commit -m 'sy'
+git remote rm origin
+git remote add origin git@github.com:teddy555/teddy1.git
+git push -u origin master
