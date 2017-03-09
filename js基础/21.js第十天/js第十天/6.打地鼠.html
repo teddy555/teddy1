@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打地鼠</title>
+		<style type="text/css">
+		#container{
+			width: 900px;
+			margin: 0 auto;
+		}
+			.mouse_area{
+				width: 900px;
+				height: 600px;
+				background: gray;
+				position: relative;
+			}
+			#container div:nth-child(2){
+				text-align: center;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="mouse_area"></div>
+			<div>
+			<button>开始</button>
+			<button>暂停</button>
+			
+		</div>
+		</div>		
+	</body>
+	<script type="text/javascript">
+		var mouseSrc = "img/ds.png";
+		var mouse_area = document.querySelector(".mouse_area");
+		var timerId;
+		//给开始按钮添加点击事件
+		document.querySelector("button").onclick = function(){
+			
+			mouse_area.innerHTML="";
+			clearInterval(timerId);//结束定时器
+			
+			timerId = setInterval(function(){
+			//创建一个 img标签，并把它添加到 mouse_area
+			var img = createImg(mouseSrc);
+			mouse_area.appendChild(img);
+			//mouse 添加到容器中之后，去判断是否超出了我们的阀值：10
+			if(mouse_area.childElementCount>10){
+				mouse_area.innerHTML="";
+				//显示游戏结束，并且结束定时器
+				clearInterval(timerId);//结束定时器
+				var endImg = createImg("img/end.img");
+				endImg.style.width = "700px";
+				endImg.style.width = "400px";
+				endImg.style.left = "100px";
+				endImg.style.top = "100px";
+				mouse_area.appendChild(endImg);								
+			}
+			},500);
+			
+		}
+//		定义一个函数,创建一个img标签,并返回
+		function createImg(src){
+			var img = document.createElement("img");
+			img.setAttribute("src",src);
+			img.style.left = randomNumber(0,800)+"px";
+			img.style.top = randomNumber(0,500)+"px";
+			//给img添加点击事件，点击之后，从它父容器中移除自己
+			img.onclick = function(){
+				img.parentNode.removeChild(img);
+			}
+			return img;
+		}
+		//生成随机数的函数  一定的范围  left  0~800  top   0~500
+		function randomNumber(from,to){
+			return Math.random()*(to-from+1)+from;
+		}
+	</script>
+</html>

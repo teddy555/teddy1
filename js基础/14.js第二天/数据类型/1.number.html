@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		 Number
+		 1.在Js中，Number是不区分整数和浮点数，所有数值全部以浮点数值的方式展示
+		2. 一个数值直接出现在JS程序当中，我们把这个数字称为数字直接量
+		 * */
+		var num1=1000;//全部以十进制的方式进行展示
+		console.log(num1);
+		var num2=0x25;//定义十六进制数字  0x/0X，控制台弹出十进制数
+		console.log(num2);
+		//十六进制
+		//1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+		//1 2 3 4 5 6 7 8 9 a  b  c  d  e  f
+		var num3=0xaf;
+		console.log(num3);
+		//JS中不支持八进制，但是可以通过特殊方式模拟八进制
+		//但是需要注意，在模拟的过程中，如果八进制的数字超出了当前进制的范围，
+		//则自动忽略前面的0，直接将数字当作十进制处理
+		var num4=025;
+		console.log(num4);
+		
+		//浮点直接量  可以包含小数点
+		var fu1=3.14;
+		console.log(fu1);
+		var fu2=3.1415926535897932384;
+		console.log(fu2);
+		//可以采用科学计数法（指数计法）
+		var num6=10e10;//10*10^10
+		console.log(num6);
+		/*
+		 JS 运算时的特殊情况
+		 1.溢出
+		 		运算结果超出了JS所能表示的数字上限
+		 			超过最大正值以Infinity来表示
+		 			超过最小负值以-Infinity来表示
+		 2.下溢
+		 		运算结果无限接近于零，并且要比JS表示的最小数值还要小
+		 			正数   0
+		 			负数 -0
+		 3.被零整除
+		 		正常状态下，返回Infinity或-Infinity
+		 		0除以0    Infinity除以Infinity   数字运算符和非数字运算符 和无法转换为数字的数
+		 			无意义，返回结果将会是NaN（Not-a-Number）
+		 			
+		注意：上述三种情况，在运行中都不会报错，处理的时候一定要注意参加运算的数字的类型
+		 * */
+		console.log(0/0);
+		/* 二进制浮点的四舍五入的错误
+		 * 0.3-0.2=0.1(不会这样运算)
+		JS中的数字会自动提供足够的精度，这个精度计算偶尔也会出现bug
+		*/
+		var x=0.3-0.2;
+		console.log(x);
+		console.log(x==0.1);
+		//JS 中数值最大支持多少位
+		console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+		console.log(Number.MIN_VALUE);//5e-324
+		/*JS 权威指南中，Number类型统一按照浮动数处理。
+		64位存储，正数按照最大的54位来计算最大数和最小数，否则会丧失精度
+		在某些特殊操作（数组索引、位操作）按照32位来处理
+		可以通过特殊的JS库来解决最大数字问题
+		*/
+		console.log("\u5555")
+	</script>
+</html>

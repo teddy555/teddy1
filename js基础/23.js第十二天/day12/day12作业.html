@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.s1>img{
+				border: 1px solid #c8c8c8;
+				margin: 10px;
+			}
+			.s2{
+				position: relative;
+				display: none;
+			}
+			.s2 img{
+				border: 1px solid #c8c8c8;
+				margin: 10px;
+				position: absolute;
+				left: 20px;
+				top: -85px;
+				
+			}
+			.s1>img:hover{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="s1">
+			<img src="img/a.jpg" id="1" />
+			<img src="img/b.jpg" id="2" />
+			<img src="img/c.jpg" id="3" />
+			<img src="img/d.jpg" id="4" />
+		</div>
+		<div class="s2">
+			<img src="" alt="" />		
+		</div>
+	</body>
+	<script type="text/javascript">
+		var a1 = document.getElementsByTagName("div")[0];
+		var a2 = document.getElementsByTagName("div")[1];
+		var a3 = a2.getElementsByTagName("img")[0];
+		a1.addEventListener("mouseover",function(){
+			a2.style.display = "block";
+		},false);
+		a1.addEventListener("mouseout",function(){
+			a2.style.display = "none";
+		},false);
+		a1.addEventListener("mousemove",function(e){
+			a3.style.left = e.clientX + "px";
+			var id = +e.target.id;
+			var src1;
+			switch(id){
+				case 1:
+				src1="img/a1.jpg";
+				break;
+				case 2:
+				src1="img/b1.jpg";
+				break;
+				case 3:
+				src1="img/c1.jpg";
+				break;
+				case 4:
+				src1="img/d1.jpg";
+				break;
+				default:
+				src1 = "";				
+			}
+			a3.src = src1;
+		},false);
+	</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 字符串相关方法
+		 * 
+		 * 1.s.charAt(index);
+		 * 参数：index 必选参数，表示字符串中某个位置的数字，字符在字符串中的下标
+		 * 返回值：返回的是指定位置的字符
+		 * JS中没有字符类型，返回的实际上是一个长度为1的字符串
+		 * 
+		 * 大家可以将字符串想象成是一个数组，下标从0开始，直到最后一个元素的下标（s.length-1）
+		 * 
+		 */
+		var s="hahaha";
+		console.log(s.charAt(0));
+		console.log(s[0]);
+		console.log(s.charAt(1));
+		console.log(s[1]);
+		
+		
+		/*
+		 * 2.s.charCodeAt(index)
+		 * 	返回指定位置的字符的  Unicode 编码，返回值范围是0~65535 之间的整数
+		 * 
+		 */
+		var ss="aAzZ09";
+		console.log(ss.charCodeAt(0));
+		console.log(ss.charCodeAt(1));
+		console.log(ss.charCodeAt(2));
+		console.log(ss.charCodeAt(3));
+		console.log(ss.charCodeAt(4));
+		console.log(ss.charCodeAt(5));
+		
+		/*
+		 * unicode 编码中需要记住的数值
+		 * 0  48
+		 * 9  57
+		 * A  65
+		 * Z  90
+		 * a  97
+		 * z  122
+		 */
+	</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	/*
+	 * g:表示是否全局匹配，每次匹配成功后，下次会从上次的位置继续向后匹配
+	 * 如果没有 g,每次都是从头匹配
+	 */
+		var reg = /girl/gi;
+		var s = "abgirlGIRL";
+		console.log(reg.test(s));
+		console.log(reg.test(s));
+		console.log(reg.test(s));
+		console.log(reg.test(s));
+//		console.log(reg.test(s));
+		
+		
+	</script>
+</html>

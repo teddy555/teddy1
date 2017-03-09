@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="ab">111</p>
+		<p id="ab">222</p>
+		
+	</body>
+	<script type="text/javascript">
+		/*
+		 * querySelector(CSS 的选择器)
+		 * 参数：
+		 * 	CSS 选择器
+		 * 		指定一个或多个匹配的 CSS 选择器
+		 * 		id class 类型，属性
+		 * 	如果针对对个选择器，中间使用逗号分隔
+		 * 
+		 * 返回值：返回匹配到的第一个元素，如果没找到，返回 null
+		 * 
+		 */
+		var p_1= document.querySelector(".ab,#ab");
+		console.log(p_1);
+	</script>
+</html>

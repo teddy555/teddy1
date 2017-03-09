@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div p{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				border-radius: 100%;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">原路返回</button>
+		<button id="btn1">初始化</button>
+		
+		<div id="box"><p></p></div>
+	</body>
+	<script type="text/javascript">
+		var circle = document.querySelector("p");
+		var box = document.getElementById("box");
+		var btn = document.getElementById("btn");
+		var btn1 = document.getElementById("btn1");
+		
+		var lefts = [0];
+		var tops = [20];
+		var ss1;
+		
+		btn.onclick=function(){
+			ss();
+		}
+		function ss(){
+				ss1 = setInterval(function(){
+				circle.style.left = lefts.pop() + "px";
+				circle.style.top = tops.pop() + "px";
+//				console.log(lefts);
+				if(lefts.length==1){
+				lefts = [0];
+				tops = [20];
+				}
+			},20);		
+		}
+		
+		btn1.onclick = function (){
+			clearInterval(ss1);
+		}
+		
+		box.addEventListener("mousemove",function(e){
+			var divleft = e.clientX - circle.offsetWidth/2;
+			var divtop = e.clientY - circle.offsetHeight/2;
+			lefts.push(divleft);
+			tops.push(divtop);
+			circle.style.left = divleft + "px";
+			circle.style.top = divtop + "px";
+//			console.log(lefts);
+//			console.log(lefts.length);
+			
+		},false);
+
+		 
+//		btn.onclick = function(){
+//			circle.style.left = lefts.pop() + "px";
+//			circle.style.top = tops.pop() + "px";			
+//		}
+</script>
+</html>

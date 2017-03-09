@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 字符串的替换方法
+		 * 
+		 * 1.replace(regExp/substr,replaceElement)
+		 * 		regExp/substr  必选参数
+		 * 			regExp  正则表达式
+		 * 			substr  字符串
+		 * 			需要注意，如果第一个值是字符串，则将这个字符串作为检索的直接量
+		 * 			而不是去查看是否能够转化为regExp
+		 * 		replaceElement  必选参数
+		 * 			一般为一个字符串值，规定了替换文本，或者生成替换文本的函数
+		 * 2.match(匹配值)
+		 * 该方法用于在字符串中检索指定的值
+		 * 
+		 * 	匹配的参数只有一个，要么是正则表达式，要么是字符串
+		 * 	返回值：存放匹配结果的数组
+		 * 3.search(匹配的参数)
+		 * 匹配的参数只有一个，要么是正则表达式，要么是字符串
+		 * 
+		 * 返回值:第一个匹配项的索引，如果没找到，则返回-1
+		 * 
+		 * 不支持全局匹配
+		 */
+		
+		var str="asdasd";
+		var newStr=str.replace("as","**");
+		//替换只针对检索到的第一个匹配元素
+		console.log(newStr);
+		/*
+		 * /as/gi
+		 * 
+		 * g:正则对象中的修饰符，表示匹配时进行全局匹配（当前字符中全部替换）
+		 * i:正则对象中的修饰符，表示匹配的时候不区分大小写
+		 */
+		//=============================
+		var arr=str.match("as");
+		console.log(arr);
+		console.log(str.match(/as/gi));
+		//=================================
+		var t="2017年02月08日15点28分00秒";
+		var t1=t.match(/\d+/g);
+		console.log(t1.join("-"));
+		
+		//=============================
+		
+		var arr=str.search("sd");
+		console.log(arr);
+		console.log(str.search(/s/));//0
+		
+	</script>
+</html>
