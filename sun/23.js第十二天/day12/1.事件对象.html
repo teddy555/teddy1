@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		
+	</body>
+	<script type="text/javascript">
+	//事件处理程序的第一个参数就是我们的事件对象
+		var show = function(event){
+			console.log(event);
+		}
+		
+		document.querySelectorAll("button")[0].onclick = show;
+		document.querySelectorAll("button")[1].onclick = show;
+		
+	</script>
+</html>

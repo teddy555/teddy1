@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+		<script type="text/javascript">
+			var a=10;
+			var b=a++;
+			var c=++a;
+			console.log(b);
+			console.log(c);
+			/*
+			 将自身自动增加1
+			 a++   ：先进行运算，再进行+1操作
+			 ++a   ：先进行+1操作，再进行运算
+			 * */
+			var d="123";
+			var e=d++;
+			console.log(e);//123
+			
+			var f="asd";
+			console.log(++f);//NaN
+			
+			var g=10;
+			var h=g--;
+			var i=--g;
+			console.log(g);//8
+			console.log(h);//10
+			console.log(i);//8
+		</script>
+</html>
+ 

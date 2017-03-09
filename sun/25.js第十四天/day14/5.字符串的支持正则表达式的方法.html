@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+		//search  :根据模式查找是否存在，存在,返回字符串下标，不存在,返回 -1
+		var s = "1wws3aaa111a9";
+		var index = s.search(/\d{3}/gi);
+//		if(index == -1){
+//			alert("no");
+//		}else{
+//			alert("找到了"+index);
+//		}
+		
+		//match  :返回数组 如果没有 g flag ,则返回结果与reg.exec相同
+		var r = s.match(/\d+(a)/gi);
+		console.log(r);
+		
+		//replace:替换 参数：1.正则，2.要替换的字符串
+		var s = "j123av2akj12JAVA13mn1";
+		console.log(s.replace(/\d/gi,""));
+		
+		var s = "哈哈呵呵哈哈哈呵呵哈哈哈";
+		console.log(s.replace(/(.)\1+/gi,"$1"));		
+		//在替换中引用数组的时候，正则表达式内部使用的 \n，在新的字符串中引用$n
+		
+		var s = "d12,3dsh123,hudsh,,,,";
+		console.log(s.split(/,/gi));
+		
+		var s = "";
+		console.log(s.match(/^http:[^:]+jpg$/gi));
+		
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<input type="text"/>
+	</body>
+	<script type="text/javascript">
+		var input = document.getElementsByTagName("input")[0];
+		//按任意键触发
+		input.onkeydown = function(e){
+//			console.log("你按下了一个键");
+			if(e.keyCode){
+				console.log(e.keyCode);
+			}
+		}
+		//按字符键触发  字母、数字、标点符号键
+		input.onkeypress = function(event){
+			console.log("你按下了字符键"+event.keyCode);//键码
+		}
+		//松开键时触发
+//		input.onkeyup = function(){
+//			console.log("你松开了");
+//		}
+	</script>
+</html>
+<!--
+	如何把字符转换成 0 或 1
+	编码表：
+	ASCII
+	iso8859-1
+	gb2312
+	big5
+	gbk:支持简繁
+	
+-->

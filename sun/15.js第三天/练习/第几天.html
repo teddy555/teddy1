@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入年份：<input type="text" id="nian" /><br><br>
+		请输入月份：<input type="text" id="yue" /><br><br>
+		请输入日期：<input type="text" id="ri" /><br><br>
+		<button onclick="riqi();">查询</button>
+	</body>
+	<script type="text/javascript">
+		var inputs = document.getElementsByTagName("input");
+		function riqi(){
+			var nian = parseInt(inputs[0].value);
+			var yue = parseInt(inputs[1].value);
+			var ri = parseInt(inputs[2].value);
+			var sum=0;
+		switch(yue-1){
+			case 12:
+			sum+=31;
+			case 11:
+			sum+=30;
+			case 10:
+			sum+=31;
+			case 9:
+			sum+=30;
+			case 8:
+			sum+=31;
+			case 7:
+			sum+=31;
+			case 6:
+			sum+=30;
+			case 5:
+			sum+=31;
+			case 4:
+			sum+=30;
+			case 3:
+			sum+=31;
+			case 2:
+			sum+=28;
+			case 1:
+			sum+=31;
+			break;
+			case 0:
+			sum+=0;
+			break;
+		}
+			sum+=ri;
+			document.write("今天是"+nian+"年"+"第"+sum+"天");	
+		}
+
+	</script>
+</html>

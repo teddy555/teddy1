@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		var yu=prompt("请输入语文成绩");
+//		var shu=prompt("请输入数学成绩");
+//		var ying=prompt("请输入英语成绩");
+//		if(yu>90&&shu>90&&ying>90){
+//			alert("妈妈送钢琴一架");
+//		}
+//		else{
+//			alert("挨一顿揍");
+//		}
+
+		var num=prompt("请输入一个四位数");
+		var num1=parseInt(num%10);
+		var num2=parseInt(num%100/10);
+		var num3=parseInt(num%1000/100);
+		var num4=parseInt(num/1000);
+		var sum=num1+num2+num3+num4;
+//		console.log(sum);
+		if(sum>20){
+			alert("幸运");
+		}else{
+			alert("谢谢!");
+		}
+	</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				
+			}
+			ul{
+				width: 300px;
+				list-style: none;
+				margin: 20px auto;
+
+			}
+			ul li{
+				width: 150px;
+				float: left;
+				margin: ;
+				text-align: center;
+				background: #ccc;
+			}
+			ul li a{
+				display: block;
+				text-decoration: none;
+				color: #000;
+			}
+			li div:nth-child(2){
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div>常用链接</div>
+				<div>
+					<a href="http://www.baidu.com">百度</a>
+					<a href="http://www.sh.com">搜狐</a>
+					<a href="http://www.yztcedu.com">育知同创</a>
+				</div>
+			</li>
+			<li>
+				<div>联系我们</div>
+				<div>
+					<a href="">email</a>
+					<a href="">qq</a>
+					<a href="">微信</a>
+				</div>
+			</li>
+		</ul>
+		
+	</body>
+	<script type="text/javascript">
+		var lis = document.getElementsByTagName("li");
+//		console.log(lis[0]);
+		for(var i = 0;i < lis.length;i++){
+			lis[i].onmouseover = function(){
+				//this 指代这个lis[i]对象
+//				console.log(this.lastElementChild);
+				this.lastElementChild.style.display = "block";
+//				console.log(lis[i]);
+			}
+			
+			lis[i].onmouseout = function(){			
+				this.lastElementChild.style.display = "none";
+			}
+		}
+		
+	</script>
+</html>

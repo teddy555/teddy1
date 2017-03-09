@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<button onclick="openA();">打开新窗口</button>
+			<script type="text/javascript">
+		function openA(){
+			window.open("http://www.yztcedu.com");
+		}-->
+			<button onclick="openA();">打开新窗口</button>
+			<script type="text/javascript">
+			var win;
+		function openA(){
+			win=window.open("http://www.yztcedu.com","","width=400,height=400");
+			window.close();
+		}
+		
+	</script>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 打开窗口
+		 * 
+		 * open(URL,name,features)
+		 * 	该方法用于打开一个新的浏览器窗口或者查找一个已经命名过的窗口
+		 * 参数
+		 * 		URL  可选参数，主要声明了要在浏览器新窗口中显示文档的URL
+		 * 			如果省略该参数或者该参数为空，则新窗口不会显示任何文档
+		 * 		name  可选参数  ，该参数是一个由多个逗号分隔的特征列表
+		 * 				其中包括数字，字母，下划线等，该窗口主要用于声明新窗口的名称
+		 * 				这个名称还可以用作标记<a> 和<form>的target属性
+		 * 				如果该参数指定一个已经存在的窗口，那么open() 方法不再创建新窗口
+		 * 				而是返回对该窗口的引用，同时忽略参数features
+		 * 		features  可选参数   声明新窗口需要显示的标准浏览器的特征
+		 * 					如果省略该参数，则新窗口具有所有浏览器的标准特征
+		 * 					如果声明了特殊的特征，则按照声明执行
+		 * 备注：如果不用到 Frame 框架，只需要传入前两个参数即可
+		 * =======================================================
+		 * 窗口特征
+		 * 1.width/height   窗口文档的宽度和高度，单位为像素
+		 * 2.left/top       窗口的坐标，单位是像素
+		 * 3.toolbar        是否显示浏览器的工具栏
+		 * 		yes(1)/no(0)     默认yes
+		 * 4.scrollbar      是否显示滚动条
+		 * 		yes(1)/no(0)     默认yes
+		 * 5.localion       是否显示地址地段
+		 * 		yes(1)/no(0)     默认yes
+		 * 6.status         是否添加状态栏
+		 * 		yes(1)/no(0)     默认yes
+		 * 7.fullscreen     是否使用全屏显示
+		 * 		yes(1)/no(0)     默认no
+		 * 8.menubar        是否显示菜单栏
+		 * 		yes(1)/no(0)     默认yes
+		 * 9.resizable      是否可调节尺寸
+		 * 		yes(1)/no(0)     默认yes
+		 * 10.titlebar       是否显示标题栏
+		 * 		yes(1)/no(0)     默认yes
+		 */
+	</script>
+</html>

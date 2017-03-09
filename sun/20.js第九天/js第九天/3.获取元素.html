@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="get">
+			
+			<input type="checkbox" name="a1" id="a2" value="hh"/>hh
+			<input type="checkbox" name="a1" id="a2" value="aa"/>aa
+			
+		</form>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 获取元素
+		 * 
+		 * document.getElementsByName("")
+		 * 通过标签的 name 属性的值来获取元素
+		 * 可能出现多个相同的 name 值
+		 * 所以返回的是一个 Element 组成的集合
+		 * 
+		 * 有严重的兼容性问题，慎用
+		 * 
+		 * 在 IE 中，此方法还能获取 ID 属性匹配的值
+		 * 所以一般把 ID 和 name 设成不同的值
+		 * 
+		 */
+		var names=document.getElementsByName("a1");
+		for(var i = 0;i<names.length;i++){
+			console.log(names[i].value);
+		}
+	</script>
+</html>

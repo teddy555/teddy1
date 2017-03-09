@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入性别：<input type="text" id="xb"/>
+		<input type="button" value="ok" id="ok" />
+	</body>
+	<script type="text/javascript">
+		var xb=document.getElementById("xb");
+		document.getElementById("ok").onclick=function(){
+			if(xb.value=="女"){
+				alert("女");
+			}
+			else if(xb.value=="男"){
+				alert("男");
+			}else{
+				alert("输入错误！！");
+			}
+		}
+	</script>
+</html>

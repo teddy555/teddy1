@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生成验证码</title>
+		<style type="text/css">
+			#div{
+				width: 200px;
+				height: 100px;
+				background: green;
+				display: inline-block;
+				line-height: 100px;
+				text-align: center;
+				font-size: 80px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div"></div>
+		<a href="javascript:;" id="oA">看不清，换一张</a>
+	</body>
+	<script type="text/javascript">
+		var oDiv=document.getElementById("div");
+		function Random(min,max){
+			var rand=Math.random()*(max-min+1);
+			rand=Math.floor(rand)+min;
+			return rand;
+		}
+		function Random1(){
+			var arr=[];
+			for(var i=0;i<4;i++){
+			arr[i]=Random(0,9);
+			}
+			return arr;
+		}
+		var arr1=Random1();
+		var str=arr1.join("");
+		oDiv.innerHTML=str;
+		//点击a标签触发匿名函数
+		oA.onclick=function(){
+			var arr1=Random1();
+			var str=arr1.join("");
+			oDiv.innerHTML=str;
+		}
+	</script>
+</html>

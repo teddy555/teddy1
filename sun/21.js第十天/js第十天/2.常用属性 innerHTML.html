@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1"></p>
+		<button id="btn1">给p标签添加文本内容</button>
+		<button id="btn2">给p标签添加a标签</button>
+		<button id="btn3">给p标签添加文本内容</button>
+		
+		<script type="text/javascript">
+			btn1.onclick = function(){
+				p1.innerHTML="hahaha<br>";
+				console.log(p1.innerHTML);
+			}
+			btn2.onclick = function(){
+				p1.innerHTML="<a href='http://www.baidu.com'>百度一下</a>";
+				//获取的时候，只会获取这个标签中的文本
+				console.log(p1.innerText);
+			}
+			btn3.onclick = function(){
+				p1.innerText="<a href='http://www.baidu.com'>百度一下</a>";
+				console.log(p1.innerText);
+			}
+		</script>
+	</body>
+</html>

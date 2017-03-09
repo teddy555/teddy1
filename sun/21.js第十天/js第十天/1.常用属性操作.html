@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 100px;
+			}
+			.box1{
+				background: green;
+			}
+			.box2{
+				background: red;
+			}
+			.size{
+				width: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="box1"></div><br>
+		<button>一键换肤</button>
+		<button id="aa">放大</button>
+		<input type="text" id="input1" value="ss" /><br />
+		<input id="input2" type="checkbox" checked />
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 常用属性操作
+		 * 
+		 */
+//		var box = document.getElementsByTagName("div")[0];
+//		var input2 = document.getElementsByTagName("input")[1];
+		
+		console.log(box.tagName);//1.直接获取标签的标签名
+		//console.log(box.id);//2.直接获取标签的id名
+		var att = "id";
+		console.log(box[att]);//中括号语法支持变量
+		
+		document.querySelector("button").onclick = function(){
+			if(box.className=="box1"){
+				box.className = "box2";
+			}else{
+				box.className = "box1";
+			}
+		}
+		
+		document.getElementById("aa").onclick = function(){
+			box.className += " size"; //注意这里的空格
+		}
+		
+
+		
+		console.log(input1.value);//如果一个元素设置了id，则浏览器会默认创建一个同名的变量表示这个dom元素，在实际开发中不要使用
+		console.log(input2.checked);
+		input2.onchange = function(){
+        console.log(input2.checked);
+		}
+	</script>
+</html>

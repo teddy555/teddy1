@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">
+			<a href="###">搜狐</a>
+			<div id="div2"></div>
+			<div id="div">
+				<a href="###">haha</a>
+			</div>
+			<input type="text" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * parentNode  属性
+		 * 
+		 * 获取一个元素的父节点
+		 * 
+		 */
+		var div=document.getElementById("div");
+		var div1=div.parentNode;
+		console.log(div1);
+		console.log(div1.nodeName);//div
+		
+		//============================================
+		/*
+		 * previousSibling 属性
+		 * 获取元素的上一个兄弟节点
+		 * * nextSibling 属性
+		 * 获取元素的下一个兄弟节点
+		 * 
+		 */
+		var div2=document.getElementById("div2");
+		var previousSibling=div2.previousSibling;
+		console.log(previousSibling);
+		console.log(previousSibling.nodeName);
+		
+		var nextSibling=div2.nextSibling;
+		console.log(nextSibling);
+		console.log(nextSibling.nodeName);
+		
+		/*
+		 * 拓展：
+		 * 获取一个节点所在文档的根节点
+		 * 元素名称.ownerDocument
+		 * 实际上相当于整个文档节点
+		 */
+		console.log(div1.ownerDocument);
+		
+		/*
+		 * 获取当前节点所有的属性节点
+		 * 元素名称.attributes
+		 */
+		console.log(div1.attributes);
+		
+	</script>
+</html>

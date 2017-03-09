@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="year" />
+		<button onclick="run();">查询</button>
+	</body>
+	<script type="text/javascript">
+		var num1=document.getElementById("year");
+		function run(){
+			var num=parseInt(num1.value);
+			if(num%400==0||num%4==0&&num%100!=0){
+				alert(num+"是闰年");
+			}else{
+				alert(num+"年不是闰年");
+			}
+		}
+//		run(num1);
+	</script>
+</html>

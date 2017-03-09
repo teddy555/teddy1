@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="input1" id="input1" value="" />
+	</body>
+	<script type="text/javascript">
+	//获取焦点时触发
+		input1.onfocus = function(){
+			input1.style.outline = "none";
+			input1.style.border="1px solid red";
+		}
+		//失去焦点时触发
+		input1.onblur = function(){
+//			input1.style.outline = "none";
+			input1.style.border="1px solid green";
+		}
+	</script>
+</html>

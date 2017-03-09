@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<button onclick="open1();">打开新的文档</button>
+		<button onclick="reload();">刷新页面</button>
+		<button onclick="replace();">替换文档</button>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * location 的常用方法
+		 * 
+		 * 1.assign(url)   	 	加载新的文档
+		 * 2.reload(reforce)	重新加载当前文档
+		 * 	该方法用于重新加载当前文档
+		 * 	参数：
+		 * 		reforce   可选参数   一般填写true
+		 * 		该方法如果没有规定参数，或者填写参数为false
+		 * 		那么就会采用 HTTP 中的头 if-Modified-Since来去检测服务器上文档是否已经发生改变
+		 * 
+		 * 		如果文档已经改变，则会通过 reload() 方法重新加载该文档
+		 * 		如果文档没有发生改变，则该方法从缓存中装载文件
+		 * 
+		 * 		如果该方法参数设为 true ，那么无论文档的最后修改日期是什么
+		 * 		都会绕过缓存，直接从服务器端重新下载该文档
+		 * 
+		 * 该方法如果有参数，则从服务器中重新下载
+		 * 如果没有参数，则优先从缓存中加载文档
+		 * 
+		 * 注意：
+		 * 		reload() 方法调用之后可能会造成在 reload 加载顺序之后的文档不执行
+		 * 		所以一般把 reload() 放在最后面
+		 * 3.replace(mewURL)	用新的文档替换当前文档
+		 * 		该方法不会在 history 对象中生成记录。
+		 * 		使用该方法是，会直接采用新的 URL 覆盖History 对象中的 URL
+		 * 		按下后退也回不到原来的页面
+		 */
+		function open1(){
+			location.assign("http://www.baidu.com");
+		}
+		//=====================================
+		function reload(){
+			location.reload(true);
+		}
+//		reload();
+	function replace(){
+			location.replace("http://www.baidu.com");
+		}
+	</script>
+</html>

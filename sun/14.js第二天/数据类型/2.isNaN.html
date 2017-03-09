@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		 NaN
+		 not a number 缩写
+		 0/0不是无限大，而是NaN
+		 把一个非数字形式的字符串转换为数字的时候，NaN
+		 * */
+		console.log(0/0);
+		console.log(parseInt("60"));
+		console.log(parseInt("a"));
+		//isNaN()；判断当前内容是否是NaN
+		//是一个数字，弹出false--> 是数字
+		//不是数字，则弹出true--> 不是数字
+		console.log(isNaN(3));//false
+		console.log(isNaN("abc"));//true
+		console.log(isNaN("2"));//false
+		console.log(isNaN("2a"));//true
+		console.log(isNaN(true));//false  true->1   
+		console.log(isNaN(false));//false  false->0
+		console.log(isNaN(null));//false  null->0
+		console.log(isNaN(undefined));//true
+	</script>
+</html>

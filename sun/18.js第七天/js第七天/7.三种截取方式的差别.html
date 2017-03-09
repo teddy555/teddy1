@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 三种截取方式之间的差别
+		 * 
+		 * 1.substring()
+		 * 2,substr()
+		 * 3.slice()
+		 * 
+		 * 三者之间最大的差别在于 如果传递的参数是“负数”
+		 * 1.substring 会把所有的负值参数转化为0
+		 * 2.substr 会将第一个负参数加上字符串的长度，第二个负参数转化为0
+		 * 3.slice 会将负值和字符串的长度相加
+		 */
+		
+		var str="hello world";
+		var ret1=str.substring(2,-8);
+		var ret2=str.substr(2,-8);
+		var ret3=str.slice(2,-8);
+		
+		console.log("substring:"+ret1);
+		console.log("substr:"+ret2);
+		console.log("slice:"+ret3);
+		
+		console.log("原始字符串:"+str);
+		
+	</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="#" method="get">
+		<input type="text" name="user" /><br><br>
+		<input type="password" name="pwd" /><br>
+		<input type="submit" name="" id="" value="提交" />
+		</form>
+	</body>
+	<script type="text/javascript">
+		var inputs = document.getElementsByTagName("input");
+		document.querySelector("form").onsubmit = function(e){
+			//姓名5-8个字符，第一个不能是数字
+			var user = inputs[0].value;
+			var reg1 = /[^0-9]\w{4,7}$/i;
+			if(!reg1.test(user)){
+				e.preventDefault();//清除表单的默认行为
+				alert("请输入5-8位字符");
+			}
+		}
+		
+	</script>
+</html>
+<!--<html>
+	<meta charset="utf-8">
+<head>
+<title> JS Testing </title>
+</head>
+<body>
+<div style="float:left">
+	<ul style="margin-left:0px">
+		<li><input type="checkbox">北京</li>
+		<li><input type="checkbox">上海</li>
+		<li><input type="checkbox">广州</li>
+		<li><input type="checkbox">深圳</li>
+		<li><input type="checkbox">成都</li>
+	</ul>
+</div>
+<button style="margin-left:20px;width:50px;"> => </button>
+<textarea style="margin-left:20px" rows="5" cols="30" id="output"></textarea>
+</body>
+  <script type = "text/javascript">
+  	var text1 = document.getElementsByTagName("textarea")[0];
+    	var input1 = document.getElementsByTagName("input");
+    	var a;
+    	var b = [];
+    document.getElementsByTagName("button")[0].onclick = function(){     	
+    	for(var i = 0;i<input1.length;i++){
+      	a = input1[i];
+      	if(a.checked){
+        	b.push(a.parentElement.innerText);
+      	}
+   	 }
+    	text1.innerHTML = b.join(",");
+    }
+  </script>
+</html>-->

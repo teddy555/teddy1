@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html onclick="alert('html')">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body onclick="alert('body')">
+		aa
+	</body>
+</html>
+<!--
+	事件三要素
+	美女经过马路事件
+	1.事件源：事件发生的地点 马路
+	2.事件对象：美女经过马路
+	3.事件监听器（函数）：趴在窗户上的人
+	
+	按钮的点击事件
+	1.事件源：按钮
+	2.事件对象：点击这个事件
+	3.处理函数：给onclick赋值的函数
+	btn.onclick = function(){}
+	
+	事件流
+	从内向外：冒泡
+	从外向内：捕获
+	
+	DOM事件流：先捕获再冒泡
+	目前所有浏览器都支持DOM事件流，目前都是默认在冒泡阶段触发事件
+-->
