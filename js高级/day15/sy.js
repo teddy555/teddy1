@@ -2,12 +2,13 @@
 //var b = 2;
 //console.log(a+b);
 
-//process ÊÇÈ«¾ÖµÄ£¬ËùÒÔÔÚÈÎºÎµÄµØ·½¶¼¿ÉÒÔÖ±½ÓÊ¹ÓÃ
-//process.stdin.on("data",function(msg){
-//	console.log("ni£º"+msg);
-//});
-				//setTimeout(function step(){
-				//	console.log("hello");
-				//	step();
-				//},1000);
-//var http = require("http");//µ¼ÈëÄ£¿é
+//process æ˜¯å…¨å±€çš„ï¼Œæ‰€ä»¥åœ¨ä»»ä½•çš„åœ°æ–¹éƒ½å¯ä»¥ç›´æ¥ä½¿ç”¨
+// process.stdin.on("data",function(msg){
+// 	console.log("niï¼š"+msg);
+// });
+//setTimeout(function step(){
+//	console.log("hello");
+//	step();
+//},1000);
+//var http = require("http");//å¯¼å…¥æ¨¡å—
+
