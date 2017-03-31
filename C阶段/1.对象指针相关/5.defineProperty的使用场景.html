@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				width: 200px;
+				height: 50px;
+				background: pink;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="点我" />
+	</body>
+	<script type="text/javascript">
+		function Person(){
+			this.dog = new Dog();
+			this.cat = new Cat();
+			this.mouse = new Mouse();
+			var self = this;
+			//统一给宠物设置名字
+			Object.defineProperty(this,"petName",{
+				//参数是要设置的名字
+				set:function(newname){
+					self.dog.dogname = "狗：" + newname;
+					self.cat.catname = "猫：" + newname;
+					self.mouse.mousename = "老鼠：" + newname;
+				},
+				get:function(){
+					return [this.dog.dogname,this.cat.catname,this.mouse.mousename];
+				}
+			})
+			
+		}
+		function Dog(){}
+		function Cat(){}
+		function Mouse(){}
+		
+		var Person1 = new Person();
+		
+		//统一给这些宠物设置一个名字		
+//		Person1.dog.dogname = "妞妞";
+//		Person1.cat.catname = "妞妞";
+//		Person1.mouse.mousename = "妞妞";
+		Person1.petName = "牛牛";
+//		console.log(Person1);
+//		console.log(Person1.petName);
+		
+	
+	
+	//点击按钮，边框变椭圆
+	var btn = document.querySelector("input");
+	
+	Object.defineProperty(btn,"borderRa",{
+		//参数是border-radius 的值
+		set:function(Value){
+			btn.style.webkitBorderRadius = Value;
+			btn.style.mozBorderRadius = Value;
+			btn.style.borderRadius = Value;
+		}
+	})
+	
+	btn.onclick = function (){
+		btn.borderRa = "50%";
+		console.log(btn.style);
+	}
+		
+	</script>
+</html>

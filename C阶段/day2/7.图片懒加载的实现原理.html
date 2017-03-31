@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+				width: 440px;
+				margin: 0 auto;
+			}
+			li{
+				width: 440px;
+				height: 300px;
+			}
+			li img{
+				width: 440px;
+				height: 300px;
+				/*以下css是为了做渐变效果,意思是当 opacity 的值发生变化的时候，会触发一个动画效果，时间为2s*/
+				opacity: 0;
+				transition: opacity 2s; 
+			}
+			li img[src]{
+				opacity: 1;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img data-src="img/0.jpg" alt="" /></li>
+			<li><img data-src="img/1.jpg" alt="" /></li>
+			<li><img data-src="img/2.jpg" alt="" /></li>
+			<li><img data-src="img/3.jpg" alt="" /></li>
+			<li><img data-src="img/4.jpg" alt="" /></li>
+			<li><img data-src="img/5.jpg" alt="" /></li>
+			<li><img data-src="img/6.jpg" alt="" /></li>
+			<li><img data-src="img/7.jpg" alt="" /></li>
+			<li><img data-src="img/8.jpg" alt="" /></li>
+			<li><img data-src="img/9.jpg" alt="" /></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 图片懒加载的原理
+		 * 1.提前给图片设置好宽度和高度来占位(将来可以找占位图来做)
+		 * 2.不去设置src属性，设置一个自定义属性 如data-src ，我们把图片的路径地址，存到data-src中
+		 * 3.在滚动过程中，判断屏幕的底部(滚动的距离 + 屏幕的高度)是否大于图片的top值，来控制是否真正的显示图片
+		 * 4.最后把存在data-src中的图片地址，设置到src属性中即可
+		 */
+		
+		//获取所有图片
+		var imgs = document.querySelectorAll("img");
+		
+		//获取屏幕的高度
+		var sh = window.innerHeight;
+		
+		//绑定滚动事件
+		window.onscroll = lazyloadFn;
+		function lazyloadFn(){
+			//获取滚动的距离
+			var st = document.body.scrollTop;
+			
+			//计算当前屏幕底端的位置 = 滚动的距离 + 屏幕的高度
+			var sb = sh + st;
+			
+			for(var i = 0;i<imgs.length;i++){
+				//判断图片的top是否小于等于屏幕底端，如果小于的话就设置src属性
+				if(imgs[i].offsetTop <= sb){
+					imgs[i].src = imgs[i].getAttribute('data-src');
+				}
+			}
+		}
+		
+		//最开始显示图片
+		lazyloadFn();
+		
+	</script>
+</html>

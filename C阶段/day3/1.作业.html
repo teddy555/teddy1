@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+		//员工类
+		class Staff{
+			constructor (name,departmentName,time){
+				this.name = name;
+				this.departmentName = departmentName;
+				this.time = time;				
+			}
+			//打印当前员工的信息
+			printSelfInfo(){
+				console.log(`	姓名:${ this.name } 入职时间: ${ this.time }`);
+				
+			}
+		}
+		
+		//公司类
+		class Company{
+			constructor (){
+				this.departmentMap = new Map();	
+				
+			}
+			
+		//添加员工的方法
+			addStaff(newStaff){
+				//判断员工是否重复
+				for(let tempStaffArr of this.departmentMap.values()){
+					for(let tempStaff of tempStaffArr){
+						if(newStaff.name == tempStaffArr.name&&newStaff.time == tempStaffArr.time){
+							console.log(`不能重复添加新员工`);
+							return;
+						}
+					}
+				}
+				//判断部门是否重复
+				let staffArr = this.departmentMap.get(newStaff.departmentName);
+				if(!staffArr){
+					//如果不存在需要创建该部门，并把该员工添加到该部门中
+					staffArr = new Array();
+//					staffArr.push(newStaff);
+					this.departmentMap.set(newStaff.departmentName,staffArr);
+				}
+				staffArr.push(newStaff);
+				
+			}
+			//显示员工信息
+			showStaffInfo(){
+				
+				for(let [departmentName,staffArr] of this.departmentMap){
+					console.log(`${departmentName}:`);
+					for(let tempStaff of staffArr){
+						console.log(`	姓名:${ tempStaff.name } 入职时间: ${ tempStaff.time }`);
+					}
+				}
+			}
+		}	
+		
+		//测试
+		let company = new Company();
+		
+		let staff1 = new Staff("菲菲","行政部",2015);
+		let staff2 = new Staff("菲菲","后勤部",2015);
+		let staff3 = new Staff("菲菲","研发部",2017);
+		let staff4 = new Staff("脸脸","行政部",2016);
+		let staff5 = new Staff("春春","研发部",2015);
+		let staff6 = new Staff("老于","后勤部",2016);
+		let staff7 = new Staff("波波","人事部",2015);
+		
+		//添加员工
+		company.addStaff(staff1);
+		company.addStaff(staff2);
+		company.addStaff(staff3);
+		company.addStaff(staff4);
+		company.addStaff(staff5);
+		company.addStaff(staff6);
+		company.addStaff(staff7);
+		//打印信息
+		company.showStaffInfo();
+	</script>
+</html>

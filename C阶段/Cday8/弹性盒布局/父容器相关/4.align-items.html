@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<style type="text/css">
+			/*align-items:flex-start|flex-end|center|baseline|stretch */
+			/* 交叉轴对齐方式：顶部对齐|底部对齐|居中对齐|交叉基线对齐|
+			 * 如果子元素没有设置高度或者高度设为auto，将占满整个容器(默认)
+			 *  */
+			ul:nth-child(1){
+				align-items: flex-start;
+			}
+			ul:nth-child(2){
+				align-items: flex-end;
+			}
+			ul:nth-child(3){
+				align-items: center;
+				justify-content: center;
+			}
+			ul:nth-child(4){
+				align-items: baseline;
+			}
+			ul:nth-child(5){
+				align-items: stretch;
+			}
+			ul li{
+				height: auto;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li style="line-height: 30px;">3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>

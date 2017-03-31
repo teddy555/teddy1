@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--multiple 支持上传多个文件-->
+		文件上传：<input type="file" multiple="multiple" />
+		<ol>
+			
+		</ol>
+	</body>
+	<script type="text/javascript">
+		var inputFile = document.querySelector("input[type=file]");
+		inputFile.onchange = function(){
+			//console.log(this.files);
+			//利用数组的slice方法可以将 含有length属性的对象转换成数组
+			var fileArr = Array.prototype.slice.call(this.files);
+			console.log(fileArr);
+			
+			//遍历数组
+			for(var tempfile of fileArr){
+//				console.log(tempfile);
+				//以上获取的仅仅是每个上传文件对象，并不能获得每个文件对象内部的内容，我们
+				//需要通过 FileReader 这个类，来获取内容，
+				//FileReader读取文件内容的时候需要一个Blob对象，经过观察File对象就是Blob对象
+				var fileReader = new FileReader();
+				//1.读取数据以文本形式，需要两个参数 Blob对象   和读取时用的编码格式
+//				fileReader.readAsText(tempfile,'utf-8');
+				//2.读取数据以图片形式，需要一个参数 Blob对象 
+				fileReader.readAsDataURL(tempfile);
+				
+				//读取文件内容是一个异步的过程，需要触发三个事件
+				
+				//文件读取时触发
+				fileReader.onloadstart = function(){
+//					console.log("开始")
+				}
+				//文件读取过程持续触发
+				fileReader.onprogress = function(){
+//					console.log("正在获取");
+				}
+				//文件读取结束时触发
+				fileReader.onloadend = (function(tempfile){
+//					console.log("文件读取结束");
+//					console.log(this.result);
+
+					return function(){
+						//判断上传的文件是否是图片类型
+						if(/^(image)/.test(tempfile.type)){
+							//如果是图片，添加到body中即可
+							var img = document.createElement("img");
+							img.src = this.result;
+							document.body.appendChild(img);
+						}else{
+							document.querySelector("ol").appendChild(createli(tempfile));
+						}
+					}
+					
+				})(tempfile);
+			}
+			
+		}
+		//创建li的方法
+		function createli(file){
+			var li = document.createElement("li");
+			//处理文件名字
+			var spanName = document.createElement("span");
+			spanName.innerHTML = file.name + " ";
+			li.appendChild(spanName);
+			
+			//处理文件的大小(单位：kb)
+			var spanSize = document.createElement("span");
+			spanSize.innerHTML = (file.size/1024).toFixed(2)+"kb ";
+			li.appendChild(spanSize);
+			
+			//处理时间()
+			var spanDate = document.createElement("span");
+			spanDate.innerHTML = getDateFormtToString(file.lastModifiedDate);
+			li.appendChild(spanDate);
+			
+			return li;
+		}
+		
+		//日期格式化处理
+		function getDateFormtToString(date){
+			return date.getFullYear() + "年" + addZero(date.getMonth()+1) + "月" 
+			+ addZero(date.getDate()) + "日" + addZero(date.getHours()) + ":" 
+			+ addZero(date.getMinutes()) + ":" + addZero(date.getSeconds()) + " "
+			+ map.get(date.getDay());
+		}
+		
+		
+		//补零操作
+		function addZero(num){
+			return num >=10 ?num:"0" + num;
+		}
+		
+		
+		//星期Map结构
+		var map = new Map([
+			[0,'星期日'],
+			[1,'星期一'],
+			[2,'星期二'],
+			[3,'星期三'],
+			[4,'星期四'],
+			[5,'星期五'],
+			[6,'星期六'],
+		]);
+		
+	</script>
+</html>

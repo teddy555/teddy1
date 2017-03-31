@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//分析字面量对象
+		var rootObj = {
+			//地区数组
+			regions : [
+				//地区对象
+				{
+					regionName : "北京地区",
+					//学校数组
+					schools : [
+						{
+							schoolName : "北京一中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1606",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "马丹丹"
+										}
+									]
+								},
+								{
+									className : "iOS-1602",
+									//学生数组
+									students : [
+										{
+											studentName : "丁环宇"
+										},
+										{
+											studentName : "张俊"
+										}
+									]
+								}
+							]
+						},
+						{
+							schoolName : "北京二中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1605",
+									//学生数组
+									students : [
+										{
+											studentName : "刘升升"
+										},
+										{
+											studentName : "张三三"
+										}
+									]
+								},
+								{
+									className : "iOS-1603",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "肖小军"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+		
+		
+		//输入名字查找所有信息
+		function findPersonInfo(name){
+			for(var i of rootObj.regions){
+				for(var j of i.schools){
+					for(var x of j.classes){
+						for(var y of x.students){
+							if(y.studentName==name){
+								console.log("地区:"+i.regionName+"\n学校:"+j.schoolName+"\n班级:"+x.className+"\n学生:"+y.studentName);
+							}
+						}
+					}
+				}
+			}
+		}
+		findPersonInfo('肖小军');
+	</script>
+</body>
+</html>

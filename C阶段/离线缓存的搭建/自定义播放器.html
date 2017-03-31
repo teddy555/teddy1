@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video width="800" height="500" id="video" >
+			<source src="source/终结者.MP4"></source>
+		</video>
+		<div id="controlDiv">
+			<input type="button" value="播放" id="play" />
+			<input type="button" value="静音" id="muted" />
+			<input type="button" value="全屏" id="all" />
+			<input type="button" value="下一首" id="next" />
+			播放进度: <input type="range" value = '0' id="prorange" />
+			音量: <input type="range" value = '100' max="100" id="music"/>
+			<span id="leftspan">0:00</span>
+			/
+			<span id="rightspan"></span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var play = document.querySelector("#play");
+		var muted = document.querySelector("#muted");
+		var all = document.querySelector("#all");
+		var next = document.querySelector("#next");
+		var prorange = document.querySelector("#prorange");
+		var music = document.querySelector("#music");
+		var leftspan = document.querySelector("#leftspan");
+		var rightspan = document.querySelector("#rightspan");
+		var video = document.querySelector("#video");
+		
+		//定时器标识
+		var timerId;
+		//播放按钮
+		play.onclick = function(){
+			if(video.paused){
+				//判断是否是暂停状态
+				video.play();
+				//设置播放进度最大值
+				prorange.max = video.duration;
+				timerId = setInterval(progressFn,100);
+				this.value = '暂停';
+			}else{
+				video.pause();
+				this.value = '播放';
+			}
+		}
+		
+		//播放进度方法
+		function progressFn(){
+			prorange.value = video.currentTime;
+			leftspan.innerHTML = timeFn(video.currentTime);
+			if(video.ended){
+				play.value = '播放';
+				clearInterval(timerId);
+			}
+		}
+		
+		//播放进度
+		prorange.oninput = function(){
+			video.currentTime = this.value;
+		}
+		//保存音量值
+		var volumeNum;
+		//静音
+		muted.onclick = function(){
+			if(video.muted){
+				video.muted = false;
+				music.value = volumeNum;
+				this.value = '静音';
+			}else{
+				video.muted = true;
+				//静音的时候，需要把之前的音量保存起来，方便使用
+				volumeNum = music.value;
+				music.value = 0;
+				this.value = '取消静音';
+			}
+		}
+		
+		//音量
+		music.oninput = function(){
+			video.volume = this.value/100;
+		}
+		
+		//全屏
+		all.onclick = function(){
+			video.webkitRequestFullScreen();			
+		}
+		
+		//音频/视频加载完媒体数据后触发的事件
+		video.onloadedmetadata = function(){
+			leftspan.max = video.duration;
+			leftspan.innerHTML = timeFn(video.currentTime);
+			rightspan.innerHTML = timeFn(video.duration);
+		}
+		//处理显示时间
+		function timeFn(date){
+			return parseInt(date/60)+':'+twos(date%60);
+		}
+		//补零操作
+		function twos(times){
+			return parseInt(times)<10?"0"+parseInt(times):parseInt(times);
+		}
+		//视频列表
+		var videoArr = ['source/Nimo.MP4','source/终结者.MP4'];
+		//记录上一首歌的下标
+		var prevNum = 1;
+		
+		//下一首按钮
+		next.onclick = function(){
+			clearInterval(timerId);
+			video.src = videoArr[randomFn()];
+		}
+		//随机函数(保证每次都和上一次不同)
+		function randomFn(){
+			var newNum = Math.floor(Math.random()*videoArr.length);
+			while(newNum == prevNum){
+				newNum = Math.floor(Math.random()*videoArr.length);
+			}
+			//更新上一次的下标
+			prevNum = newNum;
+			return newNum;
+		}
+		
+	</script>
+</html>

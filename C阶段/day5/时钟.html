@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				border: 3px solid #000;
+				margin: 100px auto;
+				position: relative;
+				transform-style: preserve-3d;
+			}
+			.a{
+				position: relative;
+				left: 140px;
+			}
+			.aa{
+				position: absolute;
+				width: 20px;
+				height: 150px;
+				transform-origin: bottom center;
+			}
+			.b{
+				/*background: lightcoral;*/
+				/*border-radius: 50%;*/
+				text-align: center;
+				line-height: 20px;
+			}
+			.hours,.minutes,.second{
+				position: absolute;
+				top: 150px;
+				transform-origin: top center;
+				
+			}
+			.hours{
+				width: 8px;
+				height: 80px;
+				background: lightcoral;
+				left: 146px;
+				line-height: 160px;
+			}
+			.minutes{
+				width: 6px;
+				height: 100px;
+				background: lightblue;
+				left: 147px;
+				line-height: 200px;
+			}
+			.second{
+				width: 4px;
+				height: 120px;
+				background: yellow;
+				left: 148px;
+				line-height: 240px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box">
+			<div class="hours"></div>
+			<div class="minutes"></div>
+			<div class="second"></div>
+			<div class="a"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var hours = document.querySelector(".hours");
+		var minutes = document.querySelector(".minutes");
+		var second = document.querySelector(".second");
+		var a = document.querySelector(".a");
+		setInterval(function(){
+			times();
+		},1000);
+		var date = new Date();
+		var h,m,s = date.getSeconds();
+		function times(){
+			s++;
+			date.setSeconds(s);
+			h = date.getHours();
+			m = date.getMinutes();
+			s = date.getSeconds();
+			hours.style.transform = "rotateZ( " + (h%12*30+180+m*0.5) + "deg )";
+			minutes.style.transform = "rotateZ( " + (m*6+180) + "deg )";
+			second.style.transform = "rotateZ( " + (s*6+180) + "deg )";
+			//hours.innerHTML = h;
+			//minutes.innerHTML = m;
+			//second.innerHTML = s;
+		}
+		times();
+		for(let i = 0;i<12;i++){
+			var aa = document.createElement("div");
+			aa.className = 'aa';
+			var b = document.createElement("div");
+			b.className = 'b';
+			b.innerHTML = i+1;
+			aa.appendChild(b);
+			a.appendChild(aa);
+			aa.style.transform = "rotate(" + 30*(i+1) + "deg)";
+			b.style.transform = "rotate(" + 30*(-i-1) + "deg)";
+		}
+	</script>
+</html>

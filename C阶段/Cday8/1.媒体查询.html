@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: pink;
+				/*min-width: 1160px;*/
+			}
+			
+			/*
+			 使用@media query  可以实现响应式布局的效果
+			 会根据不同的条件，去设置不同的样式
+			 * */
+			
+			/*
+			 * screen表示的是屏幕  min-width是最小宽度
+			 * 当浏览器的宽度大于等于min-width时，显示的样式
+			 */
+			@media only screen and (min-width:1201px ) {
+				body{
+					background: red;
+				}
+			}
+			
+			/*当浏览器的宽度大于等于800px且小于等于1200px时，body的背景颜色为红色*/
+			@media only screen and (min-width:800px ) and (max-width:1200px) {
+				body{
+					background: orange;
+				}
+			}
+			/*当浏览器的宽度大于等于400px且小于等于640px时，body的背景颜色为红色*/
+			/*注意：媒体查询条件没有衔接上的部分显示默认样式*/
+			@media only screen and (min-width:400px ) and (max-width:640px) {
+				body{
+					background: blue;
+				}
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>

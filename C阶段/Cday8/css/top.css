@@ -1,0 +1,29 @@
+				.logo{
+					width: 30%;
+					height: 100%;
+					float: left;
+					background: url(img/star.png) no-repeat;
+					line-height: 100px;
+					padding-left: 100px;
+					color: #fff;
+				}
+				.top_ul{
+					width: 55%;
+					float: right;
+				}
+				.top_in{
+					max-width: 1600px;
+					height: 100px;
+					margin: 0 auto;
+				}
+				.top_ul li{
+					float: left;
+					width: 20%;
+					font-size: 20px;
+					line-height: 100px;
+					text-align: center;
+				}
+				.box1_tu img{
+					padding-top: 100px;
+					max-width: 100%;
+				}

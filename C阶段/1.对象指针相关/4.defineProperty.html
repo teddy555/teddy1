@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var obj = {};
+		
+		/*
+		 * 三个参数：
+		 * 1.要设置属性所在的对象
+		 * 2.要设置的属性的名字
+		 * 3.要设置属性的特性
+		 */
+		
+		Object.defineProperty(obj,'name',{
+			//设置初始值
+			//如果只设置这个特性的话，默认是不可修改的，writable 属性的值是 false
+//			value : '小雪',
+			//设置属性是否可修改，默认false
+//			writable:true,
+			//设置是否能用for in 遍历,默认false
+			enumerable:true,
+			//设置属性存取器 不可和value,writable 共存
+			//当使用obj.name = "xxx";的时候就会进入到这个方法内
+			set:function(){
+				console.log("a");
+			},
+			//当使用 obj.name 获取的时候会调用这个方法
+			get:function(){
+				console.log("b");
+			}
+		})
+//		console.log(obj.name);
+//		for(var a in obj){
+//			console.log(a);
+//		}
+		obj.name = "aa";
+		obj.name;
+	</script>
+</html>

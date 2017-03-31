@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var str = 'abcd';
+		var person = {
+			name:'浅浅',
+			age:18,
+		}
+		var arr = ['aa','bb','cc'];
+		var map = new Map([
+			['name','折颜'],
+			['age','18']
+		]);
+		//遍历字符串
+		for(var i of str){
+			console.log(i);// a,b,c,d
+		}
+		//遍历对象
+//		for(var i of person){
+//			console.log(i);
+//		}
+		//遍历数组
+		for(var i of arr){
+			console.log(i);//aa,bb,cc
+		}
+		//遍历Map
+//		for(var i of map){
+//			console.log(i);
+//		}
+		//
+		for(var [key,value] of map){
+			console.log(key + ":" + value);
+		}
+		//
+		for(var i of map.keys()){
+			console.log(i);
+		}
+		//
+		for(var i of map.values()){
+			console.log(i);
+		}
+	</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video width="800" height="500" controls="controls">
+			<source src="source/终结者.MP4" type="audio/mp4"></source>
+		</video><br>
+		<input type="button" value="播放" />
+		<input type="button" value="静音" />
+		<input type="button" value="全屏" />
+		<span>音量：</span><input type="range" value="50" max="100"/>
+		<span>播放进度：</span><input type="range" value="0" max="100" width="200px"/>
+		<span id="Times">00:00/00:00</span>
+		<script type="text/javascript">
+		var ipt = document.querySelectorAll("input");
+		var span = document.querySelector("#Times");
+		var video = document.querySelector("video");
+		//处理时间格式函数
+		function zreo(t){
+			return t<10?'0'+t:t;
+		}
+		//显示播放进度
+		function getTimes(){
+			//总时间
+			var zt = parseInt(video.duration);
+			var tt = setInterval(function(){
+				//当前时间
+				var dt = parseInt(video.currentTime);
+				dt++;
+				ipt[4].value = 100*dt/zt;
+				span.innerHTML = zreo(parseInt(dt/60))+':'+zreo(dt%60) + '/' +zreo(parseInt(zt/60))+':'+zreo(zt%60);
+				if(dt==zt){
+					dt = 0;
+					span.innerHTML = zreo(parseInt(dt/60))+':'+zreo(dt%60) + '/' +zreo(parseInt(zt/60))+':'+zreo(zt%60);
+					clearInterval(tt);
+				}
+			},1000);
+		}
+		ipt[0].onclick = function(){
+			if(this.value=="播放"){
+				video.play();
+				ipt[0].value = "暂停";
+			}else{
+				video.pause();
+				this.value ="播放";
+			}
+			getTimes();
+		}
+		ipt[1].onclick = function(){
+			if(video.muted){
+				video.muted = false;				
+			}else{
+				video.muted = true;
+			}
+		}
+		//全屏
+		ipt[2].onclick = function(){
+			video.webkitRequestFullScreen();			
+		}
+		
+		ipt[3].onmousemove = function(){
+			video.volume = this.value/100;
+		}
+		ipt[4].onclick = function(){
+			video.currentTime = parseInt(ipt[4].value*video.duration/100);
+			var dt = parseInt(video.currentTime);
+			var zt = parseInt(video.duration);
+			span.innerHTML = zreo(parseInt(dt/60))+':'+zreo(dt%60) + '/' +zreo(parseInt(zt/60))+':'+zreo(zt%60);
+		}
+		
+		
+		</script>
+	</body>
+</html>

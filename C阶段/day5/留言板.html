@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*:not(ol){
+				padding: 0;
+			}
+			*{
+				margin: 0;
+			}
+			.box{
+				width: 500px;
+				height: 400px;
+				border: 2px solid green;
+				margin: 50px auto;
+				overflow: scroll;
+			}
+			input{
+				width: 400px;
+				height: 50px;
+				border: 1px solid green;
+				font-size: 30px;
+			}
+			button{
+				height: 50px;
+				background: green;
+				color: #fff;
+				font-size: 30px;
+			}
+			#btn1{
+				width: 100px;
+				position: absolute;
+				border: 5px solid green;
+			}
+			#btn2{
+				width: 200px;
+			}
+			ol{
+				padding-left: 30px;
+			}
+			#ol li{
+				border: 1px dashed green;
+			}
+			ol li div{
+				display: inline-block;
+				width: 25px;
+				height: 20px;
+				border: 1px solid #ccc;
+				text-align: center;
+				color: red;
+				cursor: pointer;
+				float: right;
+			}			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<form action="javascript:;" method="post">
+				<input type="text" id="" placeholder="请输入留言:" autofocus="autofocus" />
+				<button id="btn1">留言</button>
+			</form>
+			<ol id="ol">
+			</ol>
+			<button id="btn2">清空所有留言</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ol = document.querySelector("#ol");
+		var btn2 = document.querySelector("#btn2");
+		var ipt = document.querySelector("input");
+		var btn1 = document.querySelector("#btn1");
+		var TextArr = getLY()||[];
+//		var date = new Date();
+//		var msg = "msg_"+date.getTime();
+		//存储留言
+		function liuyan(Texts){
+			//存储到本地
+			TextArr.push(Texts);
+			window.localStorage.setItem('TextArr',JSON.stringify(TextArr));
+			//放到li中
+			addli(getLY());
+		}
+		//添加li 并把留言放入li中
+		function addli(Textarr){
+			ol.innerHTML = "";
+			for(var tempvalue in Textarr){
+				var li = document.createElement("li");
+				li.innerHTML = "&nbsp;&nbsp;" + Textarr[tempvalue] + "&nbsp;&nbsp;<div>x</div>";
+				ol.appendChild(li);
+			}
+		}
+		//获取留言
+		function getLY(){
+			return JSON.parse(window.localStorage.getItem('TextArr'));
+		}
+		//页面初始化显示数据
+		addli(getLY());
+		//点击留言
+		btn1.onclick = function(){
+			if(ipt.value.trim()==''){
+				console.log("请输入留言");
+			}else{
+				var date = new Date();
+				var p = date.getHours()>12?"下午":"上午";
+				var Time = date.getFullYear()
+					+ '/' + (date.getMonth()+1) + '/' +date.getDate() + "&nbsp;&nbsp;" + p + date.getHours()
+					+ ':' + date.getMinutes() + ':' +date.getSeconds();
+				liuyan(ipt.value.trim() + '&nbsp;&nbsp;' + Time);
+			}
+			//trim()方法  去除字符串两边的空格
+			//trimLeft()方法    去除字符串左边的空格
+			//trimRight()方法  去除字符串右边的空格
+			ipt.value = '';
+			del();
+		}
+		btn2.onclick = function(){
+			if(confirm('确定清空所有留言吗？')){
+				window.localStorage.removeItem('TextArr');
+				ol.innerHTML = "";
+				TextArr = [];
+			}
+		}
+		//删除某条留言
+		function del(){
+			var div = ol.querySelectorAll("li div");
+			for(let i = 0;i<div.length;i++){
+				div[i].onclick = function(){
+					if(confirm('确定删除本条留言吗？')){
+						var aa = getLY();
+						TextArr = getLY().slice(0,i).concat(aa.slice(i+1));
+						window.localStorage.setItem('TextArr',JSON.stringify(TextArr));
+						addli(getLY());
+						del();
+					}
+				}
+			}
+		}
+		del();
+		
+	</script>
+</html>

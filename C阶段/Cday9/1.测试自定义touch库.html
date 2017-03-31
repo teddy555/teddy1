@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/touch.js"></script>
+		<script type="text/javascript" src="js/flexible.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100%;
+				height: 190px;
+				overflow: hidden;
+				position: relative;
+			}
+			.box>div{
+				width: 250%;
+				height: 100%;
+				position: absolute;
+				/*left: -50%;*/
+			}
+			.box>div>div{
+				width: 20%;
+				height: 100%;
+				float: left;
+			}
+			.box img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div>
+		        <div><img src="img/banner0.jpg"/></div>
+		        <div><img src="img/banner1.jpg"/></div>
+		        <div><img src="img/banner2.jpg"/></div>
+		        <div><img src="img/banner3.jpg"/></div>
+		        <div><img src="img/banner4.jpg"/></div>
+		    </div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		$(".box").tap(function(){
+//			console.log("tap");
+//		});
+		$(".box").longTap(function(){
+			console.log("longTap");
+		});
+		$(".box").doubleTap(function(){
+			console.log("doubleTap");
+		});
+		$(".box").swiperLeft(function(){
+			console.log("swiperLeft");
+		});
+		$(".box").swiperRight(function(){
+			console.log("swiperRight");
+		});
+		$(".box").swiperTop(function(){
+			console.log("swiperTop");
+			
+		});
+		$(".box").swiperBottom(function(){
+			console.log("swiperBottom");
+		});
+		$(".box").swiper(function(){
+			console.log("swiper");
+		});
+		
+	</script>
+</html>

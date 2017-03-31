@@ -1,0 +1,12 @@
+				.box2_left{
+					float: left;
+					width: 71%;
+					height: 100%;
+					background: blue;
+				}
+				.box2_right{
+					float: right;
+					width: 28%;
+					height: 100%;
+					background: orange;
+				}

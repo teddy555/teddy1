@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 600px;
+				border: 1px dashed red;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<!--拖拽元素-->
+			<!--draggable 设置元素是否可以拖动，默认true-->
+			<img src="img/drag.jpg" draggable="true" id="Img" />
+			<img src="img/cardKingClub.png\" draggable="true" id="Img2" />
+		</div>
+		<div class="box2">
+			<!--目标元素-->
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var img = document.querySelector("#Img");
+		var img2 = document.querySelector("#Img2");
+		var box = document.querySelector(".box");
+		var box2 = document.querySelector(".box2");
+		//拖拽元素相关的事件
+		img.ondragstart = function(e){
+//			console.log("开始拖拽触发");
+			//这里设置一下抓的是谁，将来drop的时候方便找到
+			e.dataTransfer.setData("dragid",e.target.id);
+		}
+		
+		img2.ondragstart = function(e){
+			e.dataTransfer.setData("dragid",e.target.id);
+		}
+		
+		img.ondrag = function(){
+//			console.log("拖拽过程中持续触发");
+		}
+		img.ondragend = function(){
+//			console.log("拖拽结束触发");
+		}
+		
+		//目标元素相关的事件
+		box2.ondragenter = function(){
+//			console.log("拖拽元素位于目标元素上方触发");
+		}
+		box2.ondragover = function(e){
+			//在这个事件中必须要清除默认行为才能触发ondrop方法
+			e.preventDefault()
+//			console.log("拖拽元素位于目标元素上方持续触发");
+		}
+		box2.ondragleave = function(){
+//			console.log("拖拽元素离开目标元素触发");
+		}
+		box2.ondrop = function(e){
+//			console.log("当拖拽元素位于目标元素上方并且松开鼠标时触发");
+			//在这里获取当时存起来的拖拽元素
+			var dragid = e.dataTransfer.getData("dragid");
+			var dragName = document.querySelector("#"+ dragid)
+			this.appendChild(dragName);
+			
+		}
+		box.ondragover = function(e){
+			e.preventDefault();
+		}
+		box.ondrop = function(e){
+			var dragid = e.dataTransfer.getData("dragid");
+			var dragName = document.querySelector("#"+ dragid)
+			this.appendChild(dragName);
+			
+		}
+	</script>
+</html>

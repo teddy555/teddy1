@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.pa{
+			padding: 200px;
+			text-align: center;
+		}
+		button{
+			width: 100px;
+			height: 100px;
+			background: transparent;
+			position: relative;
+		}
+		.dong{
+			width: 100px;
+			/*height: 100px;*/
+			position: absolute;
+			background: red;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="zhuti">
+			<audio width="800" height="500"></audio><br>
+		</div>
+		<div class="pa">
+			<button>1
+				<span class="dong"></span>
+			</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button>
+			<button>5</button>
+			<button>6</button>
+			<button>7</button>
+			<button>8</button>
+			<button>9</button>
+		</div>
+		<script type="text/javascript">
+		var audio = document.querySelector("audio");
+		var btn = document.querySelectorAll("button");
+		var dong = document.querySelectorAll(".dong");
+		
+		for(let i = 0;i<btn.length;i++){
+			btn[i].onmouseover = function(){
+				audio.src = 'music/'+(i+1)+'.ogg';
+				audio.play();
+			}
+		}
+		var i = 1,s;
+		btn[0].onclick = function(){
+				setInterval(function(){
+					s += 5*i;
+					if(s>=100){
+						i = -1;
+					}
+					
+					dong[0].height = s+'px';
+				},20);
+			}
+		window.onkeydown = function(e){
+			console.log(e.keyCode);
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+<!!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			background: #ccc;
+			transform-style: preserve-3d;
+			position: relative;
+			transform-origin: center;
+			/*transform: perspective(300px) rotateX(90deg) rotateY(0);*/
+			animation: xz 2s linear infinite;
+		}
+		@keyframes xz{
+			from{
+				transform: perspective(500px)  rotate3d(1,1,0,90deg);
+			}
+			to{
+				transform: perspective(500px)  rotate3d(1,1,0,450deg);
+				
+			}
+		}
+		.box>div{
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			opacity: .5;
+			font-size: 50px;
+			position: absolute;
+		}
+		.box1{
+			background: red;
+			transform-origin: bottom center;
+			transform: perspective(500px) rotateX(100deg);
+		}
+		.box2{
+			background: green;
+			/*top: 200px;*/
+			left: -200px;
+			transform-origin: right center;
+			transform: perspective(500px) rotateY(-135deg);
+		}
+		.box3{
+			background: blue;
+			transform-origin: left center;
+			transform: perspective(1200px)  rotateY(-45deg);
+		}
+		.box4{
+			background: yellow;
+			left: 200px;
+			transform-origin: left center;
+			transform: perspective(500px) rotateY(135deg);
+		}
+		.box5{
+			background: orange;
+			top: 400px;
+			transform-origin: top center;
+			transform: perspective(500px) rotateX(-90deg);
+		}
+		.box6{
+			background: purple;
+			/*left: 10px;*/
+			transform-origin: right center;
+			transform: perspective(1200px) rotateY(45deg);
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!--<div class="box1">1</div>-->
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+		<div class="box4">4</div>
+		<!--<div class="box5">5</div>-->
+		<div class="box6">6</div>
+	</div>
+</body>
+</html>

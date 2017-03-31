@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * ES6 模板字符串使用`` 代替 普通字符串的'' 和 ""
+		 * 支持特点的表达式 ${}
+		 * 支持多行显示、和格式化输出
+		 */
+		//普通字符串多行显示
+		console.log("aa\nbb")
+		//ES6模板字符串多行显示
+		console.log(`aa
+bb`);
+//		console.log(`aa\nbb`);
+
+		var a = "我是A";
+		var b = 10;
+		var c = 1;
+		var obj = {
+			age:20,
+		}
+		//普通字符串的拼接与计算
+		console.log("我叫"+a+"\n计算结果"+(b+c+obj.age));
+		console.log(`我叫${a}\n运算结果${b+c+obj.age}`);
+	</script>
+</html>

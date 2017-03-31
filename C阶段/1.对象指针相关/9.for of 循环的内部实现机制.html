@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var str = 'abcd';
+		var person = {
+			name:'浅浅',
+			age:18,
+		}
+
+		var arr = ['aa','bb','cc'];
+		var map = new Map([
+			['name','折颜'],
+			['age','18']
+		]);
+		
+//		console.log(person[Symbol.iterator]);
+//		console.log(str[Symbol.iterator]);
+//		console.log(arr[Symbol.iterator]);
+//		console.log(map[Symbol.iterator]);
+//		
+//		console.log(str[Symbol.iterator]());
+		
+		
+		//重写字符串的 Symbol.iterator 方法
+		String.prototype[Symbol.iterator] = function () {
+			var i = 0;
+			var self = this;
+			return {
+				next : function () {
+						return {
+							value : self[i++],
+							done : i-1>=self.length?true:false,
+						}
+				}
+			}
+		}
+
+		var iteratorString3 = str[Symbol.iterator]();
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log("==========================");
+		
+		//重写对象的 Symbol.iterator 方法
+		Object.prototype[Symbol.iterator] = function () {
+			var i = 0;
+			var arr = [];
+			for(var p in this){
+				arr.push(this[p]);
+			}
+			return {
+				next : function () {
+						return {
+							value : arr[i++],
+							done : arr[i-1]!=undefined?false:true,
+						}
+				}
+			}
+		}
+
+		var obj1 = person[Symbol.iterator]();
+		console.log(obj1.next());
+		console.log(obj1.next());
+		console.log(obj1.next());
+		
+		
+		
+		for(var p of person){
+			console.log(p);
+		}
+	</script>
+</html>

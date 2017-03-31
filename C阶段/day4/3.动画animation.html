@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			.container{
+				width: 50%;
+				height: 300px;
+				position: relative;
+				float: left;
+				border: 1px solid black;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background: orange;
+			}
+			#box1{
+				/*设置animation动画*/
+				animation: Move 2s linear infinite alternate;
+			}
+			/*设置关键帧aa*/
+			@keyframes Move{
+				from{
+					transform: translate(0,0);
+				}
+				to{
+					transform: translate(300px,200px);
+				}
+			}
+			
+			#box2{
+				animation: Move2 2s infinite alternate linear;
+			}
+			@keyframes Move2{
+				0%{
+					transform: translate(0,0);
+				}
+				25%{
+					transform: translate(400px,0);
+				}
+				50%{
+					transform: translate(400px,400px);
+					border-radius: 50%;
+					background: red;
+					width: 200px;
+					height: 200px;
+				}
+				75%{
+					transform: translate(0,400px);
+				}
+				100%{
+					transform: translate(0,0);
+				}
+			}
+			
+			#box3{
+				border-radius: 50%;
+				margin: 100px auto;
+				border: 2px solid brown;
+				position: relative;
+				animation: Move3 2s linear infinite;
+			}
+			#box3:before{
+				content: "";
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				left: 50px;
+				top: -7px;
+				border-radius: 50%;
+				background: red;
+				border: 1px solid brown;
+			}
+			
+			@keyframes Move3{
+				from{
+					transform: rotate(0);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="box1" class="box"></div>
+		</div>
+		<div class="container">
+			<div id="box2" class="box"></div>
+		</div>
+		<div class="container">
+			<div id="box3" class="box"></div>
+		</div>
+	</body>
+</html>

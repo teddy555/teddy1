@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			mark{
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>深圳今天要<mark>下雨</mark>了</h1>
+		
+		播放进度：<progress max="100" value="0"></progress>
+		
+		<form action="#" method="post">
+			颜色选择器：<input type="color" value="#ff6666"/><br>
+			数字：<input type="number" min="0" max="10" /><br>
+			搜索框：<input type="search" placeholder="请输入搜索内容" /><br>
+			范围：<input type="range" min="0" max="100" value="0" /><br>
+			年月日：<input type="date" name="data" />
+			年月：<input type="month" />
+			第几周：<input type="week" />
+			时间：<input type="time" /><br>
+			
+			三生三世角色喜爱排行榜：<input type="search" placeholder="输入喜欢的角色" list="dataList" />
+			<datalist id="dataList">
+				<option label="Top1" value="白凤九"></option>
+				<option label="Top2" value="东华帝君"></option>
+				<option label="Top3" value="白浅浅"></option>
+				<option label="Top4" value="夜华"></option>
+				<option label="Top5" value="墨渊"></option>
+			</datalist><br>
+			
+			email:<input type="email" name="e" required="required" placeholder="请输入邮箱" autocomplete="on" autofocus="autofocus" /><br>
+			地址：<input type="url" placeholder="请输入网址" required="required" /><br>
+			<input type="submit" value="提交" /><br>
+			<select multiple="multiple" style="width: 200px;" name="">
+				<option value="">凤九1</option>
+				<option value="">凤九2</option>
+				<option value="">凤九3</option>
+			</select><br>
+			
+		</form>
+		
+		<figure>  <!--独立区域-->
+			<img src="img/52.jpg"/>
+			<figcaption> <!--说明-->
+				<h1>这是一个美女</h1>
+			</figcaption>
+		</figure>
+		
+	</body>
+	<!--
+		1.<mark> 加背景颜色,突出显示的文字，可改
+		2.
+	-->
+	<script type="text/javascript">
+		var progress = document.querySelector("progress");
+		var timerId = setInterval(function(){
+			progress.value++;
+			if(progress.value == progress.max){
+//				alert("结束");
+				clearInterval(timerId);
+			}
+		},100);
+		
+		var color = document.querySelector("input[type=color]");
+		var body = document.querySelector("body");
+		color.onmousemove = function(){
+//			console.log(this.value);
+			body.style.background = this.value;
+		}
+	</script>
+</html>

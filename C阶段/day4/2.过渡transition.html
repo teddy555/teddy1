@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			.container{
+				width: 50%;
+				height: 300px;
+				border: 1px solid black;
+				float: left;
+				position: relative;
+				transform-style: preserve-3d;
+			}
+			.container:nth-child(4){
+				background: lightcoral;
+				opacity: .7;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background: orange;
+			}
+			#box1{
+				/*设置过渡动画*/
+				transition: margin-left 2s;				
+			}
+			#box2{
+				margin: 100px 200px;
+				/*设置过渡动画*/
+				transition: all 2s ease-in-out;				
+			}
+			#box3{
+				/*设置过渡动画*/
+				transition: all 2s;				
+			}
+			#box3:hover{
+				border-radius: 50%;
+				background: orange;
+				transform: translateX(200px);
+			}
+			img{
+				width: 130px;
+				height: 200px;
+				position: absolute;
+				left: 85px;
+				top: 50px;
+				transform: perspective(600px) rotate3d(1,1,0,0);
+				/*设置过渡动画*/
+				transition: all 2s;
+			}
+			img:hover{
+				transform: perspective(600px) rotate3d(1,1,1,360deg);				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="box1" class="box"></div>
+		</div>
+		<div class="container">
+			<div id="box2" class="box"></div>
+		</div>
+		<div class="container">
+			<div id="box3" class="box"></div>
+		</div>
+		<div class="container">
+			<img src="img/cardKingClub.png"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box1 = document.querySelector("#box1");
+		var box2 = document.querySelector("#box2");
+		box1.onclick = function(){
+			this.style.marginLeft = "500px";
+		}
+		box2.onclick = function(){
+			this.style.width = "200px";
+			this.style.height = "200px";
+			this.style.marginLeft = 0;
+			this.style.marginTop = 0;
+			this.style.background = "deepskyblue";
+		}
+		
+	</script>
+</html>

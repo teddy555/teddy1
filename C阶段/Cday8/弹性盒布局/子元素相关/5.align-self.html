@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<style type="text/css">
+			/*
+			 align-self:auto|flex-start|flex-end|center|baseline|stretch
+			 单独对齐方式：自动(默认)|顶端对齐|底端对齐|居中对齐|基线对齐|
+			 * */
+			ul li{
+				height: auto;
+			}
+			ul li:nth-child(1){
+				align-self: auto;
+			}
+			ul li:nth-child(2){
+				align-self: flex-start;
+			}
+			ul li:nth-child(3){
+				align-self: flex-end;
+			}
+			ul li:nth-child(4){
+				align-self: center;
+			}
+			ul li:nth-child(5){
+				align-self: baseline;
+			}
+			ul li:nth-child(6){
+				align-self: baseline;
+			}
+			ul li:nth-child(7){
+				align-self: stretch;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li style="line-height: 80px;">5</li>
+			<li>6</li>
+			<li>7</li>
+		</ul>
+	</body>
+</html>

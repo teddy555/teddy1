@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/jquery.lazyload.min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+				width: 440px;
+				margin: 0 auto;
+			}
+			li{
+				width: 440px;
+				height: 300px;
+			}
+			li img{
+				width: 440px;
+				height: 300px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img data-original="img/0.jpg" alt="" /></li>
+			<li><img data-original="img/1.jpg" alt="" /></li>
+			<li><img data-original="img/2.jpg" alt="" /></li>
+			<li><img data-original="img/3.jpg" alt="" /></li>
+			<li><img data-original="img/4.jpg" alt="" /></li>
+			<li><img data-original="img/5.jpg" alt="" /></li>
+			<li><img data-original="img/6.jpg" alt="" /></li>
+			<li><img data-original="img/7.jpg" alt="" /></li>
+			<li><img data-original="img/8.jpg" alt="" /></li>
+			<li><img data-original="img/9.jpg" alt="" /></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		$("img").lazyload({
+			effect : 'fadeIn'
+		})
+	</script>
+</html>

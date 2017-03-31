@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p:first-line{
+				color: red;
+			}
+			p:first-letter{
+				color: blue;
+				font-size: 30px;
+				font-weight: bold;
+			}
+			h1:before{
+				content: '我在前面';
+				color: pink;
+			}
+			h1:after{
+				content: '我在后面';
+				color: pink;
+			}
+			h1::selection{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			哈哈，上海你好。<br>
+			嘿嘿，北京再见。<br>
+		</p>
+		<h1>我是东华帝君!</h1>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*input[name]{
+				background: yellow;
+			}*/
+			
+			/*input[name][value]{
+				background: pink;
+			}*/
+			input[value='提交']{
+				background: red;
+			}
+			/*name 名为 inner 或以 inner- 开头的*/
+			/*input[name |= 'inner']{
+				background: black;
+			}*/
+			/*name 名为 inner 的*/
+			/*input[name ~= 'inner']{
+				background: black;
+			}*/
+			/*name 名包含ne的*/
+			/*input[name *= 'ne']{
+				background: black;
+			}*/
+			/*name 名以 inner 开头的*/
+			/*input[name ^= 'inner']{
+				background: yellow;
+			}*/
+			/*name 名以 inner 结尾的*/
+			input[name $= 'aa']{
+				background: yellow;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<input type="text" name="inner" /><br>
+		<input type="text" name="inner aa" /><br>
+		<input type="button" name="inner-hehe" value="我是按钮" /><br>
+		<input type="submit" value="提交" /><br>
+		
+	</body>
+</html>

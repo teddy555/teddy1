@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/flexible.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			/*html{*/
+				/*以后不会写死，而且不会写这么大，会分成10份来计算*/
+				/*font-size: 320px;*/
+			/*]*/
+			/*.box{
+				width: 320px;
+				height: 320px;
+				background: pink;
+			}*/
+			
+			/*rem布局：1rem = 根元素的字体大小*/
+			.box{
+				width: 10rem;
+				height: 10rem;
+				background: pink;
+				font-size: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		//自己写一个监听屏幕大小改变的js
+		(function(){
+			window.onresize = function(){
+				size();
+			}
+		})();
+		//计算根元素字体的大小(也就是1 em代表的大小)
+		function size(){
+			var winW = document.documentElement.clientWidth||document.body.clientWidth;			
+			document.documentElement.style.fontSize = winW/10;				
+		}
+	</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<video width="800" height="400" controls="controls">
+			<source src="source/终结者_Larry.MP4" type="video/mp4"></source>
+			<source src="myvideo.ogv" type="video/ogg"></source>
+			<source src="myvideo.webm" type="video/webm"></source>
+			<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+				<param name="movie" value="myvideo.swf" />
+				<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+			</object>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>-->
+		<video width="800" height="500" controls="controls" autoplay="autoplay">
+			<source src="source/终结者_Larry.MP4" type="audio/mp4"></source>
+		</video><br>
+		<input type="button" value="切换视频" />
+		<input type="button" value="测试其他属性" />
+		<script type="text/javascript">
+			var video = document.querySelector("video");
+			var changebtn = document.querySelector("input");
+			var btn = document.querySelectorAll("input")[1];
+			
+			var flag = true;
+			changebtn.onclick = function(){
+				if(flag){
+					video.src = "source/终结者_Larry.MP4";
+				}else{
+					video.src = "source/Nimo.MP4";
+				}
+					flag = !flag;				
+			}
+			
+			//其他操作
+			btn.onclick = function(){
+				//
+				//console.log(video.currentSrc);
+				//返回音频/视频文件的时长
+				//console.log(video.duration);
+				//设置或返回音频/视频文件当前的播放位置
+				//video.currentTime = 30;
+				//声音
+				//video.volume = 0.5;
+				//静音
+				//video.muted = true;
+				//快进
+				//video.playbackRate = 5.0;
+				//是否播放完
+				//console.log(video.ended);
+				//循环播放
+				//video.loop = true;
+				//是否暂停
+				console.log(video.paused);
+				
+			}
+			
+		</script>
+	</body>
+</html>

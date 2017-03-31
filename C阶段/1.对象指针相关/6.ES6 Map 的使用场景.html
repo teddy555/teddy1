@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var map = new Map([
+			['name','白凤九'],
+			['age',7000]
+		]);
+		//添加
+		map.set('sex','女');
+		//修改
+		map.set('sex','九尾狐');
+		//删除
+		map.delete('age');
+		//判断是否有某组键值对
+		console.log(map.has('age'));
+		//获取
+		console.log(map.has('sex'));
+		map.size = 10;//不能修改
+		//获取键值对的个数
+		console.log(map.size)
+		
+		console.log(map);
+		
+		
+		//map 的使用场景
+		var date = new Date();
+		
+		//处理匹配关系的时候，不要写 if else、switch
+		//最好设计一个数据结构来处理这类问题
+		var weekMap = new Map([
+			[0,'星期日'],
+			[1,'星期一'],
+			[2,'星期二'],
+			[3,'星期三'],
+			[4,'星期四'],
+			[5,'星期五'],
+			[6,'星期六']
+		]);
+		console.log(weekMap.get(date.getDay()));
+		//还可以用一个数组来解决
+		var weekarr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+		console.log(weekarr[date.getDay()]);
+	</script>
+</html>

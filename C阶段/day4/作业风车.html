@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 300px;
+				background: pink;
+				margin: 100px auto;
+				position: relative;
+				border-radius: 50%;
+				animation: xz 2s linear infinite paused;
+			}
+			@keyframes xz{
+				from{
+					transform: rotate(0);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+			.box>div{
+				width: 50px;
+				height: 150px;
+				position: absolute;
+				border-radius: 0 100% 0 0;
+			}
+			.box1{
+				background: deepskyblue;
+				left: 150px;
+			}
+			.box2{
+				background: red;
+				transform-origin: left bottom;
+				transform: rotate(90deg);
+				left: 150px;
+			}
+			.box3{
+				background: green;
+				transform-origin: left bottom;
+				transform: rotate(180deg);
+				left: 150px;
+			}
+			.box4{
+				background: orange;
+				transform-origin: left bottom;
+				transform: rotate(270deg);
+				left: 150px;
+			}
+			
+			button{
+				margin: 10px auto;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">1</div>
+			<div class="box2">2</div>
+			<div class="box3">3</div>
+			<div class="box4">4</div>
+		</div>
+		<button>开始</button>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		var btn = document.querySelector("button");
+		btn.onclick = function(){
+			if(this.value=="开始"){
+				this.value = "暂停";
+				box.style.animationPlayState = "running";
+			}else{
+				this.value = "开始";
+				box.style.animationPlayState = "paused";
+			}
+		}
+		
+		
+	</script>
+</html>

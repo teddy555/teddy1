@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//判断浏览器是否支持geolocaction
+		if(navigator.geolocation){
+			var options = {
+				enableHighAccuracy:true,
+				timeout:5,
+				maximumAge:0
+			}
+			
+			navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
+			
+		}
+		//定位成功返回函数
+		function successCallback(position){
+			//position 是返回的定位对象
+			alert('纬度：' + position.coords.latitude + '\n经度' + position.coords.longitude);
+		}
+		
+		//定位失败返回函数
+		function errorCallback(error){
+			var errorType = {
+				1:'位置服务被拒绝',
+				2:'获取不到位置信息',
+				3:'获取信息超时'
+			}
+			//会返回信息的状态码 分别是1,2,3,我们去手动匹配中文信息
+			alert(errorType[error.code]);
+		}
+	</script>
+</html>

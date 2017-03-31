@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Person(){
+			var name = '';
+			var dog = null;
+			var age = 0;
+			
+			//我们可以设计一个私有变量存取器来进行访问
+			Person.prototype.setname = function(name1){
+				if(typeof(name1) == "string"){
+					name = name1;
+					return;
+				}
+				throw  new Error("不是字符串");
+			}
+			Person.prototype.getname = function(){
+				return name;
+			}
+		}
+		var p1 = new Person();
+		p1.setname("小雪");
+		console.log(p1.getname());
+	</script>
+</html>

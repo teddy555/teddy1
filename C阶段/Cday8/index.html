@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/top.css" media="only screen and (min-width: 951px)"/>
+		<link rel="stylesheet" type="text/css" href="css/notop.css" media="only screen and (max-width: 950px)"/>
+		<link rel="stylesheet" type="text/css" href="css/right.css" media="only screen and (min-width: 1301px)"/>
+		<link rel="stylesheet" type="text/css" href="css/no-right.css" media="only screen and (max-width: 1300px)"/>
+		
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			ul{
+				list-style: none;
+			}
+			body{
+				background: #ccc;
+			}
+			a{
+				text-decoration: none;
+				color: #fff;
+			}
+			.box2{
+				height: 700px;
+			}
+			.box1_tu{
+				height: 100%;
+				margin: 0 auto;
+			}
+			
+			.top{
+				width: 100%;
+				position: fixed;
+				background: rgba(0,0,0,.8);
+			}
+			.box2_in{
+				max-width: 1600px;
+				height: 100%;
+				margin: 0 auto;
+			}
+			@media only screen and (max-width: 500px) {
+				.top_ul li a span{
+					display: none;
+				}
+				.top_ul li{
+					width: 25%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="top">
+				<div class="top_in">
+					<h1 class="logo">瓢城旅行社</h1>
+					<ul class="top_ul">
+						<li><a href="">首页</a></li>
+						<li><a href=""><span>旅游</span>咨询</a></li>
+						<li><a href="">机票<span>订购</span></a></li>
+						<li><a href=""><span>风景欣赏</span></a></li>
+						<li><a href="">关于<span>公司</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="box1_tu">
+				<img src="img/top.jpg"/>
+			</div>
+		</div>
+		<div class="box2">
+			<div class="box2_in">
+				<div class="box2_left">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+				<div class="box2_right"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+	</script>
+</html>

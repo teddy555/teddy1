@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			table{
+				width: 1000px;
+				height: 500px;
+				box-shadow: 10px 10px 10px gray;
+			}
+			table td{
+				border: 1px dashed yellow;
+			}
+			canvas{
+				position: fixed;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<canvas id="canvas" width="1000" height="500">
+			
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		//获取画笔
+		var ctx = canvas.getContext("2d");
+		
+		//使用save方法可以把当前的场景保存下来
+		ctx.save();
+		
+		//指定一个裁剪区域
+		ctx.rect(0,0,400,200);
+		/*
+		 * 根据指定的裁剪区域进行裁剪
+		 * 使用ctx的clip方法进行裁剪，原理是：根据指定的裁剪区域进行裁剪后，
+		 * 在canvas上无论画什么图形，只有坐标落在裁剪区域内的部分才会显示出来。
+		 */
+		ctx.clip();
+		//第一个圆弧
+		ctx.beginPath();
+		ctx.arc(200,200,100,0,Math.PI*2,false);
+		ctx.strokeStyle = 'red';
+		ctx.lineWidth = 10;
+		ctx.stroke();
+		ctx.closePath();
+		//因为使用了clip方法，所以在clip方法之后画的图形如果不在裁剪区域
+		//就都不会显示出来，想要显示不在裁剪区域的图形，可以利用restore方法来还原裁剪前通过save保存的场景
+		
+		//第二个圆弧
+		ctx.beginPath();
+		ctx.arc(200,200,90,0,Math.PI*2,false);
+		ctx.strokeStyle = 'orange';
+		ctx.stroke();
+		ctx.closePath();
+		
+		ctx.beginPath();
+		ctx.arc(200,200,80,0,Math.PI*2,false);
+		ctx.strokeStyle = 'yellow';
+		ctx.stroke();
+		ctx.closePath();
+		ctx.beginPath();
+		ctx.arc(200,200,70,0,Math.PI*2,false);
+		ctx.strokeStyle = 'green';
+		ctx.stroke();
+		ctx.closePath();
+		ctx.beginPath();
+		ctx.arc(200,200,60,0,Math.PI*2,false);
+		ctx.strokeStyle = 'lightgreen';
+		ctx.stroke();
+		ctx.closePath();
+		ctx.beginPath();
+		ctx.arc(200,200,50,0,Math.PI*2,false);
+		ctx.strokeStyle = 'blue';
+		ctx.stroke();
+		ctx.closePath();
+		ctx.beginPath();
+		ctx.arc(200,200,40,0,Math.PI*2,false);
+		ctx.strokeStyle = 'purple';
+		ctx.stroke();
+		ctx.closePath();
+		
+	</script>
+</html>

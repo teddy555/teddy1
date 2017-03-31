@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//利用 try..catch 进行异常捕获
+		try{
+			//可能出现异常的代码
+			console.log(age);
+		}catch(e){
+			//e 是异常
+			console.log(e.toString());
+		}
+		console.log("aa");
+		//主动抛出异常
+		throw new Error("stop!");
+		console.log("aa");//不显示
+	</script>
+</html>

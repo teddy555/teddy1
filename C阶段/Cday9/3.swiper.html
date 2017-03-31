@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.swiper-container{
+				width: 100%;
+				height: 190px;
+			}
+			.swiper-slide img{
+				width: 100%;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="lib/swiper-3.3.1.min.css"/>
+		<script type="text/javascript" src="lib/swiper-3.3.1.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide"><img src="img/banner0.jpg"/></div>
+		        <div class="swiper-slide"><img src="img/banner1.jpg"/></div>
+		        <div class="swiper-slide"><img src="img/banner2.jpg"/></div>
+		        <div class="swiper-slide"><img src="img/banner3.jpg"/></div>
+		        <div class="swiper-slide"><img src="img/banner4.jpg"/></div>
+		    </div>
+		    <!--分页器容器-->
+		    <!--<div class="swiper-pagination"></div>-->
+		    <!--滚动条-->
+		    <div class="swiper-scrollbar"></div>
+		    <!--只能拖动这-->
+		    <!--<div class="swipe-handler">你只能拖动这里</div>-->
+		    <!--前进后退按钮-->
+		    <!--<div class="swiper-button-prev swiper-button-black"></div>-->
+    		<!--<div class="swiper-button-next swiper-button-black"></div>-->
+		</div>
+		
+		    
+	</body>
+	<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+	autoplay:2000,
+	effect : 'cube',
+	loop:true,
+  	//手动滑动后还能自动滚轮
+//	autoplayDisableOnInteraction : true,
+  	//分页按钮
+//	pagination : '.swiper-pagination',
+	//按钮类型
+//	paginationType : 'progress',//、custom、fraction
+	//设置能否点击按钮切换图片
+//	paginationClickable :true,
+	//是否隐藏分页器
+//	paginationHide :true,
+	
+	
+	
+  	//滚动条
+	scrollbar:'.swiper-scrollbar',
+  	//是否隐藏滚动条，默认显示
+//	scrollbarHide:false,
+  	//是否允许拖动滚动条 默认false
+//	scrollbarDraggable : true ,
+  	//前进后退按钮
+//	prevButton:'.swiper-button-prev',
+//	nextButton:'.swiper-button-next',
+  	//键盘切换图片
+  	keyboardControl : true,
+  	//鼠标滚轮控制图片切换
+  	mousewheelControl : true,//开启鼠标控制
+  	//纵向切换图片
+	direction:'vertical',
+	mousewheelForceToAxis : true,
+	//当播到边缘图片时，再滚动鼠标就能滚动页面
+	//mousewheelReleaseOnEdges : true,
+	//鼠标反转方向
+	mousewheelInvert : true,
+	//鼠标灵敏度 默认1
+//	mousewheelSensitivity : 2,
+	//只能拖动固定位置切换图片
+//	swipeHandler : '.swipe-handler',
+	//
+	
+  })        
+  </script>
+</html>
