@@ -1,0 +1,32 @@
+git config --global user.name 'sunying'
+git config --global user.email '1046429367@qq.com'
+cd ~/Desktop
+mkdir Git
+cd Git
+git init 创建版本库
+git status 查看暂存区状态
+git add test.html  提交到暂存区
+git log 查看日志
+git commit -m '提交'  提交到版本库
+git diff aa.css  查看修改的内容
+
+git reset --hard HEAD^ 回到上个版本号
+git reset --hard HEAD^^ 回到上上个版本号
+git reset --hard HEAD ~100 回到上100个版本号
+git reset --hard '版本号' 回到指定版本号
+git reflog  查看记录（版本号）
+
+
+git checkout -- 文件名  (没有提交到暂存区的时候)丢弃暂存区的修改
+git reset HEAD 文件名    (提交到暂存区，还没提交到版本库的时候)丢弃修改的文件
+
+git branch  查看当前所在分支
+git branch 分支名   新建分支
+git checkout-b 分支名   新建并切换分支
+git branch -d 分支名   删除分支
+git checkout 分支名  切换分支
+
+git merge 分支名  合并某分支
+
+ssh-keygen -t rsa -C '1046429367@qq.com'  生成密钥
+git remote rm origin
