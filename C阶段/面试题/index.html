@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>	
+	</body>
+	<script type="text/javascript">
+//1.		var a = {n:1};
+//		var b =a;
+//		a.x = a = {n:2};
+		//相当于
+		//a.x = {n:2};
+		//a = {n:2};
+//		console.log(a.x);
+//		console.log(b.x);
+		
+//2.		var a = [0,1,2];
+//		delete a[0];
+//		console.log(a[0]==='undefined')//false
+		
+//3.		function mul(x){
+//			return function(y){
+//				return function(z){
+//					return x*y*z;
+//				}
+//			}
+//		}
+//		console.log(mul(2)(3)(4));
+		
+//		4.清除数组元素
+//		var a = [1,2,3,4];
+//		a.splice(0,a.length);
+//		console.log(a);
+		
+//5.		var x = {foo:1};
+//		var output = (function(){
+//			delete x.foo;
+//			return x.foo;
+//		})();
+//		console.log(output);//undefined
+		
+//6.		var a = 1;
+//		function b(){
+//			console.log(a);
+//			var a = 'haha';
+//		}
+//		b();//undefined
+//		console.log(a)//1
+		
+//		(function(){
+//			var a = b = 'aa';
+//		})();
+//		console.log(a);//报错
+//		console.log(b);//aa
+		
+//7.		function f1(){
+//			var n = 99;
+//			add = function(){
+//				this.n += 1;
+//				console.log(this.n);//NaN
+//			};
+//			function f2(){
+//				console.log(n);
+//			}
+//			return f2;
+//		}
+//		var result = f1();
+//		result();//99
+//		add();//NaN
+//		result();//99
+		
+		var obj = {
+			name:'obj',
+			dose:function(){
+				this.name = 'dose';
+				return function(){
+					return this.name;
+				}
+			}
+		}
+		console.log(obj.dose().call(this));//this指向window
+		
+//9.		alert(1&&2);//2
+//		alert(1||2);//1
+		
+//		window.val = 1;
+//		var json = {
+//			val:10,
+//			dbl:function(){
+//				this.val += 2;
+//				console.log(this.val);
+//			}
+//		};
+//		json.dbl();
+//		var dbl = json.dbl;
+//		dbl();
+//		json.dbl.call(window);
+//		alert(window.val+json.val);		
+	</script>
+</html>
