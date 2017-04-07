@@ -71,16 +71,16 @@
 //		add();//NaN
 //		result();//99
 		
-		var obj = {
-			name:'obj',
-			dose:function(){
-				this.name = 'dose';
-				return function(){
-					return this.name;
-				}
-			}
-		}
-		console.log(obj.dose().call(this));//this指向window
+//8.	var obj = {
+//			name:'obj',
+//			dose:function(){
+//				this.name = 'dose';
+//				return function(){
+//					return this.name;
+//				}
+//			}
+//		}
+//		console.log(obj.dose().call(this));//this指向window
 		
 //9.		alert(1&&2);//2
 //		alert(1||2);//1
@@ -98,5 +98,7 @@
 //		dbl();
 //		json.dbl.call(window);
 //		alert(window.val+json.val);		
+
+		
 	</script>
 </html>

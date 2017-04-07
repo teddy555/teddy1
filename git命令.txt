@@ -29,4 +29,7 @@ git checkout 分支名  切换分支
 git merge 分支名  合并某分支
 
 ssh-keygen -t rsa -C '1046429367@qq.com'  生成密钥
-git remote rm origin
+
+git remote rm origin  取消关联远程仓库
+
+git pull 把远程仓库更新的内容更新到本地仓库

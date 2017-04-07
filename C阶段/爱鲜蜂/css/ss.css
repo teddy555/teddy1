@@ -1,0 +1,70 @@
+.scroll_ul{
+				width: 30%;
+				height: 455px;
+				overflow: auto;
+				float: left;
+			}
+			.ss_li{
+				width: 100%;
+				background: #f8f8f8;
+				color: #6d6d6d;
+				line-height: 1.5rem;
+				text-align: center;
+				border-bottom: 1px solid #e0e0e0;
+			}
+			.scroll_div{
+				float: left;
+				width: 70%;
+				background: #fff;
+				position: relative;
+			}
+			.scroll_more{
+				width: 100%;
+				height: 400px;
+				overflow: auto;
+				padding: 1.5rem 0 1.875rem 0;
+			}
+			.scroll_more,.scroll_top{
+				width: 98%;
+				margin-left: 4px;
+			}
+			.scroll_top{
+				position: absolute;
+				background: rgba(255,255,255,.95);
+			}
+			.scroll_more_li{
+				border-bottom: 1px solid #E0E0E0;
+			}
+			.image{
+				width: 50%;
+				float: left;
+			}
+			.image_right{
+				width: 50%;
+				float: left;
+				line-height: 39px;
+				font-size: 14px;
+			}
+			.top_ul{
+				border-bottom: 1px solid #e0e0e0;
+			}
+			.top_li{
+				float: left;
+				width: 50%;
+				text-align: center;
+				line-height: 1.5rem;
+				position: relative;
+			}
+			.top_li:after{
+				display: inline-block;
+			    content: '▼';
+			}
+			.top_li:nth-child(2):before{
+				display: block;
+			    content: '';
+			    width: 1px;
+			    height: 46%;
+			    position: absolute;
+			    background-color: #ddd;
+			    top: 27%;
+			}

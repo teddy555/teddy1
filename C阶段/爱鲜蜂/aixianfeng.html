@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="lib/flexible.js"></script>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/swiper-3.3.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="lib/swiper-3.3.1.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
+		<link rel="stylesheet" type="text/css" href="css/me.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ss.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				font: 0.5rem/1.5 '微软雅黑',Helvetica,Tahoma,Arial,'华文细黑',sans-serif;
+    			color: #333;
+    			background-color: #EFEFEF;
+			}
+			ul{
+				list-style: none;
+			}
+			.cf:before{
+				    display: block;
+    				content: "";
+			}
+			.cf:after{
+					display: block;
+    				content: "";
+    				clear: both;
+			}
+			.me,.ss,.cat{
+				display: none;
+			}
+			.home,.cat,.me{
+				margin-bottom: 1.875rem;
+			}
+			.top{
+				width: 100%;
+				height: 1.6875rem;
+				background: #FFD600;
+				position: relative;
+			}
+			
+			/*切换菜单*/
+			.bottom_ul{
+				    position: fixed;
+				    z-index: 150;
+				    left: 0;
+				    right: 0;
+				    bottom: 0;
+				    height: 1.875rem;
+				    background-color: rgba(246,246,246,.95);
+			}
+			.b_li{
+				float: left;
+				width: 25%;
+				text-align: center;
+				padding-top: 1.125rem;
+				color: #777;
+			}
+			.b_li:nth-child(1){
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAHaUExURUxpcZqampmZmZmZmZmZmZmZmZqampubm5iYmJmZmZiYmJmZmZiYmJiYmP///5mZmZiYmJiYmJmZmZiYmJmZmaqqqpmZmZqampmZmZmZmZmZmZmZmZiYmJmZmZiYmJmZmZubm5mZmZmZmZGRkZmZmZiYmJ2dnZmZmZeXl5iYmJmZmZiYmJmZmZqampqampmZmZmZmZeXl5iYmH9/f5iYmKqqqpiYmJmZmZmZmZeXl5iYmJaWlpmZmZmZmZubm5iYmJqampiYmJqampmZmZmZmZiYmJmZmZmZmZmZmZmZmZ+fn5iYmJaWlpSUlJmZmZiYmJmZmZmZmZOTk5iYmJmZmZqampiYmJmZmZqampmZmZmZmZmZmZmZmZmZmZiYmJmZmZaWlpmZmZiYmJmZmZmZmZGRkZiYmJmZmZiYmJeXl5mZmZmZmZmZmZiYmJmZmZmZmZmZmZiYmJmZmZeXl5mZmZmZmX9/f5iYmJiYmJiYmJmZmZmZmZeXl5mZmZeXl5mZmZycnJiYmJiYmJmZmZiYmJmZmZmZmZmZmZiYmJaWlpiYmJmZmZeXl5mZmZqamqKiopmZmZmZmZeXl5mZmZiYmJmZmZmZmZmZmZiYmJiYmJubm5qampmZmZmZmWpIzlUAAACddFJOUwBCePuAGUwSwutSe2FrAWz+6i387gYFW/Fz+PbtjfLiF3lfDv00Fc4b2cNoWCswiE4v9ATWA3xB0junMZacM01lnUeCvOjfuh6MCNQnDFWkRDoT0Tc9gZch80mPdpSJ3BZq+fXkB58KbV76m2J/ilN0XGlUmX0CuHqpS75KoyBGDe9DpbYUD9jAEbHdKqg4C+bsQJFyZG6H4OUkVmc5rzDsAAACNklEQVRIx+2UV1saURCGMQoKEpYm2FHABmoSe4saW2JN77333qvpvff2/tcsS9ldXTjr83iZ72rm2/PuYYeZsViWSyXxm3dvRZaEVCHrdskSiOvg98Ba84wUpdxRF4ILZomwG1+ZxZJXCcXmiNVtUJAIzkE0boaYr4aqZLhPvu6ymKgbh4HOVDIKbTYR4X0jFyqQzlxysR89zk1s6IAnATW/MQAf+3MRNTF4/UHXBuug6W124vl6aLDqvcA76GnM2lh9MLFmoftKfs/LZ8ZEu/wbxt8bfN8LePrQEJmEyhHDuk/A/U6DB+eh9J7x/b1yi15rX2Sf8lFxNdtXjvhh1ULz9BmONmev5VD1oha1VeOWcv1jFyvIP6w1uo0u1itYwZGgmvYfg76TFlemtYyYMrk8e9LJzEHyzx6XD6pHXQbggXIqtyfDXT1QfuKQqMdr9u+GULI5diS2Ca0ipFU5tlGJN29NxF7hJCVOdaQGbot3J7SIkBbY663PpMWwTYT0QpkmLYBNwsUDK/RIngixLS8yOFzbVayoq3Z40AwS9KORP2gCacDty0/J56ZBjEQ8NElhp6Kw1IQnIkQa7Yxldl9gDHujELHaKSpM+4VF2K3/kWVDukXIHajVI59FyBBc0iBXYDQVznr0iGc2FX8B7QZ+8InojzlHQs5SPVLqVOy5STehGu38fNU2fExFYlrfqZ+577/UR9OZPVI/rbo/vy2c05nmuLRSkeSYSptTjrT398/vtPkPJn3miWiGfWIAAAAASUVORK5CYII=) no-repeat;
+				background-size: auto 0.75rem;
+				background-position: center 0.21875rem;
+			}
+			.b_li:nth-child(2){
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAMAUExURUxpcZiYmLOzs5iYmJmZmX9/f5mZmaqqqpubm+zs7P///5iYmOfn55qampiYmJiYmJaWlpmZmf///5qampubm6KiopmZmZiYmIuLi////5qamuLi4uXl5ZiYmJmZmZiYmLCwsJmZmZmZmZmZmdHR0ZiYmJiYmJiYmJiYmMvLy5mZmZeXl5mZmd/f35iYmJmZmaioqMrKyqGhoc7Ozuvr65iYmJmZmeXl5cXFxZiYmKOjo6ampszMzJaWlpiYmJmZmZeXl56enpiYmJmZmeDg4JmZmdjY2M/Pz+Tk5JmZmZmZmZmZmZmZmaamppqampmZmZiYmJmZmebm5piYmJiYmK2trZmZmdjY2KWlpbi4uJiYmKysrJiYmJmZmf///5eXl5iYmNzc3Ofn55mZmZmZmaOjo5mZmbS0tKqqqpmZmefn55iYmK6urpiYmJmZmaysrKysrJiYmNXV1ZmZmZiYmKmpqa+vr+Xl5aWlpZmZmb29vcXFxcjIyMTExJmZmd7e3p2dnczMzLW1tZiYmNvb25mZmcnJyezs7JmZmZ2dnbi4uK6urrKysrCwsJqamru7u5qamqWlpaGhoZmZmeDg4NnZ2Z6enpmZmZeXl8rKyt/f35mZmbe3t56entbW1ru7u6mpqZmZmc3NzcbGxpmZmbW1tc/Pz5mZmZiYmNDQ0O7u7tjY2MfHx6ioqKioqP///+np6bi4uNvb25iYmJmZmZmZmZubm5mZmdvb25iYmMDAwKqqqpmZmfDw8JaWlp2dnf///6qqqsfHx5mZmZmZmb+/v5iYmMfHx5ycnLCwsJqamsbGxqSkpLCwsJubm8XFxZmZmdTU1MnJyZSUlNPT05mZmdLS0ri4uJqamuPj45iYmL29vf///52dnb29vdXV1aurq87OzpmZmZeXl7KysrGxscDAwJmZmczMzKWlpdHR0ZWVldra2uDg4Kampqqqqra2tqioqJmZmaysrJiYmJiYmJmZmZiYmJmZmZaWlpiYmJWVlZeXl5SUlJOTk5qampFuTn0AAAD4dFJOUwDqwfTxAowGJBYBaCv98j8SoQIo9uvL/AMEMxEKndO4x4IH63W2lOO8bwU2Okrgett+6nkTU4cOl+3t4AX+74Ul8ibkRuxfaCFPFPO04TCP92oV29TS3SfXtcfPF5IDIGIWENfotd+92sUL1tCyq9PVkCHOo97MPdt4q2p1bTcv+wrFml0jORyI84W6s7Zlrxzh5h5DIvGKRTVA+6T3P4HLpneNccEQGdFXHk933dUOL65W/r9s+1hXqZ/X7hEx+AzWTkmUlPmGDaxMkOPELoDJGFoMTMhmsf0ldWEH/Z9i015BO8nMNZco7ie1HBnkuLvj4diuzLzC7dKUWgAAAxdJREFUSMe1lmVUVEEUgBdY2F2UbiQVEEVBRMECBQEFEUVRQAUMkFBABbG7W+zu7u7u7jh2d/edeKurYuy+mYUfev/s22/Od+6ZmXvuXInkn4R96855edkfs5w/f8n4lNuhXfv3KTpSPT2nJ/c5QrKjFChSBfkewo9QKslXKuAG1/VZRqQ1IPTs9buuXdM/dMrpmJ/v4qKrm/b2zYvUh7cobGUpPoDu3nv89HmXLi9ftSnVNtPBLqlw5eYNK7qJYUysjhpe420yQSllUH8Q/HiGua7QXEzlZWlBFZ5yYC82E9PamLjxjPo1UeODIjqkDOqu4Bj7dAU4JMYGQHrzkuwQwLqViNapiyqV4hirKDS1YCVB5TjGSkuq4yXGIdVJOue41lkhaM3gjbhJFB0F8GDUl0UKbye1jiPIKs1YSMSoHjvJUQLnTBl8zy6yczfTCLehde0ZXN8ROElCLRE4n2EsREvR/gCm4huMCIRlVxDfCQ68wt6JYf2zzRCCoBMa3PYyyWnL7QbnL5ymOEWuDi/qKa9qayFJJymM1cjSgdxtos1RGOFB4qtPu9SGr2zD0EOzipsCwc0Oz5EZMo2KlSmIzizauTEmZEt8N4YQMLI/AlcxtzXxjwWhYJh4ZehASsGDVWQSmTXQDSI6wG+EAN4l2FvcvFG53lwT9huFMETJ2YaFMapcUoPZ9amBcJkS5dmGbD6QBRosbhxF4G7PO/mqQFwc1Ntj+AQBgnxkPGN8O2o5SY2smIUpZPTlX+9wEKqpgeWrCTaeaso3TIxpwd+NUlENE3CapqXqZJ44cPDfBbJGwDYGptoKdREIo+1+/1uy0IjAsgitL2pIexz850pmzEN4ptlS7Y/wdhB8f307zJ2NcNmqRTzbEUdIy7WF39MXq47WTF6EcSwWjEILG6PbFAF7xxQ5G8TYkNs/v0qOQRTc5UUakihqFfej/fSyQjiMV4NqoaNM+P4zuScg8DQp1tDSnLRUSDLvnFKNHK76xZtzHAHHpz5SHVQLr+KORsktAKmmGmntyOKPU6065+o5JT6Q/K/4BiDrTGKuWJBkAAAAAElFTkSuQmCC) no-repeat;
+				background-size: auto 0.75rem;
+				background-position: center 0.21875rem;
+			}
+			.b_li:nth-child(3){
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAGnUExURUxpcX9/f5iYmJmZmZqampiYmJeXl5qampiYmJmZmZmZmZiYmKqqqpmZmZmZmZmZmZ+fn5mZmZmZmaqqqpmZmZmZmZmZmZmZmf///5mZmZeXl5mZmZiYmJmZmZmZmY2NjZqampeXl5GRkZiYmJmZmZiYmJmZmZmZmX9/f5iYmJiYmJqampiYmJmZmZiYmJmZmZiYmJmZmZiYmJiYmJmZmZiYmJubm5iYmJeXl5iYmJiYmJmZmZiYmJmZmZmZmZmZmZmZmZmZmZmZmZiYmJmZmZiYmJqampmZmZiYmJmZmZiYmJubm5mZmZmZmZmZmZmZmZmZmZiYmJmZmZSUlJmZmZiYmJmZmZaWlpmZmaKiopiYmJmZmZiYmJOTk5mZmZiYmJmZmZmZmZiYmJqampmZmZiYmJqampmZmZmZmZmZmZmZmZiYmJmZmZaWlpmZmZmZmZiYmJqampmZmZmZmZGRkZiYmJmZmZmZmZmZmZmZmZqampiYmJubm5mZmZiYmJaWlpiYmJmZmZiYmJiYmJaWlpmZmZmZmZiYmJWVlZiYmJiYmJiYmJmZmdtXqzcAAACMdFJOUwAEwKgwkCBg4NCgmgP68K8QsIcG+JHG6wGAQHZw/R4JUV4Hes33ijcCuHIh1l/009Tk/O3B+SRhG+jMvL26kjUPhcux19s9LX9aPhLcpfayGe9VGHiO6RGDC4bzORPYmHE8XBxG/kzfc04oV4gn1SOLR0ndDm2ZrUHhZTQp5qwsaGnC6iK/nq4dieWnwlaKVAAAAepJREFUSMfFlWdXE0EYhcNSEkpCQnpCEJAi0ntV7AoWbGDvBaUoKMVesID6/GhZwjnbZmfY4wfvt3vnPHPmnfKOz+ddfyD3ezQ75AHJsaP+7N6R6jFtZFiHar2tbqgJ4h4rugOFHpGCHB2lajVURQ2ml72p3EAS8DagVD8xAymHEvX6u7hlmGfwRkmsPEEz3HN4p0QeQ5Ph5mBJiVyHy4aL9lCpRDS4YrKv6VQR9THumn0LjQcUyAO4Z/ZxaFUg++Gh2a/CKwXSAo/Mfhmq5URFB7OWoBXW5Mh7KLPOETSfrEgHYdCavGBYjkRgwJpUQlhGpHrptkVV0CxDPjsfrh/aZchX+GKLbsNNGVIIH2zRNeQX8yPJlD2boU1CDMAnR9hHsMAdGRTdju3nn/W7ahSKRKcrVcj5OJ4qEEE7fQl97gvzz98QNNkgG15/pza+eUVUF1OgBUgGukoTmvYjEolslm3rZ3Fev9Lp9NWLTqTO+5btKx7rDHSHQj0uyLT0hwqHt0p0fS/aVSaTaa7w/TcdOXzyxNF6R9w+ElhfdCnhmF7lcXt8X08viT+52vzOjNsmCu2kcbc+ravOmtbk00NCZCI/eMqaRhvt37f5LM/pY4mUs8NB7LS4/pqp4IXzZx0t/0yShsl/OYm/p7baFInuYH0AAAAASUVORK5CYII=) no-repeat;
+				background-size: auto 0.75rem;
+				background-position: center 0.21875rem;
+			}
+			.b_li:nth-child(4){
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAGqUExURUxpcf/WAP/WAP/WAP/VAP/WAP/VAP/VAP/VAP/VAP/VAP/VAP//AP/WAP/VAP/YAP/ZAP/UAP/UAP/VAP/WAP/WAP/XAP/YAP/VAP/XAP/VAP/UAP//AP/YAP/VAP/XAP/WAP/WAP/VAP/WAP/VAP/WAP/WAP/UAP/VAP/XAP/VAP/WAP/VAP//AP/VAP/WAP/WAP/WAP/WAP/VAP/VAP/WAP/WAP/WAP/WAP/VAP/QAP/WAP/VAP/WAP/WAP/WAP/WAP/iAP/WAP/VAP/XAP/VAP/VAP/RAP/WAP/WAP/WAP/SAP+/AP/XAP/WAP/WAP/VAP/WAP/WAP/WAP/VAP/VAP/UAP/XAP/ZAP/WAP/TAP/SAP/UAP/VAP/WAP/PAP/VAP/dAP/VAP/WAP/WAP/WAP/WAP/WAP/WAP/VAP/VAP/UAP/aAP/XAP/VAP/VAP/VAP/VAP/WAP/VAP/TAP/WAP/VAP/WAP/aAP/WAP/VAP/fAP/WAP/VAP/UAP/VAP/UAP/VAP/VAP/XAP/VAP/VAP/XAP/WAP/VAP/WAP/UAP/WAP/WAP/WAF/76hMAAACNdFJOUwD66fn8+/H+0/345gHQ8CgibRL39V4gFPYa2QwDO7lTwdtviuqYZVutJ3zzYgJ7pFHUS1Urf0znzzELJp+8ONqjCdyBQdJuHFiqchcENOFZHz/t6NHkGEcbcSMRVHZSEIYPj+Iytl+cwqzAYQc639iUxODrKSzlqBVrvwj0sjDdHlw+c/KATaKztUivqbnkj1EAAAInSURBVEjHrZaJU9NAGMVJm2S7LaWUtlKQo5wCbTkUxRsV7/sAb0HxFkG8bwUvBHz/s0lK2k2Tb5NxfNOZznT21/n69n0vran5P2r6Nbjye3Xo5/CmgEBisRkbWnh4LwDwcaAOgqJdM37Euz6AcxvQGJDzma7hA5DVmY3wlALEr8qI4lsgnWfCYKoG7DsoQXqBT3m4NEgTjS+gZt0ExvaQSBJg8NJ2iqh9BELx3QRSHwP3RliCQK5EibmAbQSyBSRylEAyNHKSQNoZifQSyH4rkMwLO0wgm8etXHm4pl+mLmavt8MMj1sopLV0pIrQwG6SgWnpKx1SBYpnOZ48pXM5GnJNFVaRmpctzDmtilA5WFK+lklFJDRzxIFan+Vvv1t2gHHjPTTnXzH1s6HydEzvCVRlidvd5Uq6/6Df9/ydTJvTtYu5zlMy4EZnh8f1xyaaSGJ60rw71Z3LQwVv1xp6QOvEMQ+i/7krXmKmj5xxEa+NutecuVfTlTAzxC5UEa+ajZvj1WkRFwCXWp09GYcaprbFXomO8yIyBLwMw09tpx11pKdlh820Ga9rlWfjM4RT0u83nxnGiFPXbeQWqGZ1cgxddrOcRSAZDnY3lpDjCCjD9Pcl5EBQxHDgc9HK1s6KMQpnTAp9XTKRXXUQgyGX9s1EtgaeyyzfZRPZITaK/Of/0JCx+uFN+TPFB4lC/2I5VlCCj/Z94y7X/kRGIv4aiawP/9u/tb8/8qBh4HD4/wAAAABJRU5ErkJggg==) no-repeat;
+				background-size: auto 0.75rem;
+				background-position: center 0.21875rem;
+			}
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<!--首页-->
+			<div class="home tab">
+				<div class="top">
+					<div class="top_add">
+						<span class="addname">新安三路 瓦窑花园</span>
+						<span class="icon search">搜索</span>
+					</div>					
+				</div>
+				<div class="body">
+					<div class="swiper-container">
+					    <div class="swiper-wrapper">
+					        <div class="swiper-slide"><img src="img/t1.jpg"/></div>
+					        <div class="swiper-slide"><img src="img/t2.jpg"/></div>
+						    <div class="swiper-slide"><img src="img/t3.jpg"/></div>
+						    <div class="swiper-slide"><img src="img/t4.jpg"/></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<ul class="action_ul cf">
+						<li class="action_li">
+							<div class="action_div" style="background: url(img/2t1.png) no-repeat;background-size: 100%;""></div>
+							<p>鲜货直供</p>
+						</li>
+						<li class="action_li">
+							<div class="action_div" style="background: url(img/2t2.png) no-repeat;background-size: 100%;""></div>
+							<p>零食</p>
+						</li>
+						<li class="action_li">
+							<div class="action_div" style="background: url(img/2t3.png) no-repeat;background-size: 100%;""></div>
+							<p>闪送超市</p>
+						</li>
+					</ul>
+					<ul class="liebiao_ul cf">
+						<li class="lb_li">
+							<div class="title_div cf">
+								<span class="title_span" style="color:#60659F;border-color:#60659F">牛奶面包</span>
+								<span class="span_more">更多
+								<span>></span></span>
+							</div>
+							<div class="IMG" style="background: url(img/u1.jpg) no-repeat;background-size: 100%;""></div>
+							<ul class="in_ul cf">
+								<li class="in_li">
+									<div><img src="img/in1.png" width="100%"/></div>
+									<div class="tit">伊利纯牛奶</div>
+									<div class="num">125ml</div>
+									<div class='money'>￥<sapn>3</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in2.png" width="100%"/></div>
+									<div class="tit">蒙牛优益C原味</div>
+									<div class="num">340ml</div>
+									<div class='money'>￥<sapn>6</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in3.png" width="100%"/></div>
+									<div class="tit">蒙牛优益C活菌型原味</div>
+									<div class="num">340ml</div>
+									<div class='money'>￥<sapn>6</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								
+							</ul>
+						</li>
+						<li class="lb_li">
+							<div class="title_div cf">
+								<span class="title_span">饮料酒水</span>
+								<span class="span_more">更多
+								<span>></span></span>
+							</div>
+							<div class="IMG" style="background: url(img/u2.jpg) no-repeat;background-size: 100%;""></div>
+							<ul class="in_ul cf">
+								<li class="in_li">
+									<div><img src="img/in4.png" width="100%"/></div>
+									<div class="tit">脉动青柠口味维生素饮料</div>
+									<div class="num">600ml</div>
+									<div class='money'>￥<sapn>4</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in5.png" width="100%"/></div>
+									<div class="tit">康师傅冰红茶</div>
+									<div class="num">550ml</div>
+									<div class='money'>￥<sapn>3</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in6.png" width="100%"/></div>
+									<div class="tit">青岛11度听装</div>
+									<div class="num">330ml</div>
+									<div class='money'>￥<sapn>3.5</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+							</ul>
+						</li>
+						<li class="lb_li">
+							<div class="title_div cf">
+								<span class="title_span" style="color:#9E00A6;border-color:#9E00A6">零食大趴</span>
+								<span class="span_more">更多
+								<span>></span></span>
+							</div>
+							<div class="IMG" style="background: url(img/u3.jpg) no-repeat;background-size: 100%;""></div>
+							<ul class="in_ul cf">
+								<li class="in_li">
+									<div><img src="img/in7.png" width="100%"/></div>
+									<div class="tit">达利园法式香奶味软面包</div>
+									<div class="num">200g</div>
+									<div class='money'>￥<sapn>7</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in8.png" width="100%"/></div>
+									<div class="tit">鲜满多野山椒凤爪</div>
+									<div class="num">42g</div>
+									<div class='money'>￥<sapn>1.5</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in9.png" width="100%"/></div>
+									<div class="tit">长宁泡椒笋尖</div>
+									<div class="num">100g</div>
+									<div class='money'>￥<sapn>3.5</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+							</ul>
+						</li>
+						<li class="lb_li">
+							<div class="title_div cf">
+								<span class="title_span">方便素食</span>
+								<span class="span_more">更多
+								<span>></span></span>
+							</div>
+							<div class="IMG" style="background: url(img/u4.jpg) no-repeat;background-size: 100%;"></div>
+							<ul class="in_ul cf">
+								<li class="in_li">
+									<div><img src="img/in10.png" width="100%"/></div>
+									<div class="tit">银鹭桂圆八宝粥</div>
+									<div class="num">360g</div>
+									<div class='money'>￥<sapn>3.5</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in11.png" width="100%"/></div>
+									<div class="tit">蓬盛香港橄榄菜</div>
+									<div class="num">180g</div>
+									<div class='money'>￥<sapn>7</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in12.png" width="100%"/></div>
+									<div class="tit">老干妈香辣菜</div>
+									<div class="num">60g</div>
+									<div class='money'>￥<sapn>2</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+							</ul>
+						</li>
+						<li class="lb_li">
+							<div class="title_div cf">
+								<span class="title_span">生活应急站</span>
+								<span class="span_more">更多
+								<span>></span></span>
+							</div>
+							<div class="IMG" style="background: url(img/u5.jpg) no-repeat;background-size: 100%;""></div>
+							<ul class="in_ul cf">
+								<li class="in_li">
+									<div><img src="img/in13.png" width="100%"/></div>
+									<div class="tit">佳洁士盐白牙膏</div>
+									<div class="num">90g</div>
+									<div class='money'>￥<sapn>6</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in14.png" width="100%"/></div>
+									<div class="tit">杜蕾斯love大胆爱吧</div>
+									<div class="num">1盒</div>
+									<div class='money'>￥<sapn>25.9</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+								<li class="in_li">
+									<div><img src="img/in15.png" width="100%"/></div>
+									<div class="tit">杜蕾斯活力装避孕套3只</div>
+									<div class="num">1盒</div>
+									<div class='money'>￥<sapn>12.9</sapn></div>
+									<div class="more_jia">+</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<!--闪送超市-->
+			<div class="ss tab">
+				<div class="top">
+					<div class="top_add">
+						<span class="addname">新安三路 瓦窑花园</span>
+						<span class="icon search">搜索</span>
+					</div>					
+				</div>
+				<div class="body">
+					<div class="scroll_ul">
+						<ul class="ss_ul">
+							<li class="ss_li">热销榜</li>
+							<li class="ss_li">新鲜水果</li>
+							<li class="ss_li">牛奶面包</li>
+							<li class="ss_li">休闲零食</li>
+							<li class="ss_li">冰淇淋</li>
+							<li class="ss_li">饮料酒水</li>
+							<li class="ss_li">方便速食</li>
+							<li class="ss_li">粮油调味</li>
+							<li class="ss_li">生活用品</li>
+							<li class="ss_li">代购香烟</li>
+						</ul>
+					</div>
+					
+					<div class="scroll_div">
+						<div class="scroll_top">
+							<ul class="top_ul cf">
+								<li class="top_li">全部分类</li>
+								<li class="top_li">综合排序</li>
+							</ul>
+						</div>
+						<ul class="scroll_more">
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss1.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">青岛啤酒</div>
+									<div class="num">550g</div>
+									<div class='money'>￥<sapn>5.5</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss2.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">雪花啤酒勇闯天涯</div>
+									<div class="num">500g</div>
+									<div class='money'>￥<sapn>4.5</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss3.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">雀巢雪糍香草味</div>
+									<div class="num">1个</div>
+									<div class='money'>￥<sapn>4</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss4.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">银鹭桂圆八宝粥</div>
+									<div class="num">360g</div>
+									<div class='money'>￥<sapn>3.5</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss5.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">蒙牛优益C原味</div>
+									<div class="num">340g</div>
+									<div class='money'>￥<sapn>6</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss6.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">蒙牛老冰棍棒冰</div>
+									<div class="num">1支</div>
+									<div class='money'>￥<sapn>1.5</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							<li class="scroll_more_li cf">
+								<div class="image"><img src="img/ss7.jpg" width="100%"/></div>
+								<div class="image_right">
+									<div class="tit">蒙牛布丁雪糕</div>
+									<div class="num">1支</div>
+									<div class='money'>￥<sapn>1.5</sapn></div>
+									<div class="more_jia">+</div>
+								</div>								
+							</li>
+							
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!--购物车-->
+			<div class="cat tab">
+				<div class="top">
+					<div>购物车</div>
+				</div>
+				<div class="body">
+					<div class="cat_sh">
+						<table class="cat_shb" border="0" cellspacing="0" cellpadding="1">
+							<tbody>
+								<tr>
+									<th width="28%">收<span class="hidden">a</span>货<span class="hidden">a</span>人</th>
+									<td>孙影 &nbsp; 女士</td>
+									<td width="17%" rowspan="3">修改></td>
+								</tr>
+								<tr>
+									<th>电<span class="hidden">中中</span>话</th>
+									<td>17620461800</td>
+								</tr>
+								<tr>
+									<th>收货地址</th>
+									<td>深圳市新安三路 瓦窑花园</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="cat_bottom">
+						<div class="cat_xia">
+							<div class="xia_div">闪送超市</div>
+							<span class="xia_span">凑单专区</span>
+							<p class="xia_p">¥0起送，22:00前满¥30免运费，22:00后满¥50免运费</p>
+							<p class="p_time top_border cf">
+								<span class="p_time_span">收货时间 &nbsp;&nbsp;</span>
+								<span class="p_time_span">一小时送达</span>
+								<span class="p_time_span">可预定></span>
+							</p>
+							<div class="bz_div">
+								收货备注
+								<input placeholder="可输入100字以内特殊要求内容"/>
+							</div>
+							<div class="sp_div cf">
+								<div class="sp_l">
+									<div><span></span></div>
+									<img src="img/in1.png" width="50%" />
+								</div>
+								<div class="sp_r">
+									<div class="sp_r_name">伊利纯牛奶</div>
+									<div class="sp_r_price"><span>￥3</span>
+										<p class="price_p">
+											<span class="price_jian">-</span>
+											<span class="price_value">1</span>
+											<span class="price_jia">+</span>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="Ready">
+								<span class="all">全选</span>
+								共:
+								<span class="R_zong">￥0元</span>
+								<div class="qs">满￥0元起送</div>
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<!--我的-->
+			<div class="me tab">
+				<div class="top">
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAACFCAMAAABCBMsOAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAJzUExURUxpcf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5mZmf39/a2trevr6/v7+/7+/tPT0/j4+ODg4Kqqqt3d3dTU1KWlpbCwsMLCwvr6+qenp6CgoNbW1pqamtXV1cfHx/Ly8qOjo/n5+Z+fn87Ozp2dnezs7LOzs9/f39HR0bi4uOLi4pubm8/Pz6ampqGhoff397m5udvb2+Xl5ejo6K+vr6SkpLu7u8vLy8TExLGxsdzc3Ofn57W1teHh4enp6dDQ0Kmpqe3t7ebm5vX19aurq/Hx8e7u7ry8vNra2uPj476+vr+/v7a2ts3NzbKysp6ensXFxfT09Le3t9nZ2dLS0vPz88HBwaysrMPDw8nJyb29vcrKytjY2LS0tOrq6q6urrq6uqKioszMzO/v78bGxsjIyMnxnPEAAABzdFJOUwAHBQldAyIBAgQG+hALCHL9uTf+kgw7GwojhhXzulfj6Q7JelUZ60RDIPH5Txyo/B4YX598r7DQpw3d6nuDjUt/rA/yVjrvFMghzYv0KjQ1GoyFbVxs5PCHJM48k5Ep4jiArRHKOc8drp59c16x3oimgkqB67DTAAAJbUlEQVR42s1c50MbxxI/9ZOQwDSJ3jGE3ouNjQvYENxrHCdOf73vCtEMRmABBmNMMRjHxBjcYsdxy8tzSX/J6+VPensI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" alt="" />
+					<div class="user">
+						<p>17620461800</p>
+						<p class="ji_p">V0</p>
+					</div>
+				</div>
+				<div class="sc">
+					<div class="sc_l">商品收藏</div>
+					<div class="split"></div>
+					<div class="sc_r">店铺收藏</div>
+				</div>
+				<div class="body">
+					<div class="me_order">
+						<div class="order_div">
+							<span>查看全部订单></span>
+							我的订单
+						</div>
+					</div>
+					<ul class="order_ul cf">
+						<li>待付款</li>
+						<li>待收货</li>
+						<li>待评价</li>
+						<li>退款/售后</li>
+					</ul>
+					<div class="me_center">
+						<ul class="center_ul cf">
+							<li class="center_li">积分商城</li>
+							<li class="center_li">优惠券</li>
+							<li class="center_li">收货地址</li>
+							<li class="center_li">客服/反馈</li>
+							<li class="center_li">关于我们</li>
+						</ul>
+					</div>
+					<div class="logout">
+						退出当前账号
+					</div>
+				</div>
+			</div>
+			<!--底部菜单栏-->
+			<ul class="bottom_ul">
+				<li class="b_li">首页</li>
+				<li class="b_li">闪送超市</li>
+				<li class="b_li">购物车</li>
+				<li class="b_li">我的</li>
+			</ul>
+		</div>
+	</body>
+	
+	
+	<script type="text/javascript">
+		var mySwiper = new Swiper ('.swiper-container', {
+			autoplay:3000,
+			loop:true,
+			autoplayDisableOnInteraction : false,
+			pagination : '.swiper-pagination',
+		});
+		
+		for(let i = 0;i<4;i++){
+			$(".b_li")[i].onclick = function(){
+				$('.tab').css({
+					display:"none",
+				});
+				$('.tab')[i].style.display = 'block';
+			}
+		}
+	</script>
+</html>
